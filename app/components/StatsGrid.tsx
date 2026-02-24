@@ -25,7 +25,7 @@ function StatCard({ number, label }: { number: string; label: string }) {
 
 function ImageCard({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="rounded-3xl overflow-hidden relative min-h-[200px] md:min-h-[220px] aspect-[4/3]">
+    <div className="rounded-3xl overflow-hidden relative min-h-[200px] md:min-h-[220px] aspect-4/3">
       <Image src={src} alt={alt} fill className="object-cover" />
     </div>
   );
