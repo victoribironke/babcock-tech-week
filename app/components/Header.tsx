@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { IMAGES } from "../lib/constants";
+import Image from "next/image";
 
 const navLinks = [
   { label: "HOME", href: "/", hasDropdown: true },
@@ -50,48 +52,12 @@ export default function Header() {
         }}
       >
         {/* Logo + Date */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            flexShrink: 0,
-          }}
-        >
-          <div
-            style={{
-              border: "1px solid white",
-              padding: "6px 12px",
-              fontSize: "12px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              lineHeight: 1.3,
-            }}
-          >
-            <div>TECH WEEK</div>
-            <div
-              style={{
-                fontSize: "7px",
-                letterSpacing: "4px",
-                textAlign: "center",
-              }}
-            >
-              SINGAPORE
-            </div>
-          </div>
-          <div
-            className="header-date"
-            style={{
-              fontSize: "11px",
-              fontWeight: 700,
-              letterSpacing: "1px",
-              lineHeight: 1.6,
-            }}
-          >
-            <div>29-30 SEPTEMBER 2026</div>
-            <div>MARINA BAY SANDS</div>
-          </div>
-        </div>
+        <Image
+          src={IMAGES.logo.src}
+          alt="Logo"
+          width={IMAGES.logo.width}
+          height={IMAGES.logo.height}
+        />
 
         {/* Hamburger for mobile */}
         <button
