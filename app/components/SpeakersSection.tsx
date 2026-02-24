@@ -28,7 +28,7 @@ export default function SpeakersSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="bg-gradient-to-br from-[#f0f0ff] via-white to-[#f5f5ff] py-16 md:py-24 px-4 md:px-10 text-black">
+    <section className="bg-linear-to-br from-[#f0f0ff] via-white to-[#f5f5ff] py-16 md:py-24 px-4 md:px-10 text-black">
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         {/* Left: Speakers Carousel */}
         <div>
