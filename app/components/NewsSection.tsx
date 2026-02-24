@@ -23,7 +23,7 @@ export default function NewsSection() {
   ];
 
   return (
-    <section className="bg-gradient-to-br from-[#f5f5ff] to-white py-16 md:py-24 px-4 md:px-10 text-black">
+    <section className="bg-linear-to-br from-[#f5f5ff] to-white py-16 md:py-24 px-4 md:px-10 text-black">
       <div className="max-w-[1200px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articles.map((article, idx) => (
@@ -37,7 +37,7 @@ export default function NewsSection() {
                 className="w-full h-48 md:h-[260px] bg-center bg-cover relative"
                 style={{ backgroundImage: `url(${article.image})` }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent" />
               </div>
 
               {/* Article Content */}
