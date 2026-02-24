@@ -9,7 +9,7 @@ const googleSans = Google_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Babcock Tech Week | 29-30 September 2026",
+  title: "Babcock Tech Week | 22-29 March 2026",
   description:
     "Join 28,000+ attendees at Babcock Tech Week 2026 – the leading technology event with 500+ cutting-edge innovations and 550+ speakers.",
 };
