@@ -27,10 +27,12 @@ export default function Footer() {
             Singapore.
           </p>
           <div
+            className="newsletter-form"
             style={{
               display: "flex",
               gap: "12px",
               justifyContent: "center",
+              flexWrap: "wrap",
             }}
           >
             <input
