@@ -11,6 +11,7 @@ export default function AwardBanner() {
       }}
     >
       <div
+        className="award-inner"
         style={{
           maxWidth: "900px",
           width: "100%",
@@ -25,6 +26,7 @@ export default function AwardBanner() {
           gap: "48px",
           position: "relative",
           overflow: "hidden",
+          flexWrap: "wrap",
         }}
       >
         {/* Left laurels */}
