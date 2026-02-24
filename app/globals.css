@@ -150,6 +150,18 @@ html {
     gap: 40px !important;
   }
 
+  .speakers-carousel {
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .speaker-card {
+    min-width: 220px !important;
+    flex: 0 0 80vw !important;
+    scroll-snap-align: start;
+  }
+
   /* Testimonials: stack vertically */
   .testimonials-grid {
     grid-template-columns: 1fr !important;
