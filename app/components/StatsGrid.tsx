@@ -23,6 +23,7 @@ export default function StatsGrid() {
       }}
     >
       <div
+        className="stats-grid"
         style={{
           maxWidth: "1300px",
           margin: "0 auto",
