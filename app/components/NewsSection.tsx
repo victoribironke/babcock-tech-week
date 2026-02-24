@@ -23,106 +23,39 @@ export default function NewsSection() {
   ];
 
   return (
-    <section
-      style={{
-        background: "linear-gradient(135deg, #f5f5ff 0%, #ffffff 100%)",
-        padding: "100px 40px",
-        color: "#000",
-      }}
-    >
-      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-        <div
-          className="news-grid"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: "32px",
-          }}
-        >
+    <section className="bg-gradient-to-br from-[#f5f5ff] to-white py-16 md:py-24 px-4 md:px-10 text-black">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {articles.map((article, idx) => (
             <a
               key={idx}
               href="#"
-              style={{
-                background: "white",
-                borderRadius: "12px",
-                overflow: "hidden",
-                boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                display: "block",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-4px)";
-                e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.12)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.08)";
-              }}
+              className="block bg-white rounded-xl overflow-hidden shadow-md hover:-translate-y-1 hover:shadow-lg transition-all"
             >
               {/* Article Image */}
               <div
-                style={{
-                  width: "100%",
-                  height: "260px",
-                  background: `url(${article.image}) center/cover no-repeat`,
-                  position: "relative",
-                }}
+                className="w-full h-48 md:h-[260px] bg-center bg-cover relative"
+                style={{ backgroundImage: `url(${article.image})` }}
               >
-                <div
-                  style={{
-                    position: "absolute",
-                    inset: 0,
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%)",
-                  }}
-                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
               </div>
 
               {/* Article Content */}
-              <div style={{ padding: "24px" }}>
-                <h3
-                  style={{
-                    fontSize: "18px",
-                    fontWeight: 700,
-                    lineHeight: 1.4,
-                    marginBottom: "12px",
-                    color: "#111",
-                  }}
-                >
+              <div className="p-6">
+                <h3 className="text-lg font-bold leading-snug mb-3 text-gray-900">
                   {article.title}
                 </h3>
 
-                <p
-                  style={{
-                    fontSize: "13px",
-                    color: "#888",
-                    marginBottom: "12px",
-                  }}
-                >
+                <p className="text-[13px] text-gray-400 mb-3">
                   {article.date}
                   {article.source && ` | ${article.source}`}
                 </p>
 
-                <p
-                  style={{
-                    fontSize: "14px",
-                    color: "#666",
-                    lineHeight: 1.7,
-                    marginBottom: "16px",
-                  }}
-                >
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">
                   {article.excerpt}
                 </p>
 
-                <span
-                  style={{
-                    fontSize: "14px",
-                    fontWeight: 600,
-                    color: "#000",
-                    textDecoration: "underline",
-                  }}
-                >
+                <span className="text-sm font-semibold text-black underline">
                   Read More
                 </span>
               </div>
