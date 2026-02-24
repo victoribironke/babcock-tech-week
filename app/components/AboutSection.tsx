@@ -11,6 +11,7 @@ export default function AboutSection() {
       }}
     >
       <div
+        className="about-grid"
         style={{
           maxWidth: "1300px",
           margin: "0 auto",
