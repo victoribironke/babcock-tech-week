@@ -30,111 +30,43 @@ export default function TestimonialsSection() {
   const [active, setActive] = useState(3);
 
   return (
-    <section
-      style={{
-        background: "linear-gradient(135deg, #f0f0ff 0%, #ffffff 100%)",
-        padding: "100px 40px",
-        color: "#000",
-      }}
-    >
-      <div
-        className="testimonials-grid"
-        style={{
-          maxWidth: "1300px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "40px",
-          alignItems: "stretch",
-        }}
-      >
+    <section className="bg-gradient-to-br from-[#f0f0ff] to-white py-16 md:py-24 px-4 md:px-10 text-black">
+      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-stretch">
         {/* Left: Image */}
-        <div
-          style={{
-            borderRadius: "16px",
-            overflow: "hidden",
-            position: "relative",
-            minHeight: "500px",
-          }}
-        >
+        <div className="rounded-2xl overflow-hidden relative min-h-[350px] md:min-h-[500px]">
           <Image
             src="/images/venue.png"
             alt="Tech Week Singapore Venue"
             fill
-            style={{ objectFit: "cover" }}
+            className="object-cover"
           />
         </div>
 
         {/* Right: Testimonial */}
-        <div
-          style={{
-            background: "white",
-            borderRadius: "16px",
-            padding: "48px",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            boxShadow: "0 4px 30px rgba(0,0,0,0.06)",
-          }}
-        >
-          <h3
-            style={{
-              fontSize: "18px",
-              fontWeight: 600,
-              marginBottom: "16px",
-              color: "#333",
-            }}
-          >
+        <div className="bg-white rounded-2xl p-8 md:p-12 flex flex-col justify-center shadow-sm">
+          <h3 className="text-lg font-semibold mb-4 text-gray-700">
             What Our Attendees are Saying
           </h3>
 
-          <div
-            style={{
-              width: "60px",
-              height: "3px",
-              background: "#ccc",
-              marginBottom: "32px",
-            }}
-          />
+          <div className="w-15 h-0.5 bg-gray-300 mb-8" />
 
-          <blockquote
-            style={{
-              fontSize: "24px",
-              fontWeight: 600,
-              lineHeight: 1.5,
-              color: "#111",
-              marginBottom: "24px",
-              minHeight: "200px",
-            }}
-          >
+          <blockquote className="text-xl md:text-2xl font-semibold leading-relaxed text-gray-900 mb-6 min-h-[150px] md:min-h-[200px]">
             {testimonials[active].quote}
           </blockquote>
 
-          <p
-            style={{
-              fontSize: "14px",
-              color: "#888",
-              marginBottom: "32px",
-            }}
-          >
+          <p className="text-sm text-gray-400 mb-8">
             {testimonials[active].company}
           </p>
 
           {/* Pagination */}
-          <div style={{ display: "flex", gap: "8px" }}>
+          <div className="flex gap-2">
             {testimonials.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActive(idx)}
-                style={{
-                  width: idx === active ? "28px" : "12px",
-                  height: "12px",
-                  borderRadius: "6px",
-                  background: idx === active ? "#000" : "#ddd",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                }}
+                className={`h-3 rounded-md border-none cursor-pointer transition-all ${
+                  idx === active ? "w-7 bg-black" : "w-3 bg-gray-200"
+                }`}
               />
             ))}
           </div>
