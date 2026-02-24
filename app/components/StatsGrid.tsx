@@ -34,7 +34,7 @@ function ImageCard({ src, alt }: { src: string; alt: string }) {
 export default function StatsGrid() {
   return (
     <section className="bg-black py-16 md:py-20 px-4 md:px-10">
-      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+      <div className="max-w-[1300px] mx-auto grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
         {/* Row 1: Stat, Image, Stat, Image */}
         <StatCard number={stats[0].number} label={stats[0].label} />
         <ImageCard src={images[0].src} alt={images[0].alt} />
