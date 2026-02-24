@@ -28,81 +28,36 @@ export default function SpeakersSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section
-      style={{
-        background:
-          "linear-gradient(135deg, #f0f0ff 0%, #ffffff 50%, #f5f5ff 100%)",
-        padding: "100px 40px",
-        color: "#000",
-      }}
-    >
-      <div
-        className="speakers-grid"
-        style={{
-          maxWidth: "1300px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "60px",
-          alignItems: "start",
-        }}
-      >
+    <section className="bg-gradient-to-br from-[#f0f0ff] via-white to-[#f5f5ff] py-16 md:py-24 px-4 md:px-10 text-black">
+      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         {/* Left: Speakers Carousel */}
         <div>
-          <h2
-            style={{
-              fontSize: "36px",
-              fontWeight: 700,
-              marginBottom: "40px",
-              color: "#000",
-            }}
-          >
+          <h2 className="text-2xl md:text-4xl font-bold mb-8 md:mb-10 text-black">
             2025 Mainstage Speakers
           </h2>
 
-          <div
-            className="speakers-carousel"
-            style={{ display: "flex", gap: "20px", overflow: "hidden" }}
-          >
+          <div className="flex flex-col md:flex-row gap-5 md:overflow-hidden">
             {speakers.map((speaker, idx) => (
               <div
                 key={idx}
-                className="speaker-card"
+                className="md:min-w-[260px] md:flex-[0_0_260px] border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-md transition-transform duration-300"
                 style={{
-                  minWidth: "260px",
-                  flex: "0 0 260px",
-                  border: "1px solid #ddd",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  background: "white",
-                  boxShadow: "0 4px 20px rgba(0,0,0,0.08)",
-                  transition: "transform 0.3s ease",
                   transform: `translateX(-${active * 280}px)`,
                 }}
               >
-                <div style={{ position: "relative", height: "260px" }}>
+                <div className="relative h-[260px]">
                   <Image
                     src={speaker.image}
                     alt={speaker.name}
                     fill
-                    style={{ objectFit: "cover" }}
+                    className="object-cover"
                   />
                 </div>
-                <div style={{ padding: "20px", textAlign: "center" }}>
-                  <h4
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: 700,
-                      marginBottom: "6px",
-                    }}
-                  >
-                    {speaker.name}
-                  </h4>
-                  <p
-                    style={{ fontSize: "13px", color: "#666", lineHeight: 1.5 }}
-                  >
+                <div className="p-5 text-center">
+                  <h4 className="text-base font-bold mb-1.5">{speaker.name}</h4>
+                  <p className="text-[13px] text-gray-500 leading-relaxed">
                     {speaker.title},{" "}
-                    <strong style={{ color: "#333" }}>{speaker.company}</strong>
+                    <strong className="text-gray-700">{speaker.company}</strong>
                   </p>
                 </div>
               </div>
@@ -110,129 +65,45 @@ export default function SpeakersSection() {
           </div>
 
           {/* Pagination Dots */}
-          <div
-            style={{
-              display: "flex",
-              gap: "8px",
-              marginTop: "24px",
-              justifyContent: "center",
-            }}
-          >
+          <div className="hidden md:flex gap-2 mt-6 justify-center">
             {speakers.map((_, idx) => (
               <button
                 key={idx}
                 onClick={() => setActive(idx)}
-                style={{
-                  width: idx === active ? "24px" : "10px",
-                  height: "10px",
-                  borderRadius: "5px",
-                  background: idx === active ? "#333" : "#ccc",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "all 0.3s ease",
-                }}
+                className={`h-2.5 rounded-full border-none cursor-pointer transition-all ${
+                  idx === active ? "w-6 bg-gray-700" : "w-2.5 bg-gray-300"
+                }`}
               />
             ))}
           </div>
         </div>
 
         {/* Right: Description */}
-        <div style={{ paddingTop: "20px" }}>
-          <h2
-            style={{
-              fontSize: "40px",
-              fontWeight: 700,
-              marginBottom: "32px",
-              color: "#000",
-              lineHeight: 1.2,
-            }}
-          >
+        <div className="pt-0 md:pt-5">
+          <h2 className="text-3xl md:text-[40px] font-bold mb-8 text-black leading-tight">
             Bright Minds, Bold Ideas.
           </h2>
 
-          <div
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "1px",
-              textTransform: "uppercase",
-              color: "#333",
-              marginBottom: "8px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <span
-              style={{
-                width: "8px",
-                height: "8px",
-                background: "#000",
-                display: "inline-block",
-              }}
-            />
+          <div className="text-[13px] font-bold tracking-wider uppercase text-gray-700 mb-2 flex items-center gap-2">
+            <span className="w-2 h-2 bg-black inline-block" />
             THE MAINSTAGE
           </div>
 
-          <p
-            style={{
-              fontSize: "15px",
-              color: "#555",
-              lineHeight: 1.8,
-              marginBottom: "24px",
-            }}
-          >
+          <p className="text-[15px] text-gray-500 leading-relaxed mb-6">
             The Mainstage at Tech Week Singapore brought a powerhouse lineup of
             visionaries, from pioneering technologists and enterprise leaders to
             government influencers and ecosystem builders representing NVIDIA,
             OpenAI, The World Bank Group and more.
           </p>
 
-          <div
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "1px",
-              textTransform: "uppercase",
-              color: "#333",
-              marginBottom: "16px",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
-            }}
-          >
-            <span
-              style={{
-                width: "8px",
-                height: "8px",
-                background: "#C8D433",
-                display: "inline-block",
-              }}
-            />
+          <div className="text-[13px] font-bold tracking-wider uppercase text-gray-700 mb-4 flex items-center gap-2">
+            <span className="w-2 h-2 bg-lime inline-block" />
             GUEST-OF-HONOUR
           </div>
 
           <a
             href="#"
-            style={{
-              display: "inline-block",
-              background: "#000",
-              color: "white",
-              padding: "16px 36px",
-              borderRadius: "80px",
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              transition: "all 0.3s ease",
-              marginTop: "16px",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#333";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "#000";
-            }}
+            className="inline-block bg-black text-white py-4 px-9 rounded-full text-[13px] font-bold tracking-widest uppercase hover:bg-gray-800 transition-all mt-4"
           >
             MAINSTAGE PROGRAMME 2025
           </a>
