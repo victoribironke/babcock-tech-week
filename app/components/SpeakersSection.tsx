@@ -77,7 +77,7 @@ export default function SpeakersSection() {
           {speakers.map((speaker, idx) => (
             <div
               key={idx}
-              className="group overflow-hidden cursor-pointer flex flex-col h-full"
+              className="group overflow-hidden cursor-pointer flex flex-col h-full rounded-xl"
             >
               {/* Photo + overlaid info */}
               <div className="relative aspect-3/4 overflow-hidden bg-gray-100">
@@ -90,7 +90,7 @@ export default function SpeakersSection() {
 
                 {/* Info bar — trapezoid overlay at bottom */}
                 <div
-                  className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/90 px-4 pb-4 pt-8 h-28 flex flex-col justify-end"
+                  className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/90 px-4 pb-4 pt-8 h-32 flex flex-col justify-end"
                   style={{
                     clipPath: "polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%)",
                   }}
