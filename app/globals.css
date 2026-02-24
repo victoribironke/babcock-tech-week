@@ -23,45 +23,50 @@
   --font-google-sans: "Google Sans", sans-serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-body {
-  background: var(--black);
-  color: var(--white);
-  font-family: "Google Sans", sans-serif;
-  overflow-x: hidden;
-}
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: "Google Sans", sans-serif;
+    overflow-x: hidden;
+  }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-ul,
-ol {
-  list-style: none;
-}
+  ul,
+  ol {
+    list-style: none;
+  }
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--black);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--gray-medium);
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
