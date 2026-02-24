@@ -18,7 +18,7 @@
   --color-gray-medium: var(--gray-medium);
   --color-gray-light: var(--gray-light);
   --color-gray-border: var(--gray-border);
-  --font-sans: "Inter", sans-serif;
+  --font-google-sans: "Google Sans", sans-serif;
 }
 
 * {
@@ -30,7 +30,7 @@
 body {
   background: var(--black);
   color: var(--white);
-  font-family: "Inter", sans-serif;
+  font-family: "Google Sans", sans-serif;
   overflow-x: hidden;
 }
 
