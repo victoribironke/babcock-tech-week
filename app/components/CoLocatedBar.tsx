@@ -1,5 +1,8 @@
 "use client";
 
+import Image from "next/image";
+import { IMAGES } from "../lib/constants";
+
 const shows = [
   { name: "CLOUD & AI INFRASTRUCTURE", color: "#E8505B", icon: "☁️" },
   { name: "DEV OPS LIVE", color: "#FF6B35", icon: "⚡" },
@@ -22,10 +25,12 @@ export default function CoLocatedBar() {
     <div className="hidden md:block bg-black/90 relative z-10 pt-5 px-4 lg:px-10">
       <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-5 pb-5">
         {/* Tech Week Logo */}
-        <div className="border border-white px-4 py-2 text-[13px] font-bold tracking-widest leading-tight shrink-0">
-          <div>TECH WEEK</div>
-          <div className="text-[8px] tracking-[4px] text-center">SINGAPORE</div>
-        </div>
+        <Image
+          src={IMAGES.logo.src}
+          alt="Logo"
+          width={IMAGES.logo.width}
+          height={IMAGES.logo.height}
+        />
 
         {/* Shows */}
         {shows.map((show) => (
