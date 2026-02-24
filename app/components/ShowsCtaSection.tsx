@@ -13,23 +13,22 @@ export default function ShowsCtaSection() {
     <section className="bg-linear-to-b from-[#0a0a2e] to-black py-20 md:py-24 px-4 md:px-10 text-center">
       <div className="max-w-[1200px] mx-auto">
         <h2 className="text-2xl md:text-[40px] font-bold mb-6 leading-tight">
-          Tech Week Singapore will return from 29-30 September 2026
+          The Babcock Tech Week will run from 22-29 March 2026
         </h2>
 
         <p className="text-base text-gray-300 mb-2">
-          Tech Week Singapore brings together five incredible events, including
+          Tech Week brings together all disciplines including
         </p>
         <p className="text-sm text-gray-400 mb-8">
-          Cloud & AI Infrastructure Asia, DevOps Live, Cyber Security World
-          Asia, Big Data & AI World Asia & Data Centre World Asia
+          Medicine, Law, Agriculture, Education and Finance.
         </p>
 
-        <p className="text-lime text-lg md:text-[22px] font-semibold mb-12">
+        {/* <p className="text-lime text-lg md:text-[22px] font-semibold mb-12">
           Select your preferred show below for more details:
-        </p>
+        </p> */}
 
         {/* Show Icons */}
-        <div className="flex justify-center gap-8 md:gap-12 flex-wrap">
+        {/* <div className="flex justify-center gap-8 md:gap-12 flex-wrap">
           {shows.map((show) => (
             <a
               key={show.name}
@@ -49,7 +48,7 @@ export default function ShowsCtaSection() {
               </span>
             </a>
           ))}
-        </div>
+        </div> */}
       </div>
     </section>
   );
