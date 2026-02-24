@@ -60,12 +60,17 @@ export default function SpeakersSection() {
             2025 Mainstage Speakers
           </h2>
 
-          <div style={{ display: "flex", gap: "20px", overflowX: "hidden" }}>
+          <div
+            className="speakers-carousel"
+            style={{ display: "flex", gap: "20px", overflow: "hidden" }}
+          >
             {speakers.map((speaker, idx) => (
               <div
                 key={idx}
+                className="speaker-card"
                 style={{
                   minWidth: "260px",
+                  flex: "0 0 260px",
                   border: "1px solid #ddd",
                   borderRadius: "20px",
                   overflow: "hidden",
