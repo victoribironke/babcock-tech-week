@@ -38,6 +38,7 @@ export default function TestimonialsSection() {
       }}
     >
       <div
+        className="testimonials-grid"
         style={{
           maxWidth: "1300px",
           margin: "0 auto",
