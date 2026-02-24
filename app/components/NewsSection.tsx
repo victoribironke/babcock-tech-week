@@ -32,6 +32,7 @@ export default function NewsSection() {
     >
       <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
         <div
+          className="news-grid"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr 1fr",
