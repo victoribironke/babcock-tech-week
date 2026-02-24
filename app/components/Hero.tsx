@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { IMAGES } from "../lib/constants";
 
 export default function Hero() {
   return (
@@ -56,42 +57,13 @@ export default function Hero() {
           marginTop: "60px",
         }}
       >
-        {/* Main Logo Text */}
-        <h1
-          style={{
-            fontSize: "clamp(48px, 6vw, 80px)",
-            fontWeight: 800,
-            letterSpacing: "12px",
-            lineHeight: 1.1,
-            textTransform: "uppercase",
-            whiteSpace: "nowrap",
-          }}
-        >
-          TECH WEEK
-        </h1>
-
-        {/* SINGAPORE subtitle */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginTop: "-20px",
-          }}
-        >
-          <div style={{ height: "2px", width: "80px", background: "white" }} />
-          <span
-            style={{
-              fontSize: "20px",
-              fontWeight: 500,
-              letterSpacing: "12px",
-              textTransform: "uppercase",
-            }}
-          >
-            SINGAPORE
-          </span>
-          <div style={{ height: "2px", width: "80px", background: "white" }} />
-        </div>
+        <Image
+          src={IMAGES.logo.src}
+          alt="Logo"
+          width={IMAGES.logo.width}
+          height={IMAGES.logo.height}
+          className="w-96"
+        />
 
         {/* Date & Venue */}
         <p
