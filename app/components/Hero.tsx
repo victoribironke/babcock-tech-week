@@ -118,30 +118,6 @@ export default function Hero() {
           <a
             href="#"
             style={{
-              background: "rgba(0,0,0,0.85)",
-              color: "white",
-              padding: "18px 40px",
-              borderRadius: "80px",
-              fontSize: "14px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              border: "1px solid rgba(255,255,255,0.2)",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(255,255,255,0.15)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(0,0,0,0.85)";
-            }}
-          >
-            EXHIBIT NOW
-          </a>
-          <a
-            href="#"
-            style={{
               background: "white",
               color: "black",
               padding: "18px 40px",
@@ -159,6 +135,30 @@ export default function Hero() {
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = "white";
+            }}
+          >
+            EXHIBIT NOW
+          </a>
+          <a
+            href="#"
+            style={{
+              background: "rgba(0,0,0,0.85)",
+              color: "white",
+              padding: "18px 40px",
+              borderRadius: "80px",
+              fontSize: "14px",
+              fontWeight: 700,
+              letterSpacing: "2px",
+              textTransform: "uppercase",
+              border: "1px solid rgba(255,255,255,0.2)",
+              transition: "all 0.3s ease",
+              cursor: "pointer",
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.15)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(0,0,0,0.85)";
             }}
           >
             REGISTER INTEREST FOR 2026
