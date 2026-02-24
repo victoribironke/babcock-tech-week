@@ -2,72 +2,22 @@
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#000", color: "white" }}>
+    <footer className="bg-black text-white">
       {/* Newsletter Section */}
-      <div
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          padding: "60px 40px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "600px",
-            margin: "0 auto",
-            textAlign: "center",
-          }}
-        >
-          <h3
-            style={{ fontSize: "20px", fontWeight: 700, marginBottom: "8px" }}
-          >
-            Stay Updated
-          </h3>
-          <p style={{ fontSize: "14px", color: "#aaa", marginBottom: "24px" }}>
+      <div className="border-t border-white/10 py-12 md:py-16 px-4 md:px-10">
+        <div className="max-w-[600px] mx-auto text-center">
+          <h3 className="text-xl font-bold mb-2">Stay Updated</h3>
+          <p className="text-sm text-gray-400 mb-6">
             Subscribe to our newsletter for the latest updates on Tech Week
             Singapore.
           </p>
-          <div
-            className="newsletter-form"
-            style={{
-              display: "flex",
-              gap: "12px",
-              justifyContent: "center",
-              flexWrap: "wrap",
-            }}
-          >
+          <div className="flex flex-col md:flex-row gap-3 justify-center">
             <input
               type="email"
               placeholder="Enter your email"
-              style={{
-                flex: 1,
-                padding: "14px 20px",
-                borderRadius: "80px",
-                border: "1px solid rgba(255,255,255,0.2)",
-                background: "rgba(255,255,255,0.05)",
-                color: "white",
-                fontSize: "14px",
-                outline: "none",
-                maxWidth: "360px",
-              }}
+              className="flex-1 py-3.5 px-5 rounded-full border border-white/20 bg-white/5 text-white text-sm outline-none md:max-w-[360px]"
             />
-            <button
-              style={{
-                padding: "14px 32px",
-                borderRadius: "80px",
-                background: "white",
-                color: "black",
-                border: "none",
-                fontSize: "13px",
-                fontWeight: 700,
-                letterSpacing: "1px",
-                cursor: "pointer",
-                transition: "background 0.3s ease",
-              }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.background = "#e0e0e0")
-              }
-              onMouseLeave={(e) => (e.currentTarget.style.background = "white")}
-            >
+            <button className="py-3.5 px-8 rounded-full bg-white text-black border-none text-[13px] font-bold tracking-wider cursor-pointer hover:bg-gray-200 transition-colors">
               SUBSCRIBE
             </button>
           </div>
@@ -75,27 +25,8 @@ export default function Footer() {
       </div>
 
       {/* Co-Located Shows Bar */}
-      <div
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
-          padding: "20px 40px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "32px",
-            flexWrap: "wrap",
-            fontSize: "12px",
-            fontWeight: 600,
-            letterSpacing: "1px",
-          }}
-        >
+      <div className="border-t border-b border-white/10 py-5 px-4 md:px-10">
+        <div className="max-w-[1200px] mx-auto flex items-center justify-center gap-4 md:gap-8 flex-wrap text-xs font-semibold tracking-wider">
           {[
             "Cloud & AI Infrastructure",
             "Dev Ops Live",
@@ -106,12 +37,7 @@ export default function Footer() {
             <a
               key={show}
               href="#"
-              style={{
-                color: "#aaa",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#aaa")}
+              className="text-gray-400 hover:text-white transition-colors"
             >
               {show}
             </a>
@@ -120,71 +46,30 @@ export default function Footer() {
       </div>
 
       {/* Footer Grid */}
-      <div
-        className="footer-grid"
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "60px 40px",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: "40px",
-        }}
-      >
+      <div className="max-w-[1200px] mx-auto py-12 md:py-16 px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
         {/* Venue & Dates */}
         <div>
-          <h4
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              marginBottom: "20px",
-              textTransform: "uppercase",
-            }}
-          >
-            VENUE & DATES
+          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
+            VENUE &amp; DATES
           </h4>
-          <p style={{ fontSize: "13px", color: "#aaa", lineHeight: 1.8 }}>
+          <p className="text-[13px] text-gray-400 leading-relaxed">
             TUESDAY 29 SEPTEMBER 2026
             <br />
             09:00 - 17:00 SGT
           </p>
-          <p
-            style={{
-              fontSize: "13px",
-              color: "#aaa",
-              lineHeight: 1.8,
-              marginTop: "8px",
-            }}
-          >
+          <p className="text-[13px] text-gray-400 leading-relaxed mt-2">
             WEDNESDAY 30 SEPTEMBER 2026
             <br />
             09:00 - 17:00 SGT
           </p>
-          <p
-            style={{
-              fontSize: "13px",
-              color: "#aaa",
-              lineHeight: 1.8,
-              marginTop: "12px",
-              fontWeight: 600,
-            }}
-          >
+          <p className="text-[13px] text-gray-400 leading-relaxed mt-3 font-semibold">
             SANDS EXPO CONVENTION CENTER, SINGAPORE
           </p>
         </div>
 
         {/* Quick Links */}
         <div>
-          <h4
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              marginBottom: "20px",
-              textTransform: "uppercase",
-            }}
-          >
+          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
             QUICK LINKS
           </h4>
           {[
@@ -196,15 +81,7 @@ export default function Footer() {
             <a
               key={link}
               href="#"
-              style={{
-                display: "block",
-                fontSize: "13px",
-                color: "#aaa",
-                marginBottom: "12px",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#aaa")}
+              className="block text-[13px] text-gray-400 mb-3 hover:text-white transition-colors"
             >
               {link}
             </a>
@@ -213,15 +90,7 @@ export default function Footer() {
 
         {/* Global Portfolio */}
         <div>
-          <h4
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              marginBottom: "20px",
-              textTransform: "uppercase",
-            }}
-          >
+          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
             GLOBAL PORTFOLIO
           </h4>
           {[
@@ -234,15 +103,7 @@ export default function Footer() {
             <a
               key={link}
               href="#"
-              style={{
-                display: "block",
-                fontSize: "13px",
-                color: "#aaa",
-                marginBottom: "12px",
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#aaa")}
+              className="block text-[13px] text-gray-400 mb-3 hover:text-white transition-colors"
             >
               {link}
             </a>
@@ -251,55 +112,21 @@ export default function Footer() {
 
         {/* Organised By + Social */}
         <div>
-          <h4
-            style={{
-              fontSize: "13px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              marginBottom: "20px",
-              textTransform: "uppercase",
-            }}
-          >
+          <h4 className="text-[13px] font-bold tracking-widest mb-5 uppercase">
             ORGANISED BY
           </h4>
-          <p
-            style={{
-              fontSize: "20px",
-              fontWeight: 700,
-              marginBottom: "20px",
-              letterSpacing: "2px",
-            }}
-          >
+          <p className="text-xl font-bold mb-5 tracking-widest">
             CloserStill Media
           </p>
 
           {/* Social Icons */}
-          <div style={{ display: "flex", gap: "16px" }}>
+          <div className="flex gap-4">
             {["Facebook", "LinkedIn", "YouTube", "Instagram"].map(
               (platform) => (
                 <a
                   key={platform}
                   href="#"
-                  style={{
-                    width: "36px",
-                    height: "36px",
-                    borderRadius: "50%",
-                    border: "1px solid rgba(255,255,255,0.2)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    color: "#aaa",
-                    fontSize: "14px",
-                    transition: "all 0.2s",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "white";
-                    e.currentTarget.style.color = "white";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
-                    e.currentTarget.style.color = "#aaa";
-                  }}
+                  className="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center text-gray-400 text-sm hover:border-white hover:text-white transition-all"
                 >
                   {platform[0]}
                 </a>
@@ -310,24 +137,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div
-        style={{
-          borderTop: "1px solid rgba(255,255,255,0.1)",
-          padding: "20px 40px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "flex",
-            justifyContent: "center",
-            gap: "24px",
-            flexWrap: "wrap",
-            fontSize: "12px",
-            color: "#666",
-          }}
-        >
+      <div className="border-t border-white/10 py-5 px-4 md:px-10">
+        <div className="max-w-[1200px] mx-auto flex justify-center gap-4 md:gap-6 flex-wrap text-xs text-gray-500">
           {[
             "© Copyright 2025",
             "Privacy Policy",
@@ -339,9 +150,7 @@ export default function Footer() {
             <a
               key={link}
               href="#"
-              style={{ color: "#666", transition: "color 0.2s" }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#aaa")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#666")}
+              className="text-gray-500 hover:text-gray-300 transition-colors"
             >
               {link}
             </a>
