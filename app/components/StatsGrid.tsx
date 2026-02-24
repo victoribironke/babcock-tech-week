@@ -14,6 +14,48 @@ const images = [
   { src: "/images/stats-4.png", alt: "Audience participation" },
 ];
 
+function StatCard({ number, label }: { number: string; label: string }) {
+  return (
+    <div
+      className="stat-card"
+      style={{
+        border: "1px solid rgba(255,255,255,0.15)",
+        borderRadius: "24px",
+        padding: "48px 32px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+      }}
+    >
+      <div style={{ fontSize: "48px", fontWeight: 700, marginBottom: "12px" }}>
+        {number}
+      </div>
+      <div style={{ fontSize: "14px", color: "#ccc", lineHeight: 1.5 }}>
+        {label}
+      </div>
+    </div>
+  );
+}
+
+function ImageCard({ src, alt }: { src: string; alt: string }) {
+  return (
+    <div
+      className="stat-image"
+      style={{
+        borderRadius: "24px",
+        overflow: "hidden",
+        position: "relative",
+        minHeight: "220px",
+        aspectRatio: "4/3",
+      }}
+    >
+      <Image src={src} alt={alt} fill style={{ objectFit: "cover" }} />
+    </div>
+  );
+}
+
 export default function StatsGrid() {
   return (
     <section
@@ -34,158 +76,16 @@ export default function StatsGrid() {
         }}
       >
         {/* Row 1: Stat, Image, Stat, Image */}
-        <div
-          style={{
-            border: "1px solid rgba(255,255,255,0.15)",
-            borderRadius: "24px",
-            padding: "48px 32px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{ fontSize: "48px", fontWeight: 700, marginBottom: "12px" }}
-          >
-            {stats[0].number}
-          </div>
-          <div style={{ fontSize: "14px", color: "#ccc", lineHeight: 1.5 }}>
-            {stats[0].label}
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderRadius: "24px",
-            overflow: "hidden",
-            position: "relative",
-            minHeight: "220px",
-          }}
-        >
-          <Image
-            src={images[0].src}
-            alt={images[0].alt}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-
-        <div
-          style={{
-            border: "1px solid rgba(255,255,255,0.15)",
-            borderRadius: "24px",
-            padding: "48px 32px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{ fontSize: "48px", fontWeight: 700, marginBottom: "12px" }}
-          >
-            {stats[1].number}
-          </div>
-          <div style={{ fontSize: "14px", color: "#ccc", lineHeight: 1.5 }}>
-            {stats[1].label}
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderRadius: "24px",
-            overflow: "hidden",
-            position: "relative",
-            minHeight: "220px",
-          }}
-        >
-          <Image
-            src={images[1].src}
-            alt={images[1].alt}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </div>
+        <StatCard number={stats[0].number} label={stats[0].label} />
+        <ImageCard src={images[0].src} alt={images[0].alt} />
+        <StatCard number={stats[1].number} label={stats[1].label} />
+        <ImageCard src={images[1].src} alt={images[1].alt} />
 
         {/* Row 2: Image, Stat, Image, Stat */}
-        <div
-          style={{
-            borderRadius: "24px",
-            overflow: "hidden",
-            position: "relative",
-            minHeight: "220px",
-          }}
-        >
-          <Image
-            src={images[2].src}
-            alt={images[2].alt}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-
-        <div
-          style={{
-            border: "1px solid rgba(255,255,255,0.15)",
-            borderRadius: "24px",
-            padding: "48px 32px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{ fontSize: "48px", fontWeight: 700, marginBottom: "12px" }}
-          >
-            {stats[2].number}
-          </div>
-          <div style={{ fontSize: "14px", color: "#ccc", lineHeight: 1.5 }}>
-            {stats[2].label}
-          </div>
-        </div>
-
-        <div
-          style={{
-            borderRadius: "24px",
-            overflow: "hidden",
-            position: "relative",
-            minHeight: "220px",
-          }}
-        >
-          <Image
-            src={images[3].src}
-            alt={images[3].alt}
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </div>
-
-        <div
-          style={{
-            border: "1px solid rgba(255,255,255,0.15)",
-            borderRadius: "24px",
-            padding: "48px 32px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            textAlign: "center",
-          }}
-        >
-          <div
-            style={{ fontSize: "48px", fontWeight: 700, marginBottom: "12px" }}
-          >
-            {stats[3].number}
-          </div>
-          <div style={{ fontSize: "14px", color: "#ccc", lineHeight: 1.5 }}>
-            {stats[3].label}
-          </div>
-        </div>
+        <ImageCard src={images[2].src} alt={images[2].alt} />
+        <StatCard number={stats[2].number} label={stats[2].label} />
+        <ImageCard src={images[3].src} alt={images[3].alt} />
+        <StatCard number={stats[3].number} label={stats[3].label} />
       </div>
     </section>
   );
