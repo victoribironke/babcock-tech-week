@@ -6,6 +6,7 @@ import Hero from "./components/Hero";
 import StatsGrid from "./components/StatsGrid";
 import AboutSection from "./components/AboutSection";
 import SpeakersSection from "./components/SpeakersSection";
+import SponsorsSection from "./components/SponsorsSection";
 // import TestimonialsSection from "./components/TestimonialsSection";
 // import NewsSection from "./components/NewsSection";
 import Footer from "./components/Footer";
@@ -22,6 +23,7 @@ export default function Home() {
         <StatsGrid />
         <AboutSection />
         <SpeakersSection />
+        <SponsorsSection />
         {/* <TestimonialsSection /> */}
         {/* <NewsSection /> */}
       </main>
