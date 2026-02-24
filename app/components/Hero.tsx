@@ -5,133 +5,45 @@ import { IMAGES } from "../lib/constants";
 
 export default function Hero() {
   return (
-    <section
-      style={{
-        position: "relative",
-        width: "100%",
-        height: "100vh",
-        minHeight: "700px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-      }}
-    >
+    <section className="relative w-full h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
       {/* Background Image */}
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          zIndex: 0,
-        }}
-      >
+      <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-bg.png"
           alt="Tech Week Singapore Conference"
           fill
-          style={{ objectFit: "cover" }}
+          className="object-cover"
           priority
         />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%)",
-          }}
-        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/70" />
       </div>
 
       {/* Content */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          textAlign: "center",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "24px",
-          padding: "0 20px",
-          marginTop: "60px",
-        }}
-      >
+      <div className="relative z-10 text-center flex flex-col items-center gap-6 px-5 mt-15">
         <Image
           src={IMAGES.logo.src}
           alt="Logo"
           width={IMAGES.logo.width}
           height={IMAGES.logo.height}
-          className="w-96"
+          className="w-72 lg:w-96"
         />
 
         {/* Date & Venue */}
-        <p
-          style={{
-            fontSize: "22px",
-            fontWeight: 400,
-            marginTop: "8px",
-            letterSpacing: "1px",
-          }}
-        >
+        <p className="text-lg md:text-[22px] font-normal mt-2 tracking-wide">
           29-30 September 2026, Sands Expo Convention Centre
         </p>
 
         {/* CTA Buttons */}
-        <div
-          style={{
-            display: "flex",
-            gap: "20px",
-            marginTop: "16px",
-            flexWrap: "wrap",
-            justifyContent: "center",
-          }}
-        >
+        <div className="flex gap-5 mt-4 flex-wrap justify-center">
           <a
             href="#"
-            style={{
-              background: "white",
-              color: "black",
-              padding: "18px 40px",
-              borderRadius: "80px",
-              fontSize: "14px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              border: "none",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "#e0e0e0";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "white";
-            }}
+            className="bg-white text-black py-4.5 px-10 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-gray-200 transition-all cursor-pointer"
           >
             EXHIBIT NOW
           </a>
           <a
             href="#"
-            style={{
-              background: "rgba(0,0,0,0.85)",
-              color: "white",
-              padding: "18px 40px",
-              borderRadius: "80px",
-              fontSize: "14px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              border: "1px solid rgba(255,255,255,0.2)",
-              transition: "all 0.3s ease",
-              cursor: "pointer",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "rgba(255,255,255,0.15)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "rgba(0,0,0,0.85)";
-            }}
+            className="bg-black/85 text-white py-4.5 px-10 rounded-full text-sm font-bold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer"
           >
             REGISTER INTEREST FOR 2026
           </a>
