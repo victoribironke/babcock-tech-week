@@ -16,65 +16,25 @@ const images = [
 
 function StatCard({ number, label }: { number: string; label: string }) {
   return (
-    <div
-      className="stat-card"
-      style={{
-        border: "1px solid rgba(255,255,255,0.15)",
-        borderRadius: "24px",
-        padding: "48px 32px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        textAlign: "center",
-      }}
-    >
-      <div style={{ fontSize: "48px", fontWeight: 700, marginBottom: "12px" }}>
-        {number}
-      </div>
-      <div style={{ fontSize: "14px", color: "#ccc", lineHeight: 1.5 }}>
-        {label}
-      </div>
+    <div className="border border-white/15 rounded-3xl py-8 md:py-12 px-5 md:px-8 flex flex-col items-center justify-center text-center">
+      <div className="text-4xl md:text-5xl font-bold mb-3">{number}</div>
+      <div className="text-sm text-gray-300 leading-relaxed">{label}</div>
     </div>
   );
 }
 
 function ImageCard({ src, alt }: { src: string; alt: string }) {
   return (
-    <div
-      className="stat-image"
-      style={{
-        borderRadius: "24px",
-        overflow: "hidden",
-        position: "relative",
-        minHeight: "220px",
-        aspectRatio: "4/3",
-      }}
-    >
-      <Image src={src} alt={alt} fill style={{ objectFit: "cover" }} />
+    <div className="rounded-3xl overflow-hidden relative min-h-[200px] md:min-h-[220px] aspect-[4/3]">
+      <Image src={src} alt={alt} fill className="object-cover" />
     </div>
   );
 }
 
 export default function StatsGrid() {
   return (
-    <section
-      style={{
-        background: "#000",
-        padding: "80px 40px",
-      }}
-    >
-      <div
-        className="stats-grid"
-        style={{
-          maxWidth: "1300px",
-          margin: "0 auto",
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gridTemplateRows: "auto auto",
-          gap: "20px",
-        }}
-      >
+    <section className="bg-black py-16 md:py-20 px-4 md:px-10">
+      <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
         {/* Row 1: Stat, Image, Stat, Image */}
         <StatCard number={stats[0].number} label={stats[0].label} />
         <ImageCard src={images[0].src} alt={images[0].alt} />
