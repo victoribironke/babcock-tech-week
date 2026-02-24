@@ -3,7 +3,7 @@
 export default function AwardBanner() {
   return (
     <section className="bg-black py-10 px-4 md:px-10 flex justify-center">
-      <div className="max-w-[900px] w-full bg-gradient-to-br from-[#1a0a00] via-gold-dark to-[#1a0a00] border border-gold rounded-lg px-4 py-6 md:px-12 md:py-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 relative overflow-hidden flex-wrap">
+      <div className="max-w-[900px] w-full bg-linear-to-br from-[#1a0a00] via-gold-dark to-[#1a0a00] border border-gold rounded-lg px-4 py-6 md:px-12 md:py-8 flex flex-col md:flex-row items-center justify-center gap-4 md:gap-12 relative overflow-hidden flex-wrap">
         {/* Left trophy */}
         <span className="text-4xl">🏆</span>
 
