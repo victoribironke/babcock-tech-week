@@ -68,3 +68,121 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+/* ========== HEADER NAV LAYOUT ========== */
+.nav-links {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+}
+
+.hamburger {
+  display: none !important;
+}
+
+/* ========== RESPONSIVE: TABLET (<=1024px) ========== */
+@media (max-width: 1024px) {
+  .header-date {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 11px !important;
+  }
+
+  .social-icons {
+    gap: 10px !important;
+  }
+}
+
+/* ========== RESPONSIVE: MOBILE (<=768px) ========== */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block !important;
+  }
+
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.97);
+    flex-direction: column;
+    padding: 24px 32px;
+    gap: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .social-icons {
+    display: none !important;
+  }
+
+  /* Section padding */
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Stats: 1 column */
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* About: stack vertically */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* Speakers: stack vertically */
+  .speakers-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+  }
+
+  /* Testimonials: stack vertically */
+  .testimonials-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  /* News: 1 column */
+  .news-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Footer: 1 column */
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    padding: 40px 20px !important;
+    gap: 32px !important;
+  }
+
+  /* Co-located bar: hide on mobile */
+  .colocated-bar {
+    display: none !important;
+  }
+}
+
+/* ========== RESPONSIVE: TABLET (<=1024px) SECTIONS ========== */
+@media (max-width: 1024px) {
+  /* Stats: 2 columns */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Footer: 2 columns */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
