@@ -2,7 +2,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import CoLocatedBar from "./components/CoLocatedBar";
 import ShowsCtaSection from "./components/ShowsCtaSection";
-import AwardBanner from "./components/AwardBanner";
+// import AwardBanner from "./components/AwardBanner";
 import StatsGrid from "./components/StatsGrid";
 import AboutSection from "./components/AboutSection";
 import SpeakersSection from "./components/SpeakersSection";
@@ -18,7 +18,7 @@ export default function Home() {
         <Hero />
         <CoLocatedBar />
         <ShowsCtaSection />
-        <AwardBanner />
+        {/* <AwardBanner /> */}
         <StatsGrid />
         <AboutSection />
         <SpeakersSection />
