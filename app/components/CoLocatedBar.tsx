@@ -20,6 +20,7 @@ const gradientColors = [
 export default function CoLocatedBar() {
   return (
     <div
+      className="colocated-bar"
       style={{
         background: "rgba(0,0,0,0.9)",
         padding: "20px 40px 0",
