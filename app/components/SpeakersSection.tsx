@@ -37,6 +37,7 @@ export default function SpeakersSection() {
       }}
     >
       <div
+        className="speakers-grid"
         style={{
           maxWidth: "1300px",
           margin: "0 auto",
