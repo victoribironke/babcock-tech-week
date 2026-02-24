@@ -30,7 +30,7 @@ export default function Hero() {
 
         {/* Date & Venue */}
         <p className="text-lg md:text-[22px] font-normal mt-2 tracking-wide">
-          29-30 September 2026, Sands Expo Convention Centre
+          22-29 March 2026, Babcock University
         </p>
 
         {/* CTA Buttons */}
