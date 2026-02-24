@@ -30,7 +30,7 @@ export default function TestimonialsSection() {
   const [active, setActive] = useState(3);
 
   return (
-    <section className="bg-gradient-to-br from-[#f0f0ff] to-white py-16 md:py-24 px-4 md:px-10 text-black">
+    <section className="bg-linear-to-br from-[#f0f0ff] to-white py-16 md:py-24 px-4 md:px-10 text-black">
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-stretch">
         {/* Left: Image */}
         <div className="rounded-2xl overflow-hidden relative min-h-[350px] md:min-h-[500px]">
