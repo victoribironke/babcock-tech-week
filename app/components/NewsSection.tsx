@@ -1,5 +1,7 @@
 "use client";
 
+import { IMAGES } from "../lib/constants";
+
 export default function NewsSection() {
   const articles = [
     {
@@ -9,7 +11,7 @@ export default function NewsSection() {
       source: "Tech Week Singapore",
       excerpt:
         "Guest of Honour Mr Tan Kiat How, Senior Minister of State for Digital Development and Information will be speaking at the opening ceremony...",
-      image: "/images/hero-bg.png",
+      image: IMAGES.heroBg.src,
     },
     {
       title:
@@ -18,7 +20,7 @@ export default function NewsSection() {
       source: "",
       excerpt:
         "Tech Week Singapore returns this October with Guest of Honour, Mr Tan Kiat How, Senior Minister of State for Digital Development and Information...",
-      image: "/images/stats-1.png",
+      image: IMAGES.stats1.src,
     },
   ];
 
