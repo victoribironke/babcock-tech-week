@@ -1,13 +1,13 @@
 "use client";
 
 export default function ShowsCtaSection() {
-  const shows = [
-    { name: "CLOUD & AI\nINFRASTRUCTURE", color: "#E8505B", icon: "☁️" },
-    { name: "DEVOPS\nLIVE", color: "#FF6B35", icon: "⚡" },
-    { name: "CYBER SECURITY\nWORLD", color: "#7B68EE", icon: "🛡️" },
-    { name: "DATA CENTRE\nWORLD", color: "#4ECDC4", icon: "🏢" },
-    { name: "BIG DATA\n& AI WORLD", color: "#95E616", icon: "📊" },
-  ];
+  // const shows = [
+  //   { name: "CLOUD & AI\nINFRASTRUCTURE", color: "#E8505B", icon: "☁️" },
+  //   { name: "DEVOPS\nLIVE", color: "#FF6B35", icon: "⚡" },
+  //   { name: "CYBER SECURITY\nWORLD", color: "#7B68EE", icon: "🛡️" },
+  //   { name: "DATA CENTRE\nWORLD", color: "#4ECDC4", icon: "🏢" },
+  //   { name: "BIG DATA\n& AI WORLD", color: "#95E616", icon: "📊" },
+  // ];
 
   return (
     <section className="bg-linear-to-b from-[#0a0a2e] to-black py-20 md:py-24 px-4 md:px-10 text-center">
