@@ -9,8 +9,8 @@ export default function Hero() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-bg.png"
-          alt="Tech Week Singapore Conference"
+          src={IMAGES.heroBg.src}
+          alt={IMAGES.heroBg.alt}
           fill
           className="object-cover"
           priority
