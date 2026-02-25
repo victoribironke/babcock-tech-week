@@ -1,67 +1,68 @@
 "use client";
 
 import Image from "next/image";
+import { IMAGES } from "../lib/constants";
 
 const speakers = [
   {
     name: "Dr. Aik Beng Ng",
     title: "Senior Regional Manager",
     company: "NVIDIA AI Technology Center",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Aravind Srinivas",
     title: "Co-Founder & CEO",
     company: "Perplexity",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Anton Osika",
     title: "Co-Founder & CEO",
     company: "Lovable",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Dr. David R. Hardoon",
     title: "Global Head, AI Enablement",
     company: "Standard Chartered",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Amy Jean Doherty",
     title: "Chief Technology Officer",
     company: "OpenAI APAC",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Alex Kendall",
     title: "Founder & CEO",
     company: "Wayve",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Toyin Ajayi",
     title: "Co-Founder",
     company: "Cityblock Health",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Lucy Liu",
     title: "Co-Founder & President",
     company: "Airwallex",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Max Jaderberg",
     title: "President",
     company: "Isomorphic Labs",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
   {
     name: "Stella Li",
     title: "EVP & CEO, Americas & Europe",
     company: "BYD",
-    image: "/images/speaker-1.png",
+    image: IMAGES.speaker1.src,
   },
 ];
 
