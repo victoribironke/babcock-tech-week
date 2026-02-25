@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { IMAGES } from "../lib/constants";
 
 const testimonials = [
   {
@@ -35,8 +36,8 @@ export default function TestimonialsSection() {
         {/* Left: Image */}
         <div className="rounded-2xl overflow-hidden relative min-h-[350px] md:min-h-[500px]">
           <Image
-            src="/images/venue.png"
-            alt="Tech Week Singapore Venue"
+            src={IMAGES.venue.src}
+            alt={IMAGES.venue.alt}
             fill
             className="object-cover"
           />
