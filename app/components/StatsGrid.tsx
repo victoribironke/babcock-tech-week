@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { IMAGES } from "../lib/constants";
 
 const stats = [
   { number: "28,526", label: "attendees visited Tech Week Singapore 2025" },
@@ -8,10 +9,10 @@ const stats = [
 ];
 
 const images = [
-  { src: "/images/stats-1.png", alt: "Conference hall crowd" },
-  { src: "/images/stats-2.png", alt: "Speakers on stage" },
-  { src: "/images/stats-3.png", alt: "Exhibition floor" },
-  { src: "/images/stats-4.png", alt: "Audience participation" },
+  { src: IMAGES.stats1.src, alt: IMAGES.stats1.alt },
+  { src: IMAGES.stats2.src, alt: IMAGES.stats2.alt },
+  { src: IMAGES.stats3.src, alt: IMAGES.stats3.alt },
+  { src: IMAGES.stats4.src, alt: IMAGES.stats4.alt },
 ];
 
 function StatCard({ number, label }: { number: string; label: string }) {
