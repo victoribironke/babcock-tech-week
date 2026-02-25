@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { IMAGES } from "../lib/constants";
 
 export default function AboutSection() {
   return (
@@ -9,8 +10,8 @@ export default function AboutSection() {
         {/* Image */}
         <div className="rounded-2xl overflow-hidden relative h-[350px] md:h-[500px]">
           <Image
-            src="/images/about.png"
-            alt="Attendees at Tech Week Singapore"
+            src={IMAGES.about.src}
+            alt={IMAGES.about.alt}
             fill
             className="object-cover"
           />
