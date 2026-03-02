@@ -20,7 +20,9 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      // Stay transparent throughout the hero section, turn black near its end
+      const heroHeight = window.innerHeight - 100;
+      setScrolled(window.scrollY > heroHeight);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -28,11 +30,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 ${scrolled
           ? "bg-black/90 backdrop-blur-md border-b border-white/5"
           : "bg-transparent"
-      }`}
+        }`}
     >
       <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between h-20">
         {/* Logo */}
@@ -63,10 +64,9 @@ export default function Header() {
         <nav
           className={`
             hidden xl:flex items-center gap-7
-            ${
-              menuOpen
-                ? "flex! fixed top-20 left-0 right-0 bg-black/97 flex-col px-8 py-6 gap-5 border-b border-white/10 z-50"
-                : ""
+            ${menuOpen
+              ? "flex! fixed top-20 left-0 right-0 bg-black/97 flex-col px-8 py-6 gap-5 border-b border-white/10 z-50"
+              : ""
             }
           `}
         >

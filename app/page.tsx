@@ -10,6 +10,8 @@ import SponsorsSection from "./components/SponsorsSection";
 // import TestimonialsSection from "./components/TestimonialsSection";
 // import NewsSection from "./components/NewsSection";
 import Footer from "./components/Footer";
+import CountdownBar from "./components/CountdownBar";
+import TracksSection from "./components/TracksSection";
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <TracksSection />
         {/* <CoLocatedBar /> */}
         {/* <ShowsCtaSection /> */}
         {/* <AwardBanner /> */}
@@ -28,6 +31,7 @@ export default function Home() {
         {/* <NewsSection /> */}
       </main>
       <Footer />
+      <CountdownBar />
     </>
   );
 }

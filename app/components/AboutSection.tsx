@@ -24,45 +24,42 @@ export default function AboutSection() {
           </h2>
 
           <h3 className="text-2xl md:text-[32px] font-bold mb-6 leading-tight">
-            Tech Week Singapore: Your Gateway to Asia
+            Babcock Tech Week: Driving Innovation in Africa
           </h3>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-5">
-            Tech Week Singapore is the most important technology event for
-            business in Asia.
+            Babcock Tech Week is the premier technology event at Babcock
+            University, bringing together students, industry leaders, and
+            innovators from across Africa.
           </p>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-5">
-            Over 29,000 business leaders and visionaries across all technology
-            verticals come together to attend Tech Week Singapore to learn,
-            network and shape their organisation&apos;s future. With over 500
-            exhibitors, #TWS is your gateway to placing your brand among leading
-            solution providers or breaking into the Asia market.
+            Over 28,000 attendees, tech enthusiasts, and visionaries across all
+            technology verticals come together at Babcock Tech Week to learn,
+            network, and shape the future of technology. With over 400
+            exhibitors, #BTW is your gateway to connecting with leading solution
+            providers and the next generation of tech talent.
           </p>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-4">
-            Tech Week Singapore will return on{" "}
+            Babcock Tech Week 2026 returns on{" "}
             <strong className="text-white underline">
-              29-30 September 2026
+              22-29 March 2026
             </strong>
-            , presenting five co-located events: Cloud & AI Infrastructure Asia,
-            DevOps Live!, Cyber Security World Asia, Data Centre World Asia and
-            Big Data & AI World Asia.
+            , featuring exhibitions, workshops, hackathons, panel discussions,
+            and keynote sessions from global tech leaders.
           </p>
 
           <p className="text-[15px] text-gray-300 leading-relaxed mb-8">
-            <a href="#" className="underline text-white">
-              eCommerce Expo | DMEXCO Asia
-            </a>{" "}
-            will return from{" "}
-            <strong className="text-white">7-8 April 2027</strong>.
+            Don&apos;t miss the opportunity to be part of West Africa&apos;s
+            largest student-led technology event.
           </p>
 
           <a
             href="#"
             className="inline-block bg-white text-black py-4 px-9 rounded-full text-[13px] font-bold tracking-widest uppercase hover:bg-gray-200 transition-all"
           >
-            BOOK A STAND
+            REGISTER NOW
           </a>
         </div>
       </div>
