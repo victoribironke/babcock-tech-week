@@ -2,7 +2,7 @@ import Image from "next/image";
 import { IMAGES } from "../lib/constants";
 
 const stats = [
-  { number: "28,526", label: "attendees visited Tech Week Singapore 2025" },
+  { number: "28,526", label: "attendees at Babcock Tech Week 2025" },
   { number: "488+", label: "International speakers and thought-leaders" },
   { number: "466+", label: "Global tech and solution providers" },
   { number: "80%", label: "would attend again in 2026" },
@@ -17,7 +17,7 @@ const images = [
 
 function StatCard({ number, label }: { number: string; label: string }) {
   return (
-    <div className="border border-white/15 rounded-3xl py-8 md:py-12 px-5 md:px-8 flex flex-col items-center justify-center text-center">
+    <div className="relative border-[1.5px] border-white/25 rounded-[20px] py-8 md:py-12 px-5 md:px-8 flex flex-col items-center justify-center text-center shadow-[inset_0_0_30px_rgba(255,255,255,0.03)] hover:border-white/40 transition-all duration-300">
       <div className="text-4xl md:text-5xl font-bold mb-3">{number}</div>
       <div className="text-sm text-gray-300 leading-relaxed">{label}</div>
     </div>

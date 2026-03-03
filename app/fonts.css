@@ -1,0 +1,46 @@
+/* Custom Font Declarations */
+/* This file is separate from globals.css so Tailwind CSS v4 won't strip these rules */
+
+@font-face {
+    font-family: "Incompleeta";
+    src: url("/fonts/IncompleetaLight.woff2") format("woff2"),
+        url("/fonts/IncompleetaLight.woff") format("woff");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Incompleeta";
+    src: url("/fonts/IncompleetaLightItalic.woff2") format("woff2"),
+        url("/fonts/IncompleetaLightItalic.woff") format("woff");
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Incompleeta";
+    src: url("/fonts/IncompleetaRegular.woff2") format("woff2"),
+        url("/fonts/IncompleetaRegular.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Incompleeta";
+    src: url("/fonts/IncompleetaItalic.woff2") format("woff2"),
+        url("/fonts/IncompleetaItalic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Novecento WideDemiBold";
+    src: url("/fonts/NovecentoWideDemiBold.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}

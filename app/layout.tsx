@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Google_Sans } from "next/font/google";
 import "./globals.css";
+import "./fonts.css";
 
 const googleSans = Google_Sans({
   variable: "--font-google-sans",
