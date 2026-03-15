@@ -16,21 +16,21 @@ import TracksSection from "./components/TracksSection";
 export default function Home() {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <main>
         <Hero />
-        <TracksSection />
+        {/* <TracksSection /> */}
         {/* <CoLocatedBar /> */}
         {/* <ShowsCtaSection /> */}
         {/* <AwardBanner /> */}
-        <StatsGrid />
+        {/* <StatsGrid />
         <AboutSection />
         <SpeakersSection />
-        <SponsorsSection />
+        <SponsorsSection /> */}
         {/* <TestimonialsSection /> */}
         {/* <NewsSection /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
       <CountdownBar />
     </>
   );

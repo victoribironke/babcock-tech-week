@@ -34,7 +34,7 @@ export default function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex gap-5 mt-4 flex-wrap justify-center">
+        {/* <div className="flex gap-5 mt-4 flex-wrap justify-center">
           <a
             href="#"
             className="bg-white text-black py-4.5 px-10 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-gray-200 transition-all cursor-pointer"
@@ -47,7 +47,7 @@ export default function Hero() {
           >
             REGISTER INTEREST FOR 2026
           </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );
