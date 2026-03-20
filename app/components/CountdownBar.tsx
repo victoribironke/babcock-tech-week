@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const TARGET_DATE = new Date("2026-03-22T09:00:00+01:00"); // March 22, 2026 9AM WAT
 
@@ -36,11 +35,18 @@ export default function CountdownBar() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft | null>(null);
 
   useEffect(() => {
-    setTimeLeft(getTimeLeft());
+    const timeout = setTimeout(() => {
+      setTimeLeft(getTimeLeft());
+    }, 0);
+    
     const interval = setInterval(() => {
       setTimeLeft(getTimeLeft());
     }, 1000);
-    return () => clearInterval(interval);
+    
+    return () => {
+      clearTimeout(timeout);
+      clearInterval(interval);
+    };
   }, []);
 
   // Don't render until client-side hydration is complete
