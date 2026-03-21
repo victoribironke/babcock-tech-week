@@ -17,24 +17,24 @@ export default function SponsorsSection() {
         </p>
 
         {/* Brought to you by */}
-        <div className="mb-16">
-          <div className="flex justify-center mb-6">
-            <span className="bg-lime text-black text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full inline-flex items-center gap-2">
-              🤝 BROUGHT TO YOU BY
+        <div className="mb-16 w-full">
+          <div className="flex justify-center mb-8">
+            <span className="bg-lime text-black text-[10px] md:text-xs font-bold tracking-widest uppercase px-8 py-2.5 rounded-full inline-flex items-center shadow-sm">
+              BROUGHT TO YOU BY
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full">
             {PARTNERS.map((partner) => (
               <div
                 key={partner.name}
-                className={`${partner.bgClass || 'bg-gray-50'} rounded-xl h-28 md:h-40 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow relative overflow-hidden`}
+                className={`${partner.bgClass || "bg-gray-50"} rounded-xl w-[45%] md:w-[320px] h-28 md:h-48 flex items-center justify-center hover:shadow-md transition-shadow relative overflow-hidden`}
               >
                 {partner.logo ? (
                   <Image
                     src={partner.logo}
                     alt={`${partner.name} logo`}
                     fill
-                    className={`${partner.name === 'IEEE' ? 'object-cover p-0' : 'object-contain p-4 md:p-8'} ${partner.blend ? 'mix-blend-multiply' : ''}`}
+                    className={`${partner.name === "IEEE" ? "object-cover p-0" : "object-contain p-4 md:p-8"} ${partner.blend ? "mix-blend-multiply" : ""}`}
                   />
                 ) : (
                   <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 p-4">
@@ -48,32 +48,31 @@ export default function SponsorsSection() {
 
         {/* Sponsor Tiers */}
         {SPONSOR_TIERS.map((tier, i) => (
-          <div key={i} className="mb-12">
-            {/* Blue divider for silver */}
-            {tier.divider && <div className="w-full h-px bg-blue-400 mb-12" />}
-
+          <div key={i} className="mb-14 w-full">
             {/* Tier Badge */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-8">
               <span
-                className={`${tier.badgeColor} text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full inline-flex items-center gap-2`}
+                className={`${tier.badgeColor} text-[10px] md:text-xs font-bold tracking-widest uppercase px-8 py-2.5 rounded-full inline-flex items-center justify-center text-center`}
               >
-                {tier.icon} {tier.name}
+                {tier.name}
               </span>
             </div>
 
             {/* Sponsor Cards */}
-            <div className={`grid ${tier.cols} gap-4`}>
+            <div
+              className={`${tier.cols || "flex flex-wrap justify-center w-full"} gap-4 md:gap-6`}
+            >
               {tier.sponsors.map((sponsor) => (
                 <div
                   key={sponsor.name}
-                  className={`${sponsor.bgClass || `${tier.cardBg} ${tier.cardBorder}`} rounded-xl ${tier.cardSize} px-6 flex items-center justify-center hover:shadow-md transition-shadow relative overflow-hidden`}
+                  className={`${sponsor.bgClass || `${tier.cardBg} ${tier.cardBorder}`} rounded-xl ${tier.cardSize} flex items-center justify-center hover:shadow-md transition-shadow relative overflow-hidden`}
                 >
                   {sponsor.logo ? (
                     <Image
                       src={sponsor.logo}
                       alt={`${sponsor.name} logo`}
                       fill
-                      className={`object-contain p-2 ${sponsor.blend ? 'mix-blend-multiply' : ''}`}
+                      className={`object-contain p-4 md:p-8 ${sponsor.blend ? "mix-blend-multiply" : ""}`}
                     />
                   ) : (
                     <span
