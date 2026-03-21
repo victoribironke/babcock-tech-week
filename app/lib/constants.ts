@@ -54,18 +54,19 @@ export const PARTNERS: Partner[] = [
   {
     name: "IEEE",
     description: "Institute of Electrical & Electronics Engineers",
-    logo: "/images/partners/ieee.jpg",
+    logo: "/images/partners/ieee.webp",
     bgClass: "bg-black",
   },
 ];
 
 export const SPONSOR_TIERS: Tier[] = [
   {
-    name: "HEADLINE PARTNER",
-    icon: "👑",
-    badgeColor: "bg-black text-white",
+    name: "HEADLINE SPONSOR",
+    icon: "",
+    badgeColor:
+      "bg-gradient-to-b from-gray-200 to-gray-300 text-black shadow-inner",
     cardBg: "bg-white",
-    cardBorder: "",
+    cardBorder: "border border-gray-200 shadow-sm",
     sponsors: [
       {
         name: "Paystack",
@@ -73,29 +74,29 @@ export const SPONSOR_TIERS: Tier[] = [
         blend: true,
       },
     ],
-    cols: "grid-cols-1",
-    cardSize: "h-40 md:h-56",
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-full md:w-[600px] h-32 md:h-48",
     logoSize: "text-3xl md:text-4xl",
   },
   {
-    name: "GOLD SPONSOR",
-    icon: "🏆",
-    badgeColor: "bg-amber-500 text-white",
-    cardBg: "bg-amber-50",
-    cardBorder: "",
+    name: "GOLD SPONSORS",
+    icon: "",
+    badgeColor: "bg-[#ffb703] text-black shadow-sm",
+    cardBg: "bg-[#fffdf8]",
+    cardBorder: "border border-[#ffe3a1] shadow-sm",
     sponsors: [
       { name: "MTN", logo: "/images/sponsors/gold/mtn.svg", blend: true },
     ],
-    cols: "grid-cols-1 md:max-w-2xl mx-auto",
-    cardSize: "h-32 md:h-48",
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
     logoSize: "text-xl md:text-2xl",
   },
   {
-    name: "SILVER SPONSOR",
-    icon: "🥈",
-    badgeColor: "bg-gray-400 text-white",
-    cardBg: "bg-white",
-    cardBorder: "",
+    name: "SILVER SPONSORS",
+    icon: "",
+    badgeColor: "bg-gray-300 text-gray-900 shadow-sm",
+    cardBg: "bg-gray-50",
+    cardBorder: "border border-gray-200 shadow-sm",
     sponsors: [
       {
         name: "Arravo",
@@ -103,17 +104,16 @@ export const SPONSOR_TIERS: Tier[] = [
         blend: true,
       },
     ],
-    cols: "grid-cols-1 md:max-w-xl mx-auto",
-    cardSize: "h-28 md:h-40",
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
     logoSize: "text-lg md:text-xl",
-    divider: true,
   },
   {
     name: "ASSOCIATE SPONSORS",
-    icon: "🤝",
-    badgeColor: "bg-blue-600 text-white",
-    cardBg: "bg-blue-50",
-    cardBorder: "",
+    icon: "",
+    badgeColor: "bg-[#000040] text-white shadow-sm",
+    cardBg: "bg-white",
+    cardBorder: "border border-gray-200 shadow-sm",
     sponsors: [
       {
         name: "Blue Marina",
@@ -131,16 +131,16 @@ export const SPONSOR_TIERS: Tier[] = [
         blend: true,
       },
     ],
-    cols: "grid-cols-2 md:grid-cols-3",
-    cardSize: "h-24 md:h-32",
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
     logoSize: "text-lg md:text-xl",
   },
   {
     name: "EXHIBITORS & STRATEGIC PARTNERS",
-    icon: "🚀",
-    badgeColor: "bg-teal-600 text-white",
+    icon: "",
+    badgeColor: "bg-teal-700 text-white shadow-sm",
     cardBg: "bg-teal-50",
-    cardBorder: "",
+    cardBorder: "border border-teal-200 shadow-sm",
     sponsors: [
       {
         name: "Access Holdings",
@@ -173,16 +173,16 @@ export const SPONSOR_TIERS: Tier[] = [
         blend: true,
       },
     ],
-    cols: "grid-cols-2 md:grid-cols-3",
-    cardSize: "h-24 md:h-32",
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
     logoSize: "text-lg md:text-xl",
   },
   {
     name: "MEDIA PARTNERS",
-    icon: "📺",
-    badgeColor: "bg-indigo-600 text-white",
+    icon: "",
+    badgeColor: "bg-indigo-700 text-white shadow-sm",
     cardBg: "bg-indigo-50",
-    cardBorder: "",
+    cardBorder: "border border-indigo-200 shadow-sm",
     sponsors: [
       {
         name: "NTBTS",
@@ -190,8 +190,8 @@ export const SPONSOR_TIERS: Tier[] = [
         bgClass: "bg-black",
       },
     ],
-    cols: "grid-cols-1 md:max-w-md mx-auto",
-    cardSize: "h-24 md:h-32",
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
     logoSize: "text-lg md:text-xl",
   },
 ];
