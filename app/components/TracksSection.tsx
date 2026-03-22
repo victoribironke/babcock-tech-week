@@ -19,14 +19,7 @@ const tracks = [
         description:
             "Transforming finance through technology, from digital banking platforms to immersive investment experiences",
     },
-    {
-        name: "Tech x AI",
-        color: "#a78bfa",
-        icon: "/images/techxai.png",
-        iconSize: "w-20 h-20",
-        description:
-            "Artificial intelligence, machine learning, deep learning and the future of intelligent systems.",
-    },
+
     {
         name: "CreativeTech",
         color: "#38bdf8",
@@ -81,13 +74,13 @@ export default function TracksSection() {
                 {/* Heading */}
                 <div className="mb-12 md:mb-16">
                     <h2 className="text-3xl md:text-[42px] font-bold leading-tight mb-4">
-                        Attend 4 Tracks with 1 Ticket
+                        Attend 3 Tracks with 1 Ticket
                     </h2>
                     <div className="w-16 h-[3px] bg-white" />
                 </div>
 
                 {/* Track Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mb-12">
                     {tracks.map((track) => (
                         <div key={track.name} className="group">
                             {/* Track icon */}
