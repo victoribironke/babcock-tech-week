@@ -167,11 +167,11 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/exhibitors-and-strategic/oadc.jpg",
         blend: true,
       },
-      {
-        name: "Quales",
-        logo: "/images/sponsors/exhibitors-and-strategic/quales.svg",
-        blend: true,
-      },
+      // {
+      //   name: "Quales",
+      //   logo: "/images/sponsors/exhibitors-and-strategic/quales.svg",
+      //   blend: true,
+      // },
     ],
     cols: "flex flex-wrap justify-center w-full",
     cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
@@ -193,5 +193,49 @@ export const SPONSOR_TIERS: Tier[] = [
     cols: "flex flex-wrap justify-center w-full",
     cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
     logoSize: "text-lg md:text-xl",
+  },
+];
+
+export type Speaker = {
+  name: string;
+  title: string;
+  company: string;
+  bio: string;
+  image: string;
+  category: string;
+};
+
+export const SPEAKERS: Speaker[] = [
+  {
+    name: "Ayotunde Coker",
+    title: "Chief Executive Officer",
+    company: "Open Access Data Centres (OADC)",
+    image: "/images/speakers/ayotunde-coker.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Dr. Ayotunde Coker is one of Africa's foremost leaders in the development of the data centre industry, and served as founding Chairperson of the Africa Data Centres Association (ADCA). As CEO of Open Access Data Centres (OADC), he leads the construction and operation of a pan-African network of world-class, Tier III certified data centre facilities.\n\nBefore joining OADC, Dr. Coker built Rack Centre into a household name in Nigeria and a leading data centre brand across Africa, earning global recognition and numerous prestigious international awards. His distinguished career spans senior leadership roles in finance, energy, management consulting, and the UK Government.\n\nHe holds an MSc from Cranfield Institute of Technology, where he was also recognised with the Distinguished Manufacturing Alumni Award in 2020, and was named one of the Global Top 30 Edge Computing Leaders by Data Economy Magazine that same year.",
+  },
+  {
+    name: "Fatumata Soukouna Coker",
+    title: "Chairman, Board of Directors",
+    company: "CreditRegistry & Afrinvest West Africa",
+    image: "/images/speakers/fatumata-coker.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Dr. Fatumata Soukouna Coker is a distinguished technology executive and Chairman of the Board of Directors at CreditRegistry, Nigeria's pioneer and largest credit bureau. She brings over 20 years of global leadership experience at Fortune 500 companies including IBM and Microsoft, where she led Microsoft's partner ecosystem across West, Central, and East Africa.\n\nA specialist in emerging markets, she has driven transformative growth across the USA, Africa, and the Middle East, and served as CEO of Soft Solutions Limited. In addition to her role at CreditRegistry, she is Chairman of Afrinvest West Africa and founder of Ygroup Holdings. She co-founded the Centre for Women and Children Empowerment (CEWCE) and actively mentors future leaders through institutions including Lagos Business School and Emory University.",
+  },
+  {
+    name: "Ayo Adegboye",
+    title: "Group Chief Executive Officer",
+    company: "Arravo Technology Limited",
+    image: "/images/speakers/ayo-adegboye.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Dr. Ayo Adegboye is the Group CEO of Arravo Technology Limited, one of Nigeria's leading global systems integrators and managed services providers. He was appointed Managing Director of BCX Nigeria in August 2016 and subsequently led the management buyout that transformed the company into Arravo — now operating across Nigeria, Kenya, Ghana, and Côte d'Ivoire.\n\nBefore Arravo, he held senior roles at Schneider Electric as Vice President of ITB for West Africa, at IBM as ITS Business Leader, at Samsung as Director of B2B, and at MTN as Enterprise Business Manager. He is a Fellow of the Institute of Information Management Africa and the Institute of Strategic Management Nigeria, and has completed executive programmes at IESE Business School in Barcelona.",
+  },
+  {
+    name: "Chijioke Iteghete",
+    title: "Group Chief Information Officer",
+    company: "ARM Holding Company Limited (ARM HoldCo)",
+    image: "/images/speakers/chijioke-iteghete.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Chijioke Iteghete is a seasoned digital and technology executive with over 16 years of experience across banking, asset management, pensions, and capital markets. As Group CIO of ARM Holding Company, he leads the organisation's enterprise-wide technology and digital transformation agenda across multiple regulated businesses.\n\nHe has a strong track record of building and commercialising digital platforms at scale — including a unified investment super-app and transaction platforms that processed over ₦40 billion within months of deployment. Prior to ARM, he served as CIO/CDO at Coronation Registrars and CTO at Secured Records Management Solutions. He holds a degree in Information Management Technology from the Federal University of Technology, Owerri, and has completed executive programmes at Cambridge Judge Business School and Lagos Business School.",
   },
 ];
