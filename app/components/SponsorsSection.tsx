@@ -72,7 +72,9 @@ export default function SponsorsSection() {
                       src={sponsor.logo}
                       alt={`${sponsor.name} logo`}
                       fill
-                      className={`object-contain p-4 md:p-8 ${sponsor.blend ? "mix-blend-multiply" : ""}`}
+                      className={`object-contain ${
+                        sponsor.paddingClass || "p-4 md:p-8"
+                      } ${sponsor.blend ? "mix-blend-multiply" : ""}`}
                     />
                   ) : (
                     <span
