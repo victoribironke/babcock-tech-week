@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const tracks = [
@@ -31,38 +32,25 @@ const tracks = [
 ];
 
 export default function TracksSection() {
-    const sectionRef = useRef<HTMLDivElement>(null);
-    const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                }
-            },
-            { threshold: 0.15 }
-        );
-
-        if (sectionRef.current) {
-            observer.observe(sectionRef.current);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
         }
+      },
+      { threshold: 0.15 },
+    );
 
-        return () => observer.disconnect();
-    }, []);
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-    return (
-        <section ref={sectionRef} className="relative bg-black">
-            {/* Colored Track Line Divider */}
-            <div className="flex w-full h-[3px]">
-                {tracks.map((track) => (
-                    <div
-                        key={track.name}
-                        className="flex-1"
-                        style={{ backgroundColor: track.color }}
-                    />
-                ))}
-            </div>
+    return () => observer.disconnect();
+  }, []);
 
             {/* Content */}
             <div
@@ -110,6 +98,17 @@ export default function TracksSection() {
                     REGISTER NOW
                 </a>
             </div>
-        </section>
-    );
+          ))}
+        </div>
+
+        {/* CTA */}
+        <a
+          href="#"
+          className="inline-block bg-white text-black py-4 px-9 rounded-full text-[13px] font-bold tracking-widest uppercase hover:bg-gray-200 transition-all"
+        >
+          REGISTER NOW
+        </a>
+      </div>
+    </section>
+  );
 }

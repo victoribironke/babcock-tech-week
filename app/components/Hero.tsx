@@ -5,7 +5,7 @@ import { IMAGES } from "../lib/constants";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen min-h-[700px] flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative w-full h-screen min-h-175 flex flex-col items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -34,18 +34,20 @@ export default function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex gap-5 mt-4 flex-wrap justify-center">
+        <div className="flex gap-4 md:gap-5 mt-4 flex-wrap justify-center">
           <a
-            href="#"
-            className="bg-white text-black py-4.5 px-10 rounded-full text-sm font-bold tracking-widest uppercase hover:bg-gray-200 transition-all cursor-pointer"
+            href="https://lu.ma/btw26"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-white text-black py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase hover:bg-gray-200 transition-all cursor-pointer shadow-lg"
           >
-            EXHIBIT NOW
+            VIEW SCHEDULE
           </a>
           <a
-            href="#"
-            className="bg-black/85 text-white py-4.5 px-10 rounded-full text-sm font-bold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer"
+            href="mailto:babcocktechweek@gmail.com"
+            className="bg-black/85 text-white py-4 px-8 md:px-10 rounded-full text-xs md:text-sm font-extrabold tracking-widest uppercase border border-white/20 hover:bg-white/15 transition-all cursor-pointer backdrop-blur-sm"
           >
-            REGISTER INTEREST FOR 2026
+            PARTNER WITH US
           </a>
         </div>
       </div>

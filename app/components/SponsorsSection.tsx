@@ -1,93 +1,7 @@
 "use client";
 
-const tiers = [
-  {
-    name: "HEADLINE PARTNER",
-    icon: "👑",
-    badgeColor: "bg-black text-white",
-    cardBg: "bg-white",
-    cardBorder: "border border-gray-200",
-    sponsors: [{ name: "TechCorp Global" }],
-    cols: "grid-cols-1",
-    cardSize: "py-10 md:py-14",
-    logoSize: "text-3xl md:text-4xl",
-  },
-  {
-    name: "PLATINUM SPONSOR",
-    icon: "💎",
-    badgeColor: "bg-gray-800 text-white",
-    cardBg: "bg-white",
-    cardBorder: "border border-gray-200",
-    sponsors: [{ name: "Luno" }],
-    cols: "grid-cols-1",
-    cardSize: "py-8 md:py-12",
-    logoSize: "text-2xl md:text-3xl",
-  },
-  {
-    name: "GOLD SPONSORS",
-    icon: "🏆",
-    badgeColor: "bg-amber-500 text-white",
-    cardBg: "bg-amber-50",
-    cardBorder: "border border-amber-100",
-    sponsors: [
-      { name: "Odoo" },
-      { name: "Open Access" },
-      { name: "Monica" },
-      { name: "BMONI" },
-    ],
-    cols: "grid-cols-2",
-    cardSize: "py-8 md:py-10",
-    logoSize: "text-xl md:text-2xl",
-  },
-  {
-    name: "SILVER SPONSORS",
-    icon: "🥈",
-    badgeColor: "bg-gray-400 text-white",
-    cardBg: "bg-white",
-    cardBorder: "border border-blue-200",
-    sponsors: [
-      { name: "Prestmit" },
-      { name: "AWS" },
-      { name: "Bluebulb" },
-      { name: "Ethnos" },
-    ],
-    cols: "grid-cols-2",
-    cardSize: "py-6 md:py-8",
-    logoSize: "text-lg md:text-xl",
-    divider: true,
-  },
-  {
-    name: "BRONZE SPONSORS",
-    icon: "🥉",
-    badgeColor: "bg-orange-700 text-white",
-    cardBg: "bg-orange-50",
-    cardBorder: "border border-orange-100",
-    sponsors: [{ name: "Mastercard" }],
-    cols: "grid-cols-2",
-    cardSize: "py-6 md:py-8",
-    logoSize: "text-lg md:text-xl",
-  },
-  {
-    name: "MEDIA PARTNERS",
-    icon: "📺",
-    badgeColor: "bg-indigo-600 text-white",
-    cardBg: "bg-indigo-50",
-    cardBorder: "border border-indigo-100",
-    sponsors: [{ name: "TechCrunch" }, { name: "The Verge" }],
-    cols: "grid-cols-2",
-    cardSize: "py-6 md:py-8",
-    logoSize: "text-lg md:text-xl",
-  },
-];
-
-const partners = [
-  { name: "BUCC", description: "Babcock University Computer Club" },
-  { name: "GDG", description: "Google Developer Groups" },
-  {
-    name: "IEEE",
-    description: "Institute of Electrical & Electronics Engineers",
-  },
-];
+import Image from "next/image";
+import { SPONSOR_TIERS, PARTNERS } from "../lib/constants";
 
 export default function SponsorsSection() {
   return (
@@ -103,56 +17,72 @@ export default function SponsorsSection() {
         </p>
 
         {/* Brought to you by */}
-        <div className="mb-16">
-          <div className="flex justify-center mb-6">
-            <span className="bg-lime text-black text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full inline-flex items-center gap-2">
-              🤝 BROUGHT TO YOU BY
+        <div className="mb-16 w-full">
+          <div className="flex justify-center mb-8">
+            <span className="bg-lime text-black text-[10px] md:text-xs font-bold tracking-widest uppercase px-8 py-2.5 rounded-full inline-flex items-center shadow-sm">
+              BROUGHT TO YOU BY
             </span>
           </div>
-          <div className="grid grid-cols-3 gap-4">
-            {partners.map((partner) => (
+          <div className="flex flex-wrap justify-center gap-4 md:gap-6 w-full">
+            {PARTNERS.map((partner) => (
               <div
                 key={partner.name}
-                className="bg-gray-50 border border-gray-200 rounded-xl py-8 md:py-10 px-4 flex flex-col items-center justify-center text-center hover:shadow-md transition-shadow"
+                className={`${partner.bgClass || "bg-gray-50"} rounded-xl w-[45%] md:w-[320px] h-28 md:h-48 flex items-center justify-center hover:shadow-md transition-shadow relative overflow-hidden`}
               >
-                <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 mb-1">
-                  {partner.name}
-                </div>
-                <p className="text-[10px] md:text-xs text-gray-400 leading-snug">
-                  {partner.description}
-                </p>
+                {partner.logo ? (
+                  <Image
+                    src={partner.logo}
+                    alt={`${partner.name} logo`}
+                    fill
+                    className={`${partner.name === "IEEE" ? "object-cover p-0" : "object-contain p-4 md:p-8"} ${partner.blend ? "mix-blend-multiply" : ""}`}
+                  />
+                ) : (
+                  <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 p-4">
+                    {partner.name}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </div>
 
         {/* Sponsor Tiers */}
-        {tiers.map((tier, i) => (
-          <div key={i} className="mb-12">
-            {/* Blue divider for silver */}
-            {tier.divider && <div className="w-full h-px bg-blue-400 mb-12" />}
-
+        {SPONSOR_TIERS.map((tier, i) => (
+          <div key={i} className="mb-14 w-full">
             {/* Tier Badge */}
-            <div className="flex justify-center mb-6">
+            <div className="flex justify-center mb-8">
               <span
-                className={`${tier.badgeColor} text-xs font-bold tracking-widest uppercase px-5 py-2 rounded-full inline-flex items-center gap-2`}
+                className={`${tier.badgeColor} text-[10px] md:text-xs font-bold tracking-widest uppercase px-8 py-2.5 rounded-full inline-flex items-center justify-center text-center`}
               >
-                {tier.icon} {tier.name}
+                {tier.name}
               </span>
             </div>
 
             {/* Sponsor Cards */}
-            <div className={`grid ${tier.cols} gap-4`}>
+            <div
+              className={`${tier.cols || "flex flex-wrap justify-center w-full"} gap-4 md:gap-6`}
+            >
               {tier.sponsors.map((sponsor) => (
                 <div
                   key={sponsor.name}
-                  className={`${tier.cardBg} ${tier.cardBorder} rounded-xl ${tier.cardSize} px-6 flex items-center justify-center hover:shadow-md transition-shadow`}
+                  className={`${sponsor.bgClass || `${tier.cardBg} ${tier.cardBorder}`} rounded-xl ${tier.cardSize} flex items-center justify-center hover:shadow-md transition-shadow relative overflow-hidden`}
                 >
-                  <span
-                    className={`${tier.logoSize} font-bold text-gray-700 tracking-wide`}
-                  >
-                    {sponsor.name}
-                  </span>
+                  {sponsor.logo ? (
+                    <Image
+                      src={sponsor.logo}
+                      alt={`${sponsor.name} logo`}
+                      fill
+                      className={`object-contain ${
+                        sponsor.paddingClass || "p-4 md:p-8"
+                      } ${sponsor.blend ? "mix-blend-multiply" : ""}`}
+                    />
+                  ) : (
+                    <span
+                      className={`${tier.logoSize} font-bold text-gray-700 tracking-wide z-10`}
+                    >
+                      {sponsor.name}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>

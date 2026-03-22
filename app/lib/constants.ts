@@ -9,3 +9,241 @@ export const IMAGES = {
   stats3: { src: "/images/stats-3.png", alt: "Exhibition floor" },
   stats4: { src: "/images/stats-4.png", alt: "Audience participation" },
 };
+
+export type Sponsor = {
+  name: string;
+  logo?: string;
+  bgClass?: string;
+  blend?: boolean;
+  paddingClass?: string;
+};
+
+export type Tier = {
+  name: string;
+  icon: string;
+  badgeColor: string;
+  cardBg: string;
+  cardBorder: string;
+  sponsors: Sponsor[];
+  cols: string;
+  cardSize: string;
+  logoSize: string;
+  divider?: boolean;
+};
+
+export type Partner = {
+  name: string;
+  description: string;
+  logo: string;
+  bgClass?: string;
+  blend?: boolean;
+};
+
+export const PARTNERS: Partner[] = [
+  {
+    name: "BUCC",
+    description: "Babcock University Computer Club",
+    logo: "/images/partners/bucc.png",
+    bgClass: "bg-slate-900",
+  },
+  {
+    name: "GDG",
+    description: "Google Developer Groups",
+    logo: "/images/partners/gdg-babcock.webp",
+    bgClass: "bg-slate-900",
+  },
+  {
+    name: "IEEE",
+    description: "Institute of Electrical & Electronics Engineers",
+    logo: "/images/partners/ieee.webp",
+    bgClass: "bg-black",
+  },
+];
+
+export const SPONSOR_TIERS: Tier[] = [
+  {
+    name: "HEADLINE SPONSOR",
+    icon: "",
+    badgeColor:
+      "bg-gradient-to-b from-gray-200 to-gray-300 text-black shadow-inner",
+    cardBg: "bg-white",
+    cardBorder: "border border-gray-200 shadow-sm",
+    sponsors: [
+      {
+        name: "Paystack",
+        logo: "/images/sponsors/headline/paystack.svg",
+        blend: true,
+      },
+    ],
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-full md:w-[480px] h-28 md:h-40",
+    logoSize: "text-3xl md:text-4xl",
+  },
+  {
+    name: "GOLD SPONSORS",
+    icon: "",
+    badgeColor: "bg-[#ffb703] text-black shadow-sm",
+    cardBg: "bg-[#fffdf8]",
+    cardBorder: "border border-[#ffe3a1] shadow-sm",
+    sponsors: [
+      { name: "MTN", logo: "/images/sponsors/gold/mtn.svg", blend: true },
+    ],
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
+    logoSize: "text-xl md:text-2xl",
+  },
+  {
+    name: "SILVER SPONSORS",
+    icon: "",
+    badgeColor: "bg-gray-300 text-gray-900 shadow-sm",
+    cardBg: "bg-gray-50",
+    cardBorder: "border border-gray-200 shadow-sm",
+    sponsors: [
+      {
+        name: "Arravo",
+        logo: "/images/sponsors/silver/arravo.png",
+        blend: true,
+      },
+    ],
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
+    logoSize: "text-lg md:text-xl",
+  },
+  {
+    name: "ASSOCIATE SPONSORS",
+    icon: "",
+    badgeColor: "bg-[#000040] text-white shadow-sm",
+    cardBg: "bg-white",
+    cardBorder: "border border-gray-200 shadow-sm",
+    sponsors: [
+      {
+        name: "Blue Marina",
+        logo: "/images/sponsors/associate/blue-marina.png",
+        blend: true,
+      },
+      {
+        name: "Cordros",
+        logo: "/images/sponsors/associate/cordros.png",
+        blend: true,
+        paddingClass: "p-2 md:p-4",
+      },
+      {
+        name: "Octico",
+        logo: "/images/sponsors/associate/octico.jpg",
+        blend: true,
+        paddingClass: "p-2 md:p-4",
+      },
+    ],
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
+    logoSize: "text-lg md:text-xl",
+  },
+  {
+    name: "EXHIBITORS & STRATEGIC PARTNERS",
+    icon: "",
+    badgeColor: "bg-teal-700 text-white shadow-sm",
+    cardBg: "bg-teal-50",
+    cardBorder: "border border-teal-200 shadow-sm",
+    sponsors: [
+      {
+        name: "Access Holdings",
+        logo: "/images/sponsors/exhibitors-and-strategic/access-holdings.svg",
+        bgClass: "bg-teal-950",
+      },
+      {
+        name: "Afrinvest",
+        logo: "/images/sponsors/exhibitors-and-strategic/afrinvest.png",
+        blend: true,
+      },
+      {
+        name: "ARM",
+        logo: "/images/sponsors/exhibitors-and-strategic/arm.png",
+        blend: true,
+      },
+      {
+        name: "Credit Registry",
+        logo: "/images/sponsors/exhibitors-and-strategic/credit-registry.png",
+        blend: true,
+      },
+      {
+        name: "OADC",
+        logo: "/images/sponsors/exhibitors-and-strategic/oadc.jpg",
+        blend: true,
+      },
+      // {
+      //   name: "Quales",
+      //   logo: "/images/sponsors/exhibitors-and-strategic/quales.svg",
+      //   blend: true,
+      // },
+    ],
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
+    logoSize: "text-lg md:text-xl",
+  },
+  {
+    name: "MEDIA PARTNERS",
+    icon: "",
+    badgeColor: "bg-indigo-700 text-white shadow-sm",
+    cardBg: "bg-indigo-50",
+    cardBorder: "border border-indigo-200 shadow-sm",
+    sponsors: [
+      {
+        name: "NTBTS",
+        logo: "/images/sponsors/media/ntbts.jpg",
+        bgClass: "bg-black",
+      },
+      {
+        name: "The Babcock Torch",
+        logo: "/images/sponsors/media/the-babcock-torch.svg",
+        blend: true,
+      },
+    ],
+    cols: "flex flex-wrap justify-center w-full",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
+    logoSize: "text-lg md:text-xl",
+  },
+];
+
+export type Speaker = {
+  name: string;
+  title: string;
+  company: string;
+  bio: string;
+  image: string;
+  category: string;
+};
+
+export const SPEAKERS: Speaker[] = [
+  {
+    name: "Ayotunde Coker",
+    title: "Chief Executive Officer",
+    company: "Open Access Data Centres (OADC)",
+    image: "/images/speakers/ayotunde-coker.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Dr. Ayotunde Coker is one of Africa's foremost leaders in the development of the data centre industry, and served as founding Chairperson of the Africa Data Centres Association (ADCA). As CEO of Open Access Data Centres (OADC), he leads the construction and operation of a pan-African network of world-class, Tier III certified data centre facilities.\n\nBefore joining OADC, Dr. Coker built Rack Centre into a household name in Nigeria and a leading data centre brand across Africa, earning global recognition and numerous prestigious international awards. His distinguished career spans senior leadership roles in finance, energy, management consulting, and the UK Government.\n\nHe holds an MSc from Cranfield Institute of Technology, where he was also recognised with the Distinguished Manufacturing Alumni Award in 2020, and was named one of the Global Top 30 Edge Computing Leaders by Data Economy Magazine that same year.",
+  },
+  {
+    name: "Fatumata Soukouna Coker",
+    title: "Chairman, Board of Directors",
+    company: "CreditRegistry & Afrinvest West Africa",
+    image: "/images/speakers/fatumata-coker.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Dr. Fatumata Soukouna Coker is a distinguished technology executive and Chairman of the Board of Directors at CreditRegistry, Nigeria's pioneer and largest credit bureau. She brings over 20 years of global leadership experience at Fortune 500 companies including IBM and Microsoft, where she led Microsoft's partner ecosystem across West, Central, and East Africa.\n\nA specialist in emerging markets, she has driven transformative growth across the USA, Africa, and the Middle East, and served as CEO of Soft Solutions Limited. In addition to her role at CreditRegistry, she is Chairman of Afrinvest West Africa and founder of Ygroup Holdings. She co-founded the Centre for Women and Children Empowerment (CEWCE) and actively mentors future leaders through institutions including Lagos Business School and Emory University.",
+  },
+  {
+    name: "Ayo Adegboye",
+    title: "Group Chief Executive Officer",
+    company: "Arravo Technology Limited",
+    image: "/images/speakers/ayo-adegboye.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Dr. Ayo Adegboye is the Group CEO of Arravo Technology Limited, one of Nigeria's leading global systems integrators and managed services providers. He was appointed Managing Director of BCX Nigeria in August 2016 and subsequently led the management buyout that transformed the company into Arravo — now operating across Nigeria, Kenya, Ghana, and Côte d'Ivoire.\n\nBefore Arravo, he held senior roles at Schneider Electric as Vice President of ITB for West Africa, at IBM as ITS Business Leader, at Samsung as Director of B2B, and at MTN as Enterprise Business Manager. He is a Fellow of the Institute of Information Management Africa and the Institute of Strategic Management Nigeria, and has completed executive programmes at IESE Business School in Barcelona.",
+  },
+  {
+    name: "Chijioke Iteghete",
+    title: "Group Chief Information Officer",
+    company: "ARM Holding Company Limited (ARM HoldCo)",
+    image: "/images/speakers/chijioke-iteghete.jpeg",
+    category: "Opening Keynote Panel",
+    bio: "Chijioke Iteghete is a seasoned digital and technology executive with over 16 years of experience across banking, asset management, pensions, and capital markets. As Group CIO of ARM Holding Company, he leads the organisation's enterprise-wide technology and digital transformation agenda across multiple regulated businesses.\n\nHe has a strong track record of building and commercialising digital platforms at scale — including a unified investment super-app and transaction platforms that processed over ₦40 billion within months of deployment. Prior to ARM, he served as CIO/CDO at Coronation Registrars and CTO at Secured Records Management Solutions. He holds a degree in Information Management Technology from the Federal University of Technology, Owerri, and has completed executive programmes at Cambridge Judge Business School and Lagos Business School.",
+  },
+];

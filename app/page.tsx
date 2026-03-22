@@ -3,8 +3,8 @@ import Hero from "./components/Hero";
 // import CoLocatedBar from "./components/CoLocatedBar";
 // import ShowsCtaSection from "./components/ShowsCtaSection";
 // import AwardBanner from "./components/AwardBanner";
-import StatsGrid from "./components/StatsGrid";
-import AboutSection from "./components/AboutSection";
+// import StatsGrid from "./components/StatsGrid";
+// import AboutSection from "./components/AboutSection";
 import SpeakersSection from "./components/SpeakersSection";
 import SponsorsSection from "./components/SponsorsSection";
 // import TestimonialsSection from "./components/TestimonialsSection";
@@ -23,8 +23,8 @@ export default function Home() {
         {/* <CoLocatedBar /> */}
         {/* <ShowsCtaSection /> */}
         {/* <AwardBanner /> */}
-        <StatsGrid />
-        <AboutSection />
+        {/* <StatsGrid /> */}
+        {/* <AboutSection /> */}
         <SpeakersSection />
         <SponsorsSection />
         {/* <TestimonialsSection /> */}

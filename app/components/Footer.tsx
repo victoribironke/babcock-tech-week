@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white">
       {/* Newsletter Section */}
-      <div className="border-t border-white/10 py-12 md:py-16 px-4 md:px-10">
+      {/* <div className="border-t border-white/10 py-12 md:py-16 px-4 md:px-10">
         <div className="max-w-[600px] mx-auto text-center">
           <h3 className="text-xl font-bold mb-2">Stay Updated</h3>
           <p className="text-sm text-gray-400 mb-6">
@@ -24,7 +24,7 @@ export default function Footer() {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Footer Grid */}
       <div className="max-w-[1200px] mx-auto py-12 md:py-16 px-4 md:px-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10">
