@@ -15,6 +15,7 @@ export type Sponsor = {
   logo?: string;
   bgClass?: string;
   blend?: boolean;
+  paddingClass?: string;
 };
 
 export type Tier = {
@@ -75,7 +76,7 @@ export const SPONSOR_TIERS: Tier[] = [
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
-    cardSize: "w-full md:w-[600px] h-32 md:h-48",
+    cardSize: "w-full md:w-[480px] h-28 md:h-40",
     logoSize: "text-3xl md:text-4xl",
   },
   {
@@ -124,15 +125,17 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "Cordros",
         logo: "/images/sponsors/associate/cordros.png",
         blend: true,
+        paddingClass: "p-2 md:p-4",
       },
       {
         name: "Octico",
         logo: "/images/sponsors/associate/octico.jpg",
         blend: true,
+        paddingClass: "p-2 md:p-4",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
-    cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
     logoSize: "text-lg md:text-xl",
   },
   {
@@ -189,9 +192,14 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/media/ntbts.jpg",
         bgClass: "bg-black",
       },
+      {
+        name: "The Babcock Torch",
+        logo: "/images/sponsors/media/the-babcock-torch.svg",
+        blend: true,
+      },
     ],
     cols: "flex flex-wrap justify-center w-full",
-    cardSize: "w-[45%] md:w-[220px] h-24 md:h-32",
+    cardSize: "w-[45%] md:w-[320px] h-24 md:h-36",
     logoSize: "text-lg md:text-xl",
   },
 ];
