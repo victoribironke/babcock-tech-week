@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Google_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import "./fonts.css";
 
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${googleSans.variable} antialiased`}>{children}</body>
+      <body className={`${googleSans.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
