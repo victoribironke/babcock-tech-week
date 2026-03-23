@@ -31,7 +31,7 @@ export default function Home() {
         {/* <NewsSection /> */}
       </main>
       <Footer />
-      <CountdownBar />
+      {/* <CountdownBar /> */}
     </>
   );
 }
