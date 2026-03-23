@@ -5,7 +5,7 @@ import { IMAGES } from "../lib/constants";
 
 export default function Hero() {
   return (
-    <section className="relative w-full h-screen min-h-175 flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-16">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <Image
