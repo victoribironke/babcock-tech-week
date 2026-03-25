@@ -34,7 +34,7 @@ export default function SponsorsSection() {
                     src={partner.logo}
                     alt={`${partner.name} logo`}
                     fill
-                    className={`${partner.name === "IEEE" ? "object-cover p-0" : "object-contain p-4 md:p-8"} ${partner.blend ? "mix-blend-multiply" : ""}`}
+                    className={`${partner.name === "IEEE" ? "object-contain p-0" : "object-contain p-4 md:p-8"} ${partner.blend ? "mix-blend-multiply" : ""}`}
                   />
                 ) : (
                   <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 p-4">
