@@ -52,7 +52,7 @@ export default function Hero() {
         </div>
 
         {/* Hackathon Registration Card */}
-        <div className="w-full max-w-xl mx-auto mt-12 bg-white/80 rounded-2xl shadow-2xl px-6 py-8 flex flex-col items-center gap-4 border border-black/10 backdrop-blur-xl">
+        {/* <div className="w-full max-w-xl mx-auto mt-12 bg-white/80 rounded-2xl shadow-2xl px-6 py-8 flex flex-col items-center gap-4 border border-black/10 backdrop-blur-xl">
           <span className="inline-block bg-black/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-2 shadow">
             Hackathon
           </span>
@@ -78,7 +78,7 @@ export default function Hero() {
           >
             Terms & Conditions
           </a>
-        </div>
+        </div>*/}
       </div>
     </section>
   );
