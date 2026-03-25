@@ -56,7 +56,7 @@ export const PARTNERS: Partner[] = [
     name: "IEEE",
     description: "Institute of Electrical & Electronics Engineers",
     logo: "/images/partners/ieee.webp",
-    bgClass: "bg-black",
+    blend: true,
   },
 ];
 
