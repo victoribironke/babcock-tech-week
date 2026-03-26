@@ -6,12 +6,12 @@ import { SPONSOR_TIERS, PARTNERS } from "../lib/constants";
 export default function SponsorsSection() {
   return (
     <section className="bg-white py-16 md:py-24 px-4 md:px-10 text-black">
-      <div className="max-w-[900px] mx-auto">
+      <div className="max-w-225 mx-auto">
         {/* Section Title */}
         <h2 className="text-2xl md:text-4xl font-bold mb-6 text-center">
           Our Sponsors & Partners
         </h2>
-        <p className="text-gray-500 text-center text-sm md:text-base mb-14 max-w-[600px] mx-auto">
+        <p className="text-gray-500 text-center text-sm md:text-base mb-14 max-w-150 mx-auto">
           Babcock Tech Week is made possible by the generous support of our
           sponsors and partners.
         </p>
