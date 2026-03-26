@@ -20,7 +20,7 @@ export default function SpeakersSection() {
             Opening Keynote Panel
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
             {keynoteSpeakers.map((speaker, idx) => (
               <div
                 key={idx}
@@ -28,7 +28,7 @@ export default function SpeakersSection() {
                 onClick={() => setSelectedSpeaker(speaker)}
               >
                 {/* Photo + overlaid info */}
-                <div className="relative aspect-3/4 overflow-hidden bg-gray-200">
+                <div className="relative aspect-3/5 md:aspect-3/4 overflow-hidden bg-gray-200">
                   {speaker.image ? (
                     <Image
                       src={speaker.image}
@@ -56,15 +56,15 @@ export default function SpeakersSection() {
 
                   {/* Info bar — trapezoid overlay at bottom */}
                   <div
-                    className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/95 px-4 pb-4 pt-10 h-auto min-h-32 flex flex-col justify-end"
+                    className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/95 px-3 pb-3 pt-8 md:px-4 md:pb-4 md:pt-10 h-auto min-h-24 md:min-h-32 flex flex-col justify-end"
                     style={{
                       clipPath: "polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%)",
                     }}
                   >
-                    <h4 className="text-white text-sm md:text-base font-bold tracking-wide leading-tight mb-2">
+                    <h4 className="text-white text-xs md:text-base font-bold tracking-wide leading-tight">
                       {speaker.name}
                     </h4>
-                    <p className="text-gray-300 text-sm mt-2 leading-snug font-google-sans normal-case">
+                    <p className="text-gray-300 text-xs md:text-sm mt-1 leading-snug font-google-sans normal-case">
                       {speaker.title},{" "}
                       <span className="text-[#c15f3c] font-semibold">
                         {speaker.company}
