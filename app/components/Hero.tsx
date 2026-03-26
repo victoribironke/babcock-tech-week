@@ -52,24 +52,17 @@ export default function Hero() {
         </div>
 
         {/* Hackathon Registration Card */}
-        {/* <div className="w-full max-w-xl mx-auto mt-12 bg-white/80 rounded-2xl shadow-2xl px-6 py-8 flex flex-col items-center gap-4 border border-black/10 backdrop-blur-xl">
+        <div className="w-full max-w-xl mx-auto mt-12 bg-white/80 rounded-2xl shadow-2xl px-6 py-8 flex flex-col items-center gap-4 border border-black/10 backdrop-blur-xl">
           <span className="inline-block bg-black/90 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-2 shadow">
             Hackathon
           </span>
           <h3 className="text-xl md:text-2xl font-extrabold text-black mb-1">
-            Registration Now Open!
+            Registration Now Closed!
           </h3>
           <p className="text-base md:text-lg text-black/80 mb-3">
-            What's your ₦10,000,000 idea?
+            Be present at BUTH 600-Seater to listen to the pitches and see who comes out on top.
           </p>
-          <a
-            href="/hackathon"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-black/90 text-white py-3 px-8 md:px-10 rounded-full text-sm md:text-base font-extrabold tracking-widest uppercase shadow-lg hover:bg-black transition-all duration-200 hover:scale-105"
-          >
-            Register Now
-          </a>
+          
           <a
             href="/hackathon/terms"
             target="_blank"
@@ -78,7 +71,7 @@ export default function Hero() {
           >
             Terms & Conditions
           </a>
-        </div>*/}
+        </div>
       </div>
     </section>
   );
