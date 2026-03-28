@@ -11,10 +11,36 @@ const LATEST_UPDATES = [
   "Team MyCampusPal — 3rd place!",
 ];
 
+const HERO_IMAGES = [
+  "/images/HeroCarousel/IMG_9620.jpg",
+  "/images/HeroCarousel/IMG_9640.jpg",
+  "/images/HeroCarousel/IMG_9646.jpg",
+  "/images/HeroCarousel/IMG_9649.jpg",
+  "/images/HeroCarousel/IMG_9665.jpg",
+  "/images/HeroCarousel/IMG_bill.jpg",
+  "/images/HeroCarousel/IMG_9666.jpg",
+  "/images/HeroCarousel/2222.jpg",
+  "/images/HeroCarousel/_MG_0026.jpg",
+  "/images/HeroCarousel/_MG_9978.jpg",
+  "/images/HeroCarousel/IMG_9603.jpg",
+  "/images/HeroCarousel/IMG_9719.jpg",
+  "/images/HeroCarousel/IMG_9612_1.jpg",
+];
+
 export default function Hero() {
   const [currentUpdate, setCurrentUpdate] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
+  const [currentImage, setCurrentImage] = useState(0);
 
+  // Rotate hero background images
+  useEffect(() => {
+    const imageInterval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 5000);
+    return () => clearInterval(imageInterval);
+  }, []);
+
+  // Rotate latest updates
   useEffect(() => {
     const interval = setInterval(() => {
       setIsVisible(false);
@@ -41,15 +67,20 @@ export default function Hero() {
   return (
     <>
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-16">
-        {/* Background Image */}
+        {/* Background Image Carousel */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src={IMAGES.heroBg.src}
-            alt={IMAGES.heroBg.alt}
-            fill
-            className="object-cover"
-            priority
-          />
+          {HERO_IMAGES.map((src, i) => (
+            <Image
+              key={src}
+              src={src}
+              alt={`Tech Week moment ${i + 1}`}
+              fill
+              priority={i === 0}
+              className={`object-cover transition-opacity duration-1000 ease-in-out ${
+                i === currentImage ? "opacity-100" : "opacity-0"
+              }`}
+            />
+          ))}
           <div className="absolute inset-0 bg-linear-to-b from-black/50 via-black/30 to-black" />
         </div>
 
