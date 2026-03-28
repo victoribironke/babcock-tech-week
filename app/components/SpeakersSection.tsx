@@ -15,6 +15,10 @@ export default function SpeakersSection() {
     (s) => s.category === "Fintech Track Fireside",
   );
 
+  const CreativeTechSpeakers = SPEAKERS.filter(
+    (s) => s.category === "CreativeTech Track Fireside",
+  );
+
   const renderSpeakerGrid = (speakers: Speaker[]) => (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
       {speakers.map((speaker, idx) => (
@@ -66,10 +70,15 @@ export default function SpeakersSection() {
                 </span>
               )}
               <p className="text-gray-300 text-sm mt-2 leading-snug font-google-sans normal-case">
-                {speaker.title},{" "}
-                <span className="text-[#c15f3c] font-semibold">
-                  {speaker.company}
-                </span>
+                {speaker.title}
+                {speaker.company && (
+                  <>
+                    ,{" "}
+                    <span className="text-[#c15f3c] font-semibold">
+                      {speaker.company}
+                    </span>
+                  </>
+                )}
               </p>
             </div>
           </div>
@@ -95,6 +104,15 @@ export default function SpeakersSection() {
             Fintech Track Fireside
           </h2>
           {renderSpeakerGrid(firesideSpeakers)}
+        </div>
+      </section>
+
+      <section className="bg-white py-16 md:py-24 px-4 md:px-10 text-black">
+        <div className="max-w-[1300px] mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-14 text-center">
+            CreativeTech Track Fireside
+          </h2>
+          {renderSpeakerGrid(CreativeTechSpeakers)}
         </div>
       </section>
 
@@ -158,10 +176,15 @@ export default function SpeakersSection() {
                 </span>
               )}
               <p className="text-sm md:text-lg font-medium text-gray-600 mb-6 border-b pb-6 border-gray-100 font-google-sans normal-case inline-block">
-                {selectedSpeaker.title}, <br className="hidden md:block" />
-                <span className="text-gray-900 font-bold">
-                  {selectedSpeaker.company}
-                </span>
+                {selectedSpeaker.title}
+                {selectedSpeaker.company && (
+                  <>
+                    , <br className="hidden md:block" />
+                    <span className="text-gray-900 font-bold">
+                      {selectedSpeaker.company}
+                    </span>
+                  </>
+                )}
               </p>
 
               <div className="prose prose-sm md:prose-base text-gray-700 space-y-4 font-google-sans normal-case">
