@@ -211,6 +211,7 @@ export type Speaker = {
   bio: string;
   image: string;
   category: string;
+  role?: string;
 };
 
 export const SPEAKERS: Speaker[] = [
@@ -245,5 +246,65 @@ export const SPEAKERS: Speaker[] = [
     image: "/images/speakers/chijioke-iteghete.jpeg",
     category: "Opening Keynote Panel",
     bio: "Chijioke Iteghete is a seasoned digital and technology executive with over 16 years of experience across banking, asset management, pensions, and capital markets. As Group CIO of ARM Holding Company, he leads the organisation's enterprise-wide technology and digital transformation agenda across multiple regulated businesses.\n\nHe has a strong track record of building and commercialising digital platforms at scale — including a unified investment super-app and transaction platforms that processed over ₦40 billion within months of deployment. Prior to ARM, he served as CIO/CDO at Coronation Registrars and CTO at Secured Records Management Solutions. He holds a degree in Information Management Technology from the Federal University of Technology, Owerri, and has completed executive programmes at Cambridge Judge Business School and Lagos Business School.",
+  },
+  {
+    name: "Obata Onyelukachukwu",
+    title: "Head of Partnerships & External Relations",
+    company: "Babcock Tech Week",
+    image: "/images/speakers/KachiObata.jpeg",
+    category: "Opening Keynote Panel",
+    role: "Panel Moderator",
+    bio: "Obata Onyelukachukwu is a Computer Science student in his second year at Babcock University, a technology strategist, and student leader with a strong interest in building platforms that connect talent, innovation, and opportunity. His work spans partnerships, program development, and the execution of initiatives that expand access, visibility, and real-world opportunities for young people.\n\nHe is a key driver behind Babcock Tech Week, helping shape it into an interdisciplinary platform that connects students with industry leaders, practical knowledge, and emerging opportunities. His broader interests lie at the intersection of technology, entrepreneurship, community building, and digital products, with a focus on creating meaningful systems that empower young people to learn, build, and lead.",
+  },
+  {
+    name: "Olumuyiwa Bamgbade",
+    title: "VP, Head of Institutional Sales",
+    company: "CORDROS Securities",
+    image: "/images/speakers/MuyiwaCordros1.jpeg",
+    category: "Fintech Track Fireside",
+    bio: "Olumuyiwa Bamgbade is a capital markets and institutional sales professional at Cordros, where he serves as Vice President and Head of Institutional Sales. In this role, he works at the intersection of investment strategy, client relationship management, and market execution, helping institutional clients navigate opportunities within Nigeria's financial markets.\n\nOver the course of his career, he has built experience in institutional engagement, sales leadership, and the broader investment ecosystem, with a strong focus on connecting investors to value across the capital market landscape. His professional background reflects a deep understanding of market dynamics, client needs, and the role of financial institutions in driving economic growth.",
+  },
+  {
+    name: "Obata Onyelukachukwu",
+    title: "Head of Partnerships & External Relations",
+    company: "Babcock Tech Week",
+    image: "/images/speakers/KachiObata.jpeg",
+    category: "Fintech Track Fireside",
+    role: "Fireside Moderator",
+    bio: "Obata Onyelukachukwu is a Computer Science student in his second year at Babcock University, a technology strategist, and student leader with a strong interest in building platforms that connect talent, innovation, and opportunity. His work spans partnerships, program development, and the execution of initiatives that expand access, visibility, and real-world opportunities for young people.\n\nHe is a key driver behind Babcock Tech Week, helping shape it into an interdisciplinary platform that connects students with industry leaders, practical knowledge, and emerging opportunities. His broader interests lie at the intersection of technology, entrepreneurship, community building, and digital products, with a focus on creating meaningful systems that empower young people to learn, build, and lead.",
+  },
+  {
+    name: "Victor Ndukauba",
+    title: "Deputy Managing Director",
+    company: "Afrinvest West Africa",
+    image: "/images/speakers/VictorNdukauba.jpeg",
+    category: "Fintech Track Fireside",
+    bio: "Victor Ndukauba is the Deputy Managing Director of Afrinvest West Africa, one of Nigeria's leading investment banking and financial advisory firms. In his role, he supports the Group's strategy and business development and provides senior oversight for the firm's Information Technology, Finance, Risk, and Controls functions. He also continues to play a leading role in the origination and execution of investment banking transactions, drawing on experience in corporate and project finance advisory as well as capital raising.\n\nOver the course of his career, he has built strong expertise across investment banking, financial strategy, and institutional leadership, contributing to Afrinvest's position as a major player in West Africa's capital markets. Public profiles and company leadership information identify him as a key member of the firm's executive team.",
+  },
+  {
+    name: "Dunmade Majuyi O. D.",
+    title: "Convener",
+    company: "Babcock Tech Week",
+    image: "/images/speakers/Mujuyi.jpeg",
+    category: "Fintech Track Fireside",
+    role: "Fireside Moderator",
+    bio: "Dunmade Majuyi O. D. is a purpose-driven Computer Science student in his final year, passionate about using technology to transform and expand access to quality education and skill-building initiatives. As a full-stack engineer, program manager, and student leader, he is committed to building systems, communities, and opportunities that create meaningful impact.\n\nHe has led technical programs at GDG Babcock, where he pioneered the DSA Track to strengthen problem-solving culture on campus. As Vice President of Administration of the Babcock University Computer Club (BUCC), he has helped drive structure, partnerships, and major initiatives within the student tech ecosystem. His interests span software engineering, AI/ML, education, and technology-driven impact across Nigeria, Africa, and beyond, with a strong focus on creating practical solutions, supporting talent development, and contributing to long-term change.",
+  },
+  {
+    name: "Obata Onyelukachukwu",
+    title: "Head of Partnerships & External Relations",
+    company: "Babcock Tech Week",
+    image: "/images/speakers/KachiObata.jpeg",
+    category: "CreativeTech Track Fireside",
+    role: "Fireside Moderator",
+    bio: "Obata Onyelukachukwu is a Computer Science student in his second year at Babcock University, a technology strategist, and student leader with a strong interest in building platforms that connect talent, innovation, and opportunity. His work spans partnerships, program development, and the execution of initiatives that expand access, visibility, and real-world opportunities for young people.\n\nHe is a key driver behind Babcock Tech Week, helping shape it into an interdisciplinary platform that connects students with industry leaders, practical knowledge, and emerging opportunities. His broader interests lie at the intersection of technology, entrepreneurship, community building, and digital products, with a focus on creating meaningful systems that empower young people to learn, build, and lead.",
+  },
+  {
+    name: "Anthony Azekwoh",
+    title: "Artist and Author",
+    company: "",
+    image: "/images/speakers/AnthonyAzekwoh.jpg",
+    category: "CreativeTech Track Fireside",
+    bio: "Anthony Azekwoh is a Nigerian contemporary artist and author based in Lagos, known for a multidisciplinary practice that spans digital painting, sculpture, and writing. Drawing deeply from African folklore and mythology, his work reimagines culture, history, and identity through bold visual storytelling.\n\nAzekwoh is widely recognized for pushing the boundaries of digital art from Africa onto the global stage. Entirely self-taught, he has created work seen by millions, collaborated with major brands and musicians, and built a body of work that bridges traditional artistic influence with contemporary digital expression. His acclaimed piece The Red Man marked a major turning point in his rise, helping cement his reputation as a leading voice in a new generation of African visual storytellers.",
   },
 ];
