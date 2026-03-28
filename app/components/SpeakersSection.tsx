@@ -7,9 +7,75 @@ import { SPEAKERS, type Speaker } from "../lib/constants";
 export default function SpeakersSection() {
   const [selectedSpeaker, setSelectedSpeaker] = useState<Speaker | null>(null);
 
-  // We only show opening keynote speakers right now, but later this can be expanded.
   const keynoteSpeakers = SPEAKERS.filter(
     (s) => s.category === "Opening Keynote Panel",
+  );
+
+  const firesideSpeakers = SPEAKERS.filter(
+    (s) => s.category === "Fintech Track Fireside",
+  );
+
+  const renderSpeakerGrid = (speakers: Speaker[]) => (
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+      {speakers.map((speaker, idx) => (
+        <div
+          key={idx}
+          className="group overflow-hidden cursor-pointer flex flex-col h-full rounded-xl bg-gray-100 shadow-sm hover:shadow-lg transition-all"
+          onClick={() => setSelectedSpeaker(speaker)}
+        >
+          {/* Photo + overlaid info */}
+          <div className="relative aspect-3/4 overflow-hidden bg-gray-200">
+            {speaker.image ? (
+              <Image
+                src={speaker.image}
+                alt={speaker.name}
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-gray-200 to-gray-300 text-gray-500">
+                <svg
+                  className="w-20 h-20 opacity-30"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1}
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  />
+                </svg>
+              </div>
+            )}
+
+            {/* Info bar — trapezoid overlay at bottom */}
+            <div
+              className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/95 px-4 pb-4 pt-10 h-auto min-h-32 flex flex-col justify-end"
+              style={{
+                clipPath: "polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%)",
+              }}
+            >
+              <h4 className="text-white text-sm md:text-base font-bold tracking-wide leading-tight mb-1">
+                {speaker.name}
+              </h4>
+              {speaker.role && (
+                <span className="text-[#c15f3c] text-xs font-semibold tracking-wide uppercase mb-1">
+                  {speaker.role}
+                </span>
+              )}
+              <p className="text-gray-300 text-sm mt-2 leading-snug font-google-sans normal-case">
+                {speaker.title},{" "}
+                <span className="text-[#c15f3c] font-semibold">
+                  {speaker.company}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
   );
 
   return (
@@ -19,62 +85,16 @@ export default function SpeakersSection() {
           <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-14 text-center">
             Opening Keynote Panel
           </h2>
+          {renderSpeakerGrid(keynoteSpeakers)}
+        </div>
+      </section>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
-            {keynoteSpeakers.map((speaker, idx) => (
-              <div
-                key={idx}
-                className="group overflow-hidden cursor-pointer flex flex-col h-full rounded-xl bg-gray-100 shadow-sm hover:shadow-lg transition-all"
-                onClick={() => setSelectedSpeaker(speaker)}
-              >
-                {/* Photo + overlaid info */}
-                <div className="relative aspect-3/4 overflow-hidden bg-gray-200">
-                  {speaker.image ? (
-                    <Image
-                      src={speaker.image}
-                      alt={speaker.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center bg-linear-to-br from-gray-200 to-gray-300 text-gray-500">
-                      <svg
-                        className="w-20 h-20 opacity-30"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1}
-                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                        />
-                      </svg>
-                    </div>
-                  )}
-
-                  {/* Info bar — trapezoid overlay at bottom */}
-                  <div
-                    className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/95 px-4 pb-4 pt-10 h-auto min-h-32 flex flex-col justify-end"
-                    style={{
-                      clipPath: "polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%)",
-                    }}
-                  >
-                    <h4 className="text-white text-sm md:text-base font-bold tracking-wide leading-tight mb-2">
-                      {speaker.name}
-                    </h4>
-                    <p className="text-gray-300 text-sm mt-2 leading-snug font-google-sans normal-case">
-                      {speaker.title},{" "}
-                      <span className="text-[#c15f3c] font-semibold">
-                        {speaker.company}
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      <section className="bg-white py-16 md:py-24 px-4 md:px-10 text-black">
+        <div className="max-w-[1300px] mx-auto">
+          <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-14 text-center">
+            Fintech Track Fireside
+          </h2>
+          {renderSpeakerGrid(firesideSpeakers)}
         </div>
       </section>
 
@@ -129,9 +149,14 @@ export default function SpeakersSection() {
               <span className="text-xs font-bold tracking-widest text-[#c15f3c] uppercase">
                 {selectedSpeaker.category}
               </span>
-              <h3 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-4">
+              <h3 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-1">
                 {selectedSpeaker.name}
               </h3>
+              {selectedSpeaker.role && (
+                <span className="text-sm font-bold tracking-wide text-[#c15f3c] uppercase mb-3 inline-block">
+                  {selectedSpeaker.role}
+                </span>
+              )}
               <p className="text-sm md:text-lg font-medium text-gray-600 mb-6 border-b pb-6 border-gray-100 font-google-sans normal-case inline-block">
                 {selectedSpeaker.title}, <br className="hidden md:block" />
                 <span className="text-gray-900 font-bold">
