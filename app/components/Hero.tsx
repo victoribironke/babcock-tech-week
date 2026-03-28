@@ -31,14 +31,16 @@ export default function Hero() {
   const [currentUpdate, setCurrentUpdate] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
   const [currentImage, setCurrentImage] = useState(0);
+  const [videoEnded, setVideoEnded] = useState(false);
 
-  // Rotate hero background images
+  // Rotate hero background images only after video ends
   useEffect(() => {
+    if (!videoEnded) return;
     const imageInterval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
     return () => clearInterval(imageInterval);
-  }, []);
+  }, [videoEnded]);
 
   // Rotate latest updates
   useEffect(() => {
@@ -69,6 +71,20 @@ export default function Hero() {
       <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden pt-32 pb-16">
         {/* Background Image Carousel */}
         <div className="absolute inset-0 z-0">
+          {/* Intro Video */}
+          <video
+            autoPlay
+            muted
+            playsInline
+            onEnded={() => setVideoEnded(true)}
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
+              !videoEnded ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            <source src="/images/HeroCarousel/BTW%20Animation%20-%20Reel.mp4" type="video/mp4" />
+          </video>
+
+          {/* Image slides */}
           {HERO_IMAGES.map((src, i) => (
             <Image
               key={src}
@@ -77,7 +93,7 @@ export default function Hero() {
               fill
               priority={i === 0}
               className={`object-cover transition-opacity duration-1000 ease-in-out ${
-                i === currentImage ? "opacity-100" : "opacity-0"
+                videoEnded && i === currentImage ? "opacity-100" : "opacity-0"
               }`}
             />
           ))}
