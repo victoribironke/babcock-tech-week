@@ -291,6 +291,15 @@ export const SPEAKERS: Speaker[] = [
     bio: "Dunmade Majuyi O. D. is a purpose-driven Computer Science student in his final year, passionate about using technology to transform and expand access to quality education and skill-building initiatives. As a full-stack engineer, program manager, and student leader, he is committed to building systems, communities, and opportunities that create meaningful impact.\n\nHe has led technical programs at GDG Babcock, where he pioneered the DSA Track to strengthen problem-solving culture on campus. As Vice President of Administration of the Babcock University Computer Club (BUCC), he has helped drive structure, partnerships, and major initiatives within the student tech ecosystem. His interests span software engineering, AI/ML, education, and technology-driven impact across Nigeria, Africa, and beyond, with a strong focus on creating practical solutions, supporting talent development, and contributing to long-term change.",
   },
   {
+    name: "Obata Onyelukachukwu",
+    title: "Head of Partnerships & External Relations",
+    company: "Babcock Tech Week",
+    image: "/images/speakers/KachiObata.jpeg",
+    category: "CreativeTech Track Fireside",
+    role: "Fireside Moderator",
+    bio: "Obata Onyelukachukwu is a Computer Science student in his second year at Babcock University, a technology strategist, and student leader with a strong interest in building platforms that connect talent, innovation, and opportunity. His work spans partnerships, program development, and the execution of initiatives that expand access, visibility, and real-world opportunities for young people.\n\nHe is a key driver behind Babcock Tech Week, helping shape it into an interdisciplinary platform that connects students with industry leaders, practical knowledge, and emerging opportunities. His broader interests lie at the intersection of technology, entrepreneurship, community building, and digital products, with a focus on creating meaningful systems that empower young people to learn, build, and lead.",
+  },
+  {
     name: "Anthony Azekwoh",
     title: "Artist and Author",
     company: "",
