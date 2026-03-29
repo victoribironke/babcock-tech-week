@@ -27,8 +27,8 @@ export default function SpeakersSection() {
           className="group overflow-hidden cursor-pointer flex flex-col h-full rounded-xl bg-gray-100 shadow-sm hover:shadow-lg transition-all"
           onClick={() => setSelectedSpeaker(speaker)}
         >
-          {/* Photo + overlaid info */}
-          <div className="relative aspect-3/4 overflow-hidden bg-gray-200">
+          {/* Photo */}
+          <div className="relative aspect-square md:aspect-3/4 overflow-hidden bg-gray-200">
             {speaker.image ? (
               <Image
                 src={speaker.image}
@@ -54,14 +54,14 @@ export default function SpeakersSection() {
               </div>
             )}
 
-            {/* Info bar — trapezoid overlay at bottom */}
+            {/* Desktop overlay — hidden on mobile */}
             <div
-              className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/95 px-4 pb-4 pt-10 h-auto min-h-32 flex flex-col justify-end"
+              className="hidden md:flex absolute bottom-0 left-0 right-0 bg-[#0a1628]/95 px-4 pb-4 pt-10 min-h-32 flex-col justify-end"
               style={{
                 clipPath: "polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <h4 className="text-white text-sm md:text-base font-bold tracking-wide leading-tight mb-1">
+              <h4 className="text-white text-base font-bold tracking-wide leading-tight mb-1">
                 {speaker.name}
               </h4>
               {speaker.role && (
@@ -81,6 +81,29 @@ export default function SpeakersSection() {
                 )}
               </p>
             </div>
+          </div>
+
+          {/* Mobile info — shown below photo, hidden on desktop */}
+          <div className="md:hidden px-3 py-3 flex flex-col gap-0.5">
+            <h4 className="text-[#0a1628] text-sm font-bold tracking-wide leading-tight">
+              {speaker.name}
+            </h4>
+            {speaker.role && (
+              <span className="text-[#c15f3c] text-[11px] font-semibold tracking-wide uppercase">
+                {speaker.role}
+              </span>
+            )}
+            <p className="text-gray-500 text-xs mt-1 leading-snug font-google-sans normal-case">
+              {speaker.title}
+              {speaker.company && (
+                <>
+                  ,{" "}
+                  <span className="text-[#c15f3c] font-semibold">
+                    {speaker.company}
+                  </span>
+                </>
+              )}
+            </p>
           </div>
         </div>
       ))}
