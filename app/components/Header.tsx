@@ -6,12 +6,12 @@ import { IMAGES } from "../lib/constants";
 import Image from "next/image";
 
 const navLinks = [
-  { label: "HOME", href: "/", hasDropdown: true },
-  { label: "EDITIONS", href: "#", hasDropdown: true },
-  { label: "SESSIONS", href: "#", hasDropdown: true },
-  { label: "THE LAUNCHPAD", href: "#", hasDropdown: true },
-  { label: "TEAM", href: "#", hasDropdown: true },
-  { label: "CONTACT", href: "#", hasDropdown: true },
+  { label: "HOME", href: "/" },
+  { label: "EDITIONS", href: "/editions" },
+  { label: "SESSIONS", href: "/sessions" },
+  { label: "THE LAUNCHPAD", href: "/launchpad" },
+  { label: "TEAM", href: "/team" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
 const socialLinks = [
@@ -94,11 +94,6 @@ export default function Header() {
                 className="text-[13px] font-bold tracking-wider text-white flex items-center gap-1 hover:opacity-70 transition-opacity"
               >
                 {link.label}
-                {link.hasDropdown && (
-                  <svg width="10" height="6" viewBox="0 0 10 6" fill="none">
-                    <path d="M1 1L5 5L9 1" stroke="white" strokeWidth="1.5" />
-                  </svg>
-                )}
               </Link>
             ))}
           </nav>
