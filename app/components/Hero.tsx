@@ -5,10 +5,11 @@ import Image from "next/image";
 import { IMAGES } from "../lib/constants";
 
 const LATEST_UPDATES = [
-  "Tethered Hackathon 2026 winners!",
-  "Team Yami — 1st place!",
-  "Team BRAIN — 2nd place!",
-  "Team MyCampusPal — 3rd place!",
+  { text: "Tethered Hackathon 2026 winners!" },
+  { text: "Team Yami — 1st place!" },
+  { text: "Team BRAIN — 2nd place!" },
+  { text: "Team MyCampusPal — 3rd place!" },
+  { text: "View The Terms & Conditions", href: "/hackathon/terms" },
 ];
 
 const HERO_IMAGES = [
@@ -101,7 +102,7 @@ export default function Hero() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center flex flex-col items-center gap-6 px-5 mt-15">
+        <div className={`relative z-10 text-center flex flex-col items-center gap-6 px-5 mt-15 transition-opacity duration-700 ${videoEnded ? "opacity-100" : "opacity-0"}`}>
           <Image
             src={IMAGES.logo.src}
             alt="Logo"
@@ -144,13 +145,24 @@ export default function Hero() {
 
           <div className="w-px h-6 bg-white/30 shrink-0" />
 
-          <p
+          <div
             className={`flex-1 text-white/90 text-sm md:text-base font-medium transition-opacity duration-300 ${
               isVisible ? "opacity-100" : "opacity-0"
             }`}
           >
-            {LATEST_UPDATES[currentUpdate]}
-          </p>
+            {LATEST_UPDATES[currentUpdate].href ? (
+              <a
+                href={LATEST_UPDATES[currentUpdate].href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white transition-colors"
+              >
+                {LATEST_UPDATES[currentUpdate].text}
+              </a>
+            ) : (
+              LATEST_UPDATES[currentUpdate].text
+            )}
+          </div>
 
           <div className="flex items-center gap-2 shrink-0">
             <button
