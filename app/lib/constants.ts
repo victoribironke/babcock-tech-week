@@ -43,14 +43,14 @@ export const PARTNERS: Partner[] = [
   {
     name: "BUCC",
     description: "Babcock University Computer Club",
-    logo: "/images/partners/bucc.png",
-    bgClass: "bg-slate-900",
+    logo: "/images/partners/BUCC-logo-original.png",
+    blend: true,
   },
   {
     name: "GDG",
     description: "Google Developer Groups",
-    logo: "/images/partners/gdg-babcock.webp",
-    bgClass: "bg-slate-900",
+    logo: "/images/partners/GDG On Campus Babcock logo.png",
+    blend: true,
   },
   {
     name: "IEEE",
