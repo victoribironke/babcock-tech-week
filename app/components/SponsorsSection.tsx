@@ -78,10 +78,12 @@ function getCardBorder(tierName: string, sponsorBgClass?: string) {
 }
 
 function getCardSizeClass(tierName: string) {
-  if (tierName.includes("HEADLINE")) return "w-full md:w-[520px] h-28 md:h-36";
-  if (tierName.includes("EXHIBITOR") || tierName.includes("ASSOCIATE"))
-    return "w-[45%] md:w-[220px] h-24 md:h-32";
-  return "w-[45%] md:w-[280px] h-24 md:h-36";
+  if (tierName.includes("HEADLINE")) return "w-full md:w-[560px] h-32 md:h-44";
+  if (tierName.includes("EXHIBITOR"))
+    return "w-[45%] md:w-[240px] h-28 md:h-36";
+  if (tierName.includes("ASSOCIATE"))
+    return "w-[45%] md:w-[280px] h-28 md:h-40";
+  return "w-[45%] md:w-[320px] h-28 md:h-40";
 }
 
 export default function SponsorsSection() {
@@ -161,31 +163,38 @@ export default function SponsorsSection() {
             </span>
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-5 w-full">
-            {PARTNERS.map((partner, i) => (
-              <div
-                key={partner.name}
-                className="sponsor-card sponsor-fade-in rounded-xl w-[45%] md:w-[280px] h-28 md:h-40 flex items-center justify-center relative overflow-hidden"
-                style={{
-                  transitionDelay: `${i * 80}ms`,
-                  backgroundColor: partner.bgClass?.includes("slate-900") ? "#0f172a" : "#f5f3ef",
-                  border: "1px solid rgba(0,0,0,0.06)",
-                }}
-              >
-                <span className="accent-line" style={{ background: "#0a1628" }} />
-                {partner.logo ? (
-                  <Image
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    fill
-                    className={`${partner.name === "IEEE" ? "object-contain p-0" : "object-contain p-4 md:p-8"} ${partner.blend ? "mix-blend-multiply" : ""}`}
-                  />
-                ) : (
-                  <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 p-4">
-                    {partner.name}
-                  </div>
-                )}
-              </div>
-            ))}
+            {PARTNERS.map((partner, i) => {
+              // Per-logo padding: BUCC is square (needs moderate padding), GDG is wide icon (tight), IEEE is self-contained badge (none)
+              let logoPadding = "p-4 md:p-6";
+              if (partner.name === "GDG") logoPadding = "p-5 md:p-8";
+              if (partner.name === "IEEE") logoPadding = "p-0";
+
+              return (
+                <div
+                  key={partner.name}
+                  className="sponsor-card sponsor-fade-in rounded-xl w-[45%] md:w-[300px] h-32 md:h-44 flex items-center justify-center relative overflow-hidden"
+                  style={{
+                    transitionDelay: `${i * 80}ms`,
+                    backgroundColor: "#f5f3ef",
+                    border: "1px solid rgba(0,0,0,0.06)",
+                  }}
+                >
+                  <span className="accent-line" style={{ background: "#0a1628" }} />
+                  {partner.logo ? (
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className={`object-contain ${logoPadding} ${partner.blend ? "mix-blend-multiply" : ""}`}
+                    />
+                  ) : (
+                    <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 p-4">
+                      {partner.name}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
