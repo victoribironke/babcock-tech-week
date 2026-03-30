@@ -171,7 +171,7 @@ export default function SponsorsSection() {
               BROUGHT TO YOU BY
             </span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {PARTNERS.map((partner, i) => {
               let logoPadding = "p-4 md:p-6";
               if (partner.name === "GDG") logoPadding = "p-5 md:p-8";
