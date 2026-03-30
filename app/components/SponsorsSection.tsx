@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { SPONSOR_TIERS, PARTNERS } from "../lib/constants";
+import { SPONSOR_TIERS, PARTNERS, type Sponsor } from "../lib/constants";
 
 // Tier accent colors
 const TIER_COLORS: Record<string, { accent: string; badgeBg: string; badgeText: string }> = {
   HEADLINE: { accent: "#374151", badgeBg: "#0a1628", badgeText: "#ffffff" },
-  GOLD: { accent: "#d97706", badgeBg: "#d97706", badgeText: "#000000" },
+  GOLD: { accent: "#ffa600", badgeBg: "#ffa600", badgeText: "#000000" },
   SILVER: { accent: "#6b7280", badgeBg: "#6b7280", badgeText: "#ffffff" },
   ASSOCIATE: { accent: "#000040", badgeBg: "#000040", badgeText: "#ffffff" },
   EXHIBITOR: { accent: "#0f766e", badgeBg: "#0f766e", badgeText: "#ffffff" },
@@ -67,35 +67,58 @@ function getCardBg(tierName: string, sponsorBgClass?: string) {
     if (sponsorBgClass.includes("black")) return "#000000";
     if (sponsorBgClass.includes("slate-900")) return "#0f172a";
   }
+  if (tierName.includes("HEADLINE")) return "#ffffff";
   if (tierName.includes("GOLD")) return "#fef9ef";
-  return "#f5f3ef";
+  // Silver and below: inherit page background (white)
+  return "#ffffff";
 }
 
 function getCardBorder(tierName: string, sponsorBgClass?: string) {
-  if (sponsorBgClass) return "1px solid transparent";
-  if (tierName.includes("GOLD")) return "1px solid #fde68a";
-  return "1px solid rgba(0,0,0,0.06)";
+  if (sponsorBgClass) return "1.5px solid transparent";
+  if (tierName.includes("HEADLINE")) return "1.5px solid #d1d5db";
+  if (tierName.includes("GOLD")) return "1.5px solid rgba(255, 166, 0, 0.5)";
+  // Silver and below: all use silver border color
+  return "1.5px solid #9ca3af";
+}
+
+function getTierAccentColor(tierName: string) {
+  if (tierName.includes("HEADLINE")) return "#d1d5db";
+  if (tierName.includes("GOLD")) return "rgba(255, 166, 0, 0.7)";
+  // Silver and below: all use silver accent color
+  return "#9ca3af";
 }
 
 // Determine grid columns based on sponsor count and tier
+// Headline/Gold/Silver: Constrained width (not full screen)
+// Associate and below: Multi-column grid
 function getGridClass(tierName: string, count: number) {
-  if (tierName.includes("HEADLINE")) return "grid grid-cols-1";
-  if (count === 1) return "grid grid-cols-1 max-w-[560px] mx-auto";
-  if (count === 2) return "grid grid-cols-2";
-  if (count === 3) return "grid grid-cols-2 md:grid-cols-3";
-  if (count === 4) return "grid grid-cols-2 md:grid-cols-4";
-  return "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+  // Headline, Gold, and Silver sponsors get prominent but constrained width
+  if (tierName.includes("HEADLINE")) return "grid grid-cols-1 md:max-w-[700px] md:mx-auto";
+  if (tierName.includes("GOLD")) return "grid grid-cols-1 md:max-w-[700px] md:mx-auto";
+  if (tierName.includes("SILVER")) return "grid grid-cols-1 md:max-w-[700px] md:mx-auto";
+  
+  // Associate and below: responsive multi-column
+  if (count === 1) return "grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1";
+  if (count === 2) return "grid grid-cols-1 md:grid-cols-2";
+  // Default: 3 columns on desktop for spacious cards
+  return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3";
 }
 
 // Card height based on tier importance
+// Headline, Gold, Silver: More rectangular (landscape aspect ratio)
 function getCardHeight(tierName: string) {
-  if (tierName.includes("HEADLINE")) return "h-36 md:h-48";
-  if (tierName.includes("GOLD") || tierName.includes("SILVER")) return "h-32 md:h-44";
-  return "h-28 md:h-36";
+  // Headline, Gold, Silver: shorter for landscape/rectangular appearance
+  if (tierName.includes("HEADLINE") || tierName.includes("GOLD") || tierName.includes("SILVER")) {
+    return "h-28 md:h-32 lg:h-36";
+  }
+  // Associate and below: slightly smaller
+  if (tierName.includes("ASSOCIATE")) return "h-24 md:h-28 lg:h-32";
+  return "h-20 md:h-24 lg:h-28";
 }
 
 export default function SponsorsSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [selectedSponsor, setSelectedSponsor] = useState<Sponsor | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -128,25 +151,37 @@ export default function SponsorsSection() {
         }
         .sponsor-card {
           position: relative;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.4s ease;
+          border: 1.5px solid #d1d5db;
         }
         .sponsor-card .accent-line {
           position: absolute;
           top: 0;
           left: 50%;
           width: 100%;
-          height: 3px;
+          height: 1.5px;
           border-radius: 0 0 2px 2px;
           transform: translateX(-50%) scaleX(0);
           transition: transform 0.4s ease;
           z-index: 10;
+          background: #d1d5db;
         }
         .sponsor-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+          transform: translateY(-8px);
+          box-shadow: 0 0 20px var(--border-color, rgba(0, 0, 0, 0.12)), 0 16px 40px rgba(0, 0, 0, 0.12);
+          border: 1.5px solid;
         }
         .sponsor-card:hover .accent-line {
           transform: translateX(-50%) scaleX(1);
+        }
+        /* Dynamic border color based on tier */
+        .sponsor-card[data-tier-accent] {
+          border-color: transparent;
+          transition: border-color 0.4s ease;
+        }
+        .sponsor-card[data-tier-accent]:hover {
+          border-color: currentColor;
+          border-width: 2px;
         }
       `}</style>
 
@@ -170,23 +205,32 @@ export default function SponsorsSection() {
               BROUGHT TO YOU BY
             </span>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-7">
             {PARTNERS.map((partner, i) => {
-              let logoPadding = "p-4 md:p-6";
-              if (partner.name === "GDG") logoPadding = "p-5 md:p-8";
-              if (partner.name === "IEEE") logoPadding = "p-0";
+              const logoPadding = partner.paddingClass || "p-4 md:p-6";
 
               return (
                 <div
                   key={partner.name}
-                  className="sponsor-card sponsor-fade-in rounded-xl h-32 md:h-44 flex items-center justify-center relative overflow-hidden"
+                  className="sponsor-card sponsor-fade-in rounded-xl h-36 md:h-44 lg:h-48 flex items-center justify-center relative overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   style={{
                     transitionDelay: `${i * 80}ms`,
-                    backgroundColor: "#f5f3ef",
-                    border: "1px solid rgba(0,0,0,0.06)",
+                    backgroundColor: "#ffffff",
+                    border: partner.name === "IEEE" ? "1.5px solid transparent" : "1.5px solid #9ca3af",
+                    "--border-color": "#9ca3af",
+                  } as React.CSSProperties}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`View ${partner.name} partner`}
+                  onClick={() => setSelectedSponsor({ name: partner.name, logo: partner.logo })}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedSponsor({ name: partner.name, logo: partner.logo });
+                    }
                   }}
                 >
-                  <span className="accent-line" style={{ background: "#0a1628" }} />
+                  <span className="accent-line" style={{ background: "#9ca3af" }} />
                   {partner.logo ? (
                     <Image
                       src={partner.logo}
@@ -225,15 +269,26 @@ export default function SponsorsSection() {
               </div>
 
               {/* Sponsor Cards — full-width grid */}
-              <div className={`${gridClass} gap-4 md:gap-5`}>
+              <div className={`${gridClass} gap-5 md:gap-6 lg:gap-7`}>
                 {tier.sponsors.map((sponsor, j) => (
                   <div
                     key={sponsor.name}
-                    className={`sponsor-card sponsor-fade-in rounded-xl ${cardHeight} flex items-center justify-center relative overflow-hidden`}
+                    className={`sponsor-card sponsor-fade-in rounded-xl ${cardHeight} flex items-center justify-center relative overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-blue-500`}
                     style={{
                       transitionDelay: `${j * 80}ms`,
                       backgroundColor: getCardBg(tier.name, sponsor.bgClass),
                       border: getCardBorder(tier.name, sponsor.bgClass),
+                      "--border-color": getTierAccentColor(tier.name),
+                    } as React.CSSProperties}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`View ${sponsor.name} sponsor`}
+                    onClick={() => setSelectedSponsor(sponsor)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setSelectedSponsor(sponsor);
+                      }
                     }}
                   >
                     <span className="accent-line" style={{ background: config.accent }} />
@@ -258,6 +313,43 @@ export default function SponsorsSection() {
           );
         })}
       </div>
+
+      {/* Sponsor Logo Modal */}
+      {selectedSponsor && (
+        <div
+          className="fixed inset-0 z-100 flex items-center justify-center pt-20 pb-4 px-4 sm:px-6 md:px-12 bg-black/70 backdrop-blur-sm"
+          onClick={() => setSelectedSponsor(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedSponsor.name} logo view`}
+        >
+          <div
+            className="bg-white rounded-2xl w-full max-w-3xl max-h-[calc(100vh-8rem)] overflow-hidden shadow-2xl p-8 flex items-center justify-center relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedSponsor(null)}
+              className="absolute top-6 right-6 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 hover:bg-gray-100 text-gray-800 shadow-sm transition-colors"
+              aria-label="Close sponsor modal"
+            >
+              ✕
+            </button>
+
+            {selectedSponsor.logo ? (
+              <div className="w-full h-40 md:h-56 relative">
+                <Image
+                  src={selectedSponsor.logo}
+                  alt={selectedSponsor.name}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <div className="text-2xl font-bold text-gray-800">{selectedSponsor.name}</div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }

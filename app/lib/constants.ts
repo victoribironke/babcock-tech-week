@@ -37,6 +37,7 @@ export type Partner = {
   logo: string;
   bgClass?: string;
   blend?: boolean;
+  paddingClass?: string;
 };
 
 export const PARTNERS: Partner[] = [
@@ -45,16 +46,19 @@ export const PARTNERS: Partner[] = [
     description: "Babcock University Computer Club",
     logo: "/images/partners/BUCC-logo-original.png",
     blend: true,
+    paddingClass: "p-0 md:p-0",
   },
   {
     name: "GDG",
     description: "Google Developer Groups",
     logo: "/images/partners/gdg-babcock.webp",
+    paddingClass: "p-0 md:p-0",
   },
   {
     name: "IEEE",
     description: "Institute of Electrical & Electronics Engineers",
     logo: "/images/partners/ieee.webp",
+    paddingClass: "p-0",
   },
 ];
 
@@ -65,7 +69,7 @@ export const SPONSOR_TIERS: Tier[] = [
     badgeColor:
       "bg-gradient-to-b from-gray-200 to-gray-300 text-black shadow-inner",
     cardBg: "bg-white",
-    cardBorder: "border border-gray-200 shadow-sm",
+    cardBorder: "border border-stone-300 shadow-sm",
     sponsors: [
       {
         name: "Paystack",
@@ -81,7 +85,7 @@ export const SPONSOR_TIERS: Tier[] = [
   {
     name: "GOLD SPONSORS",
     icon: "",
-    badgeColor: "bg-[#ffb703] text-black shadow-sm",
+    badgeColor: "bg-[#ffa600] text-black shadow-sm",
     cardBg: "bg-[#fffdf8]",
     cardBorder: "border border-[#ffe3a1] shadow-sm",
     sponsors: [
@@ -107,7 +111,7 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "Arravo",
         logo: "/images/sponsors/silver/arravo.png",
         blend: true,
-        paddingClass: "p-4 md:p-7",
+        paddingClass: "p-4 md:p-8",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -125,19 +129,19 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "Blue Marina",
         logo: "/images/sponsors/associate/blue-marina.png",
         blend: true,
-        paddingClass: "p-3 md:p-5",
+        paddingClass: "p-4 md:p-6",
       },
       {
         name: "Cordros",
         logo: "/images/sponsors/associate/cordros.png",
         blend: true,
-        paddingClass: "p-4 md:p-6",
+        paddingClass: "p-0 md:p-0",
       },
       {
         name: "Octico",
         logo: "/images/sponsors/associate/octico.jpg",
         blend: true,
-        paddingClass: "p-2 md:p-3",
+        paddingClass: "p-0 md:p-0",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -155,13 +159,13 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "Access Holdings",
         logo: "/images/sponsors/exhibitors-and-strategic/access-holdings.svg",
         bgClass: "bg-teal-950",
-        paddingClass: "p-3 md:p-5",
+        paddingClass: "p-4 md:p-6",
       },
       {
         name: "Afrinvest",
         logo: "/images/sponsors/exhibitors-and-strategic/afrinvest.png",
         blend: true,
-        paddingClass: "p-3 md:p-5",
+        paddingClass: "p-0 md:p-0",
       },
       {
         name: "ARM",
@@ -179,7 +183,7 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "OADC",
         logo: "/images/sponsors/exhibitors-and-strategic/oadc.jpg",
         blend: true,
-        paddingClass: "p-2 md:p-3",
+        paddingClass: "p-0 md:p-0",
       },
       // {
       //   name: "Quales",
@@ -202,13 +206,13 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "NTBTS",
         logo: "/images/sponsors/media/ntbts.jpg",
         bgClass: "bg-black",
-        paddingClass: "p-3 md:p-5",
+        paddingClass: "p-0 md:p-0",
       },
       {
         name: "The Babcock Torch",
         logo: "/images/sponsors/media/the-babcock-torch.svg",
         blend: true,
-        paddingClass: "p-4 md:p-7",
+        paddingClass: "p-3 md:p-5",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
