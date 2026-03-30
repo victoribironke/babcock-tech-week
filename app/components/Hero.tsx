@@ -18,6 +18,7 @@ const HERO_IMAGES = [
   "/images/HeroCarousel/IMG_9646.jpg",
   "/images/HeroCarousel/IMG_9649.jpg",
   "/images/HeroCarousel/IMG_9665.jpg",
+  "/images/HeroCarousel/IMG_0062.jpg",
   "/images/HeroCarousel/IMG_bill.jpg",
   "/images/HeroCarousel/IMG_9666.jpg",
   "/images/HeroCarousel/2222.jpg",
