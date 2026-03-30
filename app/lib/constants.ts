@@ -133,13 +133,13 @@ export const SPONSOR_TIERS: Tier[] = [
       },
       {
         name: "Cordros",
-        logo: "/images/sponsors/associate/cordros.png",
+        logo: "/images/sponsors/associate/cordros2.png",
         blend: true,
         paddingClass: "p-0 md:p-0",
       },
       {
         name: "Octico",
-        logo: "/images/sponsors/associate/octico.jpg",
+        logo: "/images/sponsors/associate/octico.png",
         blend: true,
         paddingClass: "p-0 md:p-0",
       },
@@ -204,8 +204,7 @@ export const SPONSOR_TIERS: Tier[] = [
     sponsors: [
       {
         name: "NTBTS",
-        logo: "/images/sponsors/media/ntbts.jpg",
-        bgClass: "bg-black",
+        logo: "/images/sponsors/media/ntbts3.png",
         paddingClass: "p-0 md:p-0",
       },
       {
