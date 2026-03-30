@@ -204,8 +204,7 @@ export const SPONSOR_TIERS: Tier[] = [
     sponsors: [
       {
         name: "NTBTS",
-        logo: "/images/sponsors/media/ntbts.jpg",
-        bgClass: "bg-black",
+        logo: "/images/sponsors/media/ntbts.png",
         paddingClass: "p-0 md:p-0",
       },
       {
