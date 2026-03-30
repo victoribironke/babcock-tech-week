@@ -77,13 +77,21 @@ function getCardBorder(tierName: string, sponsorBgClass?: string) {
   return "1px solid rgba(0,0,0,0.06)";
 }
 
-function getCardSizeClass(tierName: string) {
-  if (tierName.includes("HEADLINE")) return "w-full md:w-[560px] h-32 md:h-44";
-  if (tierName.includes("EXHIBITOR"))
-    return "w-[45%] md:w-[240px] h-28 md:h-36";
-  if (tierName.includes("ASSOCIATE"))
-    return "w-[45%] md:w-[280px] h-28 md:h-40";
-  return "w-[45%] md:w-[320px] h-28 md:h-40";
+// Determine grid columns based on sponsor count and tier
+function getGridClass(tierName: string, count: number) {
+  if (tierName.includes("HEADLINE")) return "grid grid-cols-1";
+  if (count === 1) return "grid grid-cols-1 max-w-[560px] mx-auto";
+  if (count === 2) return "grid grid-cols-2";
+  if (count === 3) return "grid grid-cols-2 md:grid-cols-3";
+  if (count === 4) return "grid grid-cols-2 md:grid-cols-4";
+  return "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+}
+
+// Card height based on tier importance
+function getCardHeight(tierName: string) {
+  if (tierName.includes("HEADLINE")) return "h-36 md:h-48";
+  if (tierName.includes("GOLD") || tierName.includes("SILVER")) return "h-32 md:h-44";
+  return "h-28 md:h-36";
 }
 
 export default function SponsorsSection() {
@@ -162,9 +170,8 @@ export default function SponsorsSection() {
               BROUGHT TO YOU BY
             </span>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 md:gap-5 w-full">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-5">
             {PARTNERS.map((partner, i) => {
-              // Per-logo padding: BUCC is square (needs moderate padding), GDG is wide icon (tight), IEEE is self-contained badge (none)
               let logoPadding = "p-4 md:p-6";
               if (partner.name === "GDG") logoPadding = "p-5 md:p-8";
               if (partner.name === "IEEE") logoPadding = "p-0";
@@ -172,7 +179,7 @@ export default function SponsorsSection() {
               return (
                 <div
                   key={partner.name}
-                  className="sponsor-card sponsor-fade-in rounded-xl w-[45%] md:w-[300px] h-32 md:h-44 flex items-center justify-center relative overflow-hidden"
+                  className="sponsor-card sponsor-fade-in rounded-xl h-32 md:h-44 flex items-center justify-center relative overflow-hidden"
                   style={{
                     transitionDelay: `${i * 80}ms`,
                     backgroundColor: "#f5f3ef",
@@ -201,7 +208,8 @@ export default function SponsorsSection() {
         {/* Sponsor Tiers */}
         {SPONSOR_TIERS.map((tier, i) => {
           const config = getTierConfig(tier.name);
-          const cardSizeClass = getCardSizeClass(tier.name);
+          const gridClass = getGridClass(tier.name, tier.sponsors.length);
+          const cardHeight = getCardHeight(tier.name);
 
           return (
             <div key={i} className="mb-20 w-full">
@@ -216,12 +224,12 @@ export default function SponsorsSection() {
                 </span>
               </div>
 
-              {/* Sponsor Cards */}
-              <div className="flex flex-wrap justify-center gap-4 md:gap-5 w-full">
+              {/* Sponsor Cards — full-width grid */}
+              <div className={`${gridClass} gap-4 md:gap-5`}>
                 {tier.sponsors.map((sponsor, j) => (
                   <div
                     key={sponsor.name}
-                    className={`sponsor-card sponsor-fade-in rounded-xl ${cardSizeClass} flex items-center justify-center relative overflow-hidden`}
+                    className={`sponsor-card sponsor-fade-in rounded-xl ${cardHeight} flex items-center justify-center relative overflow-hidden`}
                     style={{
                       transitionDelay: `${j * 80}ms`,
                       backgroundColor: getCardBg(tier.name, sponsor.bgClass),
