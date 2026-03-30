@@ -97,6 +97,9 @@ function getGridClass(tierName: string, count: number) {
   if (tierName.includes("GOLD")) return "grid grid-cols-1 md:max-w-[700px] md:mx-auto";
   if (tierName.includes("SILVER")) return "grid grid-cols-1 md:max-w-[700px] md:mx-auto";
   
+  // Exhibitors & Strategic Partners: 2 columns on desktop
+  if (tierName.includes("EXHIBITOR")) return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2";
+  
   // Associate and below: responsive multi-column
   if (count === 1) return "grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1";
   if (count === 2) return "grid grid-cols-1 md:grid-cols-2";
