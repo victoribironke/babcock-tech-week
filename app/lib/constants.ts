@@ -111,7 +111,7 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "Arravo",
         logo: "/images/sponsors/silver/arravo.png",
         blend: true,
-        paddingClass: "p-4 md:p-8",
+        paddingClass: "p-5 md:p-8",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -135,13 +135,13 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "Cordros",
         logo: "/images/sponsors/associate/cordros2.png",
         blend: true,
-        paddingClass: "p-0 md:p-0",
+        paddingClass: "p-4 md:p-6",
       },
       {
         name: "Octico",
         logo: "/images/sponsors/associate/octico.png",
         blend: true,
-        paddingClass: "p-0 md:p-0",
+        paddingClass: "p-4 md:p-6",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -205,7 +205,7 @@ export const SPONSOR_TIERS: Tier[] = [
       {
         name: "NTBTS",
         logo: "/images/sponsors/media/ntbts3.png",
-        paddingClass: "p-0 md:p-0",
+        paddingClass: "p-2 md:p-3",
       },
       {
         name: "The Babcock Torch",
