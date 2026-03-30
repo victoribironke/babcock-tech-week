@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { SPONSOR_TIERS, PARTNERS } from "../lib/constants";
+import { SPONSOR_TIERS, PARTNERS, type Sponsor } from "../lib/constants";
 
 // Tier accent colors
 const TIER_COLORS: Record<string, { accent: string; badgeBg: string; badgeText: string }> = {
@@ -80,11 +80,11 @@ function getCardBorder(tierName: string, sponsorBgClass?: string) {
 // Determine grid columns based on sponsor count and tier
 function getGridClass(tierName: string, count: number) {
   if (tierName.includes("HEADLINE")) return "grid grid-cols-1";
-  if (count === 1) return "grid grid-cols-1 max-w-[560px] mx-auto";
-  if (count === 2) return "grid grid-cols-2";
-  if (count === 3) return "grid grid-cols-2 md:grid-cols-3";
-  if (count === 4) return "grid grid-cols-2 md:grid-cols-4";
-  return "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4";
+  if (count === 1) return "grid grid-cols-1 md:max-w-[560px] md:mx-auto";
+  if (count === 2) return "grid grid-cols-1 md:grid-cols-2";
+  if (count === 3) return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
+  if (count === 4) return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4";
+  return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4";
 }
 
 // Card height based on tier importance
@@ -96,6 +96,7 @@ function getCardHeight(tierName: string) {
 
 export default function SponsorsSection() {
   const sectionRef = useRef<HTMLElement>(null);
+  const [selectedSponsor, setSelectedSponsor] = useState<Sponsor | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -179,11 +180,21 @@ export default function SponsorsSection() {
               return (
                 <div
                   key={partner.name}
-                  className="sponsor-card sponsor-fade-in rounded-xl h-32 md:h-44 flex items-center justify-center relative overflow-hidden"
+                  className="sponsor-card sponsor-fade-in rounded-xl h-32 md:h-44 flex items-center justify-center relative overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
                   style={{
                     transitionDelay: `${i * 80}ms`,
                     backgroundColor: "#f5f3ef",
                     border: "1px solid rgba(0,0,0,0.06)",
+                  }}
+                  tabIndex={0}
+                  role="button"
+                  aria-label={`View ${partner.name} partner`}
+                  onClick={() => setSelectedSponsor({ name: partner.name, logo: partner.logo })}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedSponsor({ name: partner.name, logo: partner.logo });
+                    }
                   }}
                 >
                   <span className="accent-line" style={{ background: "#0a1628" }} />
@@ -229,11 +240,21 @@ export default function SponsorsSection() {
                 {tier.sponsors.map((sponsor, j) => (
                   <div
                     key={sponsor.name}
-                    className={`sponsor-card sponsor-fade-in rounded-xl ${cardHeight} flex items-center justify-center relative overflow-hidden`}
+                    className={`sponsor-card sponsor-fade-in rounded-xl ${cardHeight} flex items-center justify-center relative overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-blue-500`}
                     style={{
                       transitionDelay: `${j * 80}ms`,
                       backgroundColor: getCardBg(tier.name, sponsor.bgClass),
                       border: getCardBorder(tier.name, sponsor.bgClass),
+                    }}
+                    tabIndex={0}
+                    role="button"
+                    aria-label={`View ${sponsor.name} sponsor`}
+                    onClick={() => setSelectedSponsor(sponsor)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setSelectedSponsor(sponsor);
+                      }
                     }}
                   >
                     <span className="accent-line" style={{ background: config.accent }} />
@@ -258,6 +279,43 @@ export default function SponsorsSection() {
           );
         })}
       </div>
+
+      {/* Sponsor Logo Modal */}
+      {selectedSponsor && (
+        <div
+          className="fixed inset-0 z-100 flex items-center justify-center pt-20 pb-4 px-4 sm:px-6 md:px-12 bg-black/70 backdrop-blur-sm"
+          onClick={() => setSelectedSponsor(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`${selectedSponsor.name} logo view`}
+        >
+          <div
+            className="bg-white rounded-2xl w-full max-w-3xl max-h-[calc(100vh-8rem)] overflow-hidden shadow-2xl p-8 flex items-center justify-center relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedSponsor(null)}
+              className="absolute top-6 right-6 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 hover:bg-gray-100 text-gray-800 shadow-sm transition-colors"
+              aria-label="Close sponsor modal"
+            >
+              ✕
+            </button>
+
+            {selectedSponsor.logo ? (
+              <div className="w-full h-40 md:h-56 relative">
+                <Image
+                  src={selectedSponsor.logo}
+                  alt={selectedSponsor.name}
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            ) : (
+              <div className="text-2xl font-bold text-gray-800">{selectedSponsor.name}</div>
+            )}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
