@@ -128,7 +128,7 @@ export default function Footer() {
               className="hover:opacity-80 transition-opacity"
             >
               <Image
-                src="/images/partners/ieee.webp"
+                src="/images/partners/ieee-dark.png"
                 alt="IEEE Babcock"
                 width={100}
                 height={100}
@@ -167,13 +167,13 @@ export default function Footer() {
       </div>
 
       {/* Large BTW Logo */}
-      <div className="border-t border-white/10 py-16 md:py-24 px-4 flex items-center justify-center">
+      <div className="border-t border-white/10 py-16 md:py-24 flex items-center justify-center">
         <Image
           src="/logo.svg"
           alt="Babcock Tech Week"
           width={400}
           height={400}
-          className="object-contain opacity-20 w-[200px] md:w-[300px] lg:w-[400px] h-auto"
+          className="object-contain opacity-20 w-full max-w-7xl h-auto"
         />
       </div>
 
