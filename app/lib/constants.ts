@@ -16,6 +16,7 @@ export type Sponsor = {
   bgClass?: string;
   blend?: boolean;
   paddingClass?: string;
+  url?: string;
 };
 
 export type Tier = {
@@ -38,6 +39,7 @@ export type Partner = {
   bgClass?: string;
   blend?: boolean;
   paddingClass?: string;
+  url?: string;
 };
 
 export const PARTNERS: Partner[] = [
@@ -47,18 +49,21 @@ export const PARTNERS: Partner[] = [
     logo: "/images/partners/BUCC-logo-original.png",
     blend: true,
     paddingClass: "p-0 md:p-0",
+    url: "https://wearebucc.com",
   },
   {
     name: "GDG",
     description: "Google Developer Groups",
     logo: "/images/partners/gdg-babcock.webp",
     paddingClass: "p-0 md:p-0",
+    url: "https://www.gdgbabcock.com",
   },
   {
     name: "IEEE",
     description: "Institute of Electrical & Electronics Engineers",
     logo: "/images/partners/ieee.webp",
     paddingClass: "p-0",
+    url: "https://www.instagram.com/ieee.bu/",
   },
 ];
 
@@ -76,6 +81,7 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/headline/paystack.svg",
         blend: true,
         paddingClass: "p-6 md:p-10",
+        url: "https://paystack.com",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -94,6 +100,7 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/gold/mtn.svg",
         blend: true,
         paddingClass: "p-5 md:p-8",
+        url: "https://www.mtn.com",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -112,6 +119,7 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/silver/arravo.png",
         blend: true,
         paddingClass: "p-5 md:p-8",
+        url: "https://arravo.co",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -130,18 +138,21 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/associate/blue-marina.png",
         blend: true,
         paddingClass: "p-4 md:p-6",
+        url: "https://bluemarinaam.com",
       },
       {
         name: "Cordros",
         logo: "/images/sponsors/associate/cordros2.png",
         blend: true,
         paddingClass: "p-4 md:p-6",
+        url: "https://cordros.com",
       },
       {
         name: "Octico",
         logo: "/images/sponsors/associate/octico.png",
         blend: true,
         paddingClass: "p-4 md:p-6",
+        url: "https://www.instagram.com/octicosystems/",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
@@ -160,36 +171,36 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/exhibitors-and-strategic/access-holdings.svg",
         bgClass: "bg-teal-950",
         paddingClass: "p-4 md:p-6",
+        url: "https://theaccesscorporation.com",
       },
       {
         name: "Afrinvest",
         logo: "/images/sponsors/exhibitors-and-strategic/afrinvest.png",
         blend: true,
         paddingClass: "p-0 md:p-0",
+        url: "https://afrinvest.com",
       },
       {
         name: "ARM",
         logo: "/images/sponsors/exhibitors-and-strategic/arm.png",
         blend: true,
         paddingClass: "p-4 md:p-6",
+        url: "https://www.arm.com.ng",
       },
       {
         name: "Credit Registry",
         logo: "/images/sponsors/exhibitors-and-strategic/credit-registry.png",
         blend: true,
         paddingClass: "p-3 md:p-5",
+        url: "https://www.creditregistry.ng",
       },
       {
         name: "OADC",
         logo: "/images/sponsors/exhibitors-and-strategic/oadc.jpg",
         blend: true,
         paddingClass: "p-0 md:p-0",
+        url: "https://openaccessdc.net",
       },
-      // {
-      //   name: "Quales",
-      //   logo: "/images/sponsors/exhibitors-and-strategic/quales.svg",
-      //   blend: true,
-      // },
     ],
     cols: "flex flex-wrap justify-center w-full",
     cardSize: "w-[45%] md:w-[240px] h-28 md:h-36",
@@ -206,12 +217,14 @@ export const SPONSOR_TIERS: Tier[] = [
         name: "NTBTS",
         logo: "/images/sponsors/media/ntbts3.png",
         paddingClass: "p-2 md:p-3",
+        url: "https://ntbts.substack.com",
       },
       {
         name: "The Babcock Torch",
         logo: "/images/sponsors/media/the-babcock-torch.svg",
         blend: true,
         paddingClass: "p-3 md:p-5",
+        url: "https://torch-frontend.vercel.app",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",

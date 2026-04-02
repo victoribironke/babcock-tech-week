@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-import { SPONSOR_TIERS, PARTNERS, type Sponsor } from "../lib/constants";
+import { SPONSOR_TIERS, PARTNERS } from "../lib/constants";
 
 // Tier accent colors
 const TIER_COLORS: Record<string, { accent: string; badgeBg: string; badgeText: string }> = {
@@ -121,7 +121,6 @@ function getCardHeight(tierName: string) {
 
 export default function SponsorsSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [selectedSponsor, setSelectedSponsor] = useState<Sponsor | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -198,60 +197,6 @@ export default function SponsorsSection() {
           sponsors and partners.
         </p>
 
-        {/* Brought to you by */}
-        <div className="mb-20 w-full sponsor-fade-in">
-          <div className="flex justify-center mb-10">
-            <span className="bg-[#0a1628] text-white text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase px-7 py-3 rounded-lg inline-flex items-center gap-2.5 shadow-sm">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
-              </svg>
-              BROUGHT TO YOU BY
-            </span>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-7">
-            {PARTNERS.map((partner, i) => {
-              const logoPadding = partner.paddingClass || "p-4 md:p-6";
-
-              return (
-                <div
-                  key={partner.name}
-                  className="sponsor-card sponsor-fade-in rounded-xl h-36 md:h-44 lg:h-48 flex items-center justify-center relative overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                  style={{
-                    transitionDelay: `${i * 80}ms`,
-                    backgroundColor: "#ffffff",
-                    border: partner.name === "IEEE" ? "1.5px solid transparent" : "1.5px solid #9ca3af",
-                    "--border-color": "#9ca3af",
-                  } as React.CSSProperties}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`View ${partner.name} partner`}
-                  onClick={() => setSelectedSponsor({ name: partner.name, logo: partner.logo })}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setSelectedSponsor({ name: partner.name, logo: partner.logo });
-                    }
-                  }}
-                >
-                  <span className="accent-line" style={{ background: "#9ca3af" }} />
-                  {partner.logo ? (
-                    <Image
-                      src={partner.logo}
-                      alt={`${partner.name} logo`}
-                      fill
-                      className={`object-contain ${logoPadding} ${partner.blend ? "mix-blend-multiply" : ""}`}
-                    />
-                  ) : (
-                    <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 p-4">
-                      {partner.name}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
         {/* Sponsor Tiers */}
         {SPONSOR_TIERS.map((tier, i) => {
           const config = getTierConfig(tier.name);
@@ -274,8 +219,11 @@ export default function SponsorsSection() {
               {/* Sponsor Cards — full-width grid */}
               <div className={`${gridClass} gap-5 md:gap-6 lg:gap-7`}>
                 {tier.sponsors.map((sponsor, j) => (
-                  <div
+                  <a
                     key={sponsor.name}
+                    href={sponsor.url || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`sponsor-card sponsor-fade-in rounded-xl ${cardHeight} flex items-center justify-center relative overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-blue-500`}
                     style={{
                       transitionDelay: `${j * 80}ms`,
@@ -283,16 +231,7 @@ export default function SponsorsSection() {
                       border: getCardBorder(tier.name, sponsor.bgClass),
                       "--border-color": getTierAccentColor(tier.name),
                     } as React.CSSProperties}
-                    tabIndex={0}
-                    role="button"
-                    aria-label={`View ${sponsor.name} sponsor`}
-                    onClick={() => setSelectedSponsor(sponsor)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault();
-                        setSelectedSponsor(sponsor);
-                      }
-                    }}
+                    aria-label={`Visit ${sponsor.name} website`}
                   >
                     <span className="accent-line" style={{ background: config.accent }} />
                     {sponsor.logo ? (
@@ -309,50 +248,65 @@ export default function SponsorsSection() {
                         {sponsor.name}
                       </span>
                     )}
-                  </div>
+                  </a>
                 ))}
               </div>
             </div>
           );
         })}
-      </div>
 
-      {/* Sponsor Logo Modal */}
-      {selectedSponsor && (
-        <div
-          className="fixed inset-0 z-100 flex items-center justify-center pt-20 pb-4 px-4 sm:px-6 md:px-12 bg-black/70 backdrop-blur-sm"
-          onClick={() => setSelectedSponsor(null)}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${selectedSponsor.name} logo view`}
-        >
-          <div
-            className="bg-white rounded-2xl w-full max-w-3xl max-h-[calc(100vh-8rem)] overflow-hidden shadow-2xl p-8 flex items-center justify-center relative"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              onClick={() => setSelectedSponsor(null)}
-              className="absolute top-6 right-6 z-20 w-8 h-8 flex items-center justify-center rounded-full bg-white/90 hover:bg-gray-100 text-gray-800 shadow-sm transition-colors"
-              aria-label="Close sponsor modal"
-            >
-              ✕
-            </button>
+        {/* Community Partners */}
+        <div className="mb-20 w-full sponsor-fade-in">
+          <div className="flex justify-center mb-10">
+            <span className="text-[11px] md:text-xs font-bold tracking-[0.2em] uppercase px-7 py-3 rounded-lg inline-flex items-center gap-2.5 shadow-sm" style={{ background: "#0a1628", color: "#ffffff" }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              COMMUNITY PARTNERS
+            </span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 lg:gap-7">
+            {PARTNERS.map((partner, i) => {
+              const logoPadding = partner.paddingClass || "p-4 md:p-6";
 
-            {selectedSponsor.logo ? (
-              <div className="w-full h-40 md:h-56 relative">
-                <Image
-                  src={selectedSponsor.logo}
-                  alt={selectedSponsor.name}
-                  fill
-                  className="object-contain"
-                />
-              </div>
-            ) : (
-              <div className="text-2xl font-bold text-gray-800">{selectedSponsor.name}</div>
-            )}
+              return (
+                <a
+                  key={partner.name}
+                  href={partner.url || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="sponsor-card sponsor-fade-in rounded-xl h-36 md:h-44 lg:h-48 flex items-center justify-center relative overflow-hidden cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
+                  style={{
+                    transitionDelay: `${i * 80}ms`,
+                    backgroundColor: "#ffffff",
+                    border: partner.name === "IEEE" ? "1.5px solid transparent" : "1.5px solid #9ca3af",
+                    "--border-color": "#9ca3af",
+                  } as React.CSSProperties}
+                  aria-label={`Visit ${partner.name} website`}
+                >
+                  <span className="accent-line" style={{ background: "#9ca3af" }} />
+                  {partner.logo ? (
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      fill
+                      className={`object-contain ${logoPadding} ${partner.blend ? "mix-blend-multiply" : ""}`}
+                    />
+                  ) : (
+                    <div className="text-2xl md:text-3xl font-extrabold tracking-wide text-gray-800 p-4">
+                      {partner.name}
+                    </div>
+                  )}
+                </a>
+              );
+            })}
           </div>
         </div>
-      )}
+      </div>
+
     </section>
   );
 }
