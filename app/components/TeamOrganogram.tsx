@@ -42,7 +42,7 @@ const TEAMS: Team[] = [
       initials: "AA",
       name: "Adedoja Ademola",
       role: "Logistics Lead",
-      image: "/images/Team-Photos/Adedoja Daniel Ademola.jpg",
+      image: "/images/Team-Photos/adedoja-ademola.jpg",
     },
   },
   {
@@ -59,7 +59,7 @@ const TEAMS: Team[] = [
         initials: "EI",
         name: "Ezeka Ifeoma",
         role: "Co-lead",
-        image: "/images/Team-Photos/Ezeka Ifeoma Vera.jpg",
+        image: "/images/Team-Photos/ezeka-ifeoma.jpg",
       },
     ],
   },
@@ -69,20 +69,20 @@ const TEAMS: Team[] = [
       initials: "DK",
       name: "Daniel Kadiri",
       role: "Product & Branding Lead",
-      image: "/images/Team-Photos/Daniel Kadiri.jpg",
+      image: "/images/Team-Photos/daniel-kadiri.jpg",
     },
     coLeads: [
       {
         initials: "UV",
         name: "Umaru Victor",
         role: "Co-lead",
-        image: "/images/Team-Photos/Umaru Victor.jpg",
+        image: "/images/Team-Photos/umaru-victor.jpg",
       },
       {
         initials: "EO",
         name: "Efegherimoni Oghenetejiri",
         role: "Co-lead",
-        image: "/images/Team-Photos/Efegherimoni Oghenetejiri.jpg",
+        image: "/images/Team-Photos/efegherimoni-oghenetejiri.jpg",
       },
     ],
   },
@@ -100,7 +100,7 @@ const TEAMS: Team[] = [
         initials: "OF",
         name: "Olamide Fatunase",
         role: "Co-lead",
-        image: "/images/Team-Photos/Olamide Fatunase.jpg",
+        image: "/images/Team-Photos/olamide-fatunase.jpg",
       },
     ],
   },
@@ -119,14 +119,14 @@ const TEAMS: Team[] = [
       initials: "AU",
       name: "Archie Ubong",
       role: "Volunteers Lead",
-      image: "/images/Team-Photos/Archie Ubong.png",
+      image: "/images/Team-Photos/archie-ubong.png",
     },
     coLeads: [
       {
         initials: "AT",
         name: "Alayerogun Tobiloba",
         role: "Co-lead",
-        image: "/images/Team-Photos/Alayerogun Tobiloba.jpeg",
+        image: "/images/Team-Photos/alayerogun-tobiloba.jpeg",
       },
     ],
   },
@@ -134,50 +134,81 @@ const TEAMS: Team[] = [
 
 /* ──────────────────────── COMPONENTS ──────────────────────── */
 
-function Avatar({
+/** Speaker-style photo card with angled overlay */
+function PersonCard({
   person,
-  size = "md",
+  variant = "lead",
+  isVisible,
   delay = 0,
-  isVisible = true,
 }: {
   person: Person;
-  size?: "sm" | "md" | "lg";
+  variant?: "lead" | "colead" | "leadership";
+  isVisible: boolean;
   delay?: number;
-  isVisible?: boolean;
 }) {
-  const dims = {
-    sm: { container: "w-9 h-9", text: "text-xs", px: 36 },
-    md: { container: "w-11 h-11", text: "text-sm", px: 44 },
-    lg: { container: "w-16 h-16", text: "text-base", px: 64 },
-  };
-  const d = dims[size];
+  const isLeadership = variant === "leadership";
+  const isCoLead = variant === "colead";
 
   return (
     <div
-      className={`${d.container} rounded-full shrink-0 relative overflow-hidden transition-all duration-700`}
+      className={`group overflow-hidden flex flex-col h-full rounded-xl shadow-sm hover:shadow-xl transition-all duration-600 ${
+        isLeadership
+          ? "bg-[#0d1117] border border-white/10"
+          : "bg-gray-100"
+      }`}
       style={{
         transitionDelay: `${delay}ms`,
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "scale(1)" : "scale(0.5)",
+        transform: isVisible ? "translateY(0)" : "translateY(20px)",
       }}
     >
-      {person.image ? (
-        <>
+      {/* Photo */}
+      <div
+        className={`relative overflow-hidden ${
+          isLeadership
+            ? "aspect-square"
+            : isCoLead
+              ? "aspect-square"
+              : "aspect-square md:aspect-3/4"
+        } ${person.image ? "" : "bg-gradient-to-br from-lime/20 to-emerald-900/40"}`}
+      >
+        {person.image ? (
           <Image
             src={person.image}
             alt={person.name}
-            width={d.px}
-            height={d.px}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
           />
-          {/* Subtle lime ring */}
-          <div className="absolute inset-0 rounded-full ring-2 ring-lime/40" />
-        </>
-      ) : (
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-4xl md:text-5xl font-bold text-lime/60">
+              {person.initials}
+            </span>
+          </div>
+        )}
+
+        {/* Angled overlay — always visible (desktop style from speakers) */}
         <div
-          className={`w-full h-full rounded-full bg-gradient-to-br from-lime to-emerald-500 text-black font-bold flex items-center justify-center ${d.text} shadow-lg shadow-lime/20`}
+          className="absolute bottom-0 left-0 right-0 bg-[#0a1628]/95 px-4 pb-4 pt-10 min-h-[5.5rem] flex flex-col justify-end"
+          style={{
+            clipPath: "polygon(0% 30%, 100% 0%, 100% 100%, 0% 100%)",
+          }}
         >
-          {person.initials}
+          <h4 className="text-white text-xs md:text-sm font-bold tracking-wide leading-tight mb-0.5 font-google-sans uppercase">
+            {person.name}
+          </h4>
+          <p className="text-lime/80 text-[11px] md:text-xs font-semibold tracking-wide uppercase">
+            {person.role}
+          </p>
+        </div>
+      </div>
+
+      {/* Note below card if present */}
+      {person.note && (
+        <div className={`px-3 py-2 text-center ${isLeadership ? "bg-[#0d1117]" : "bg-gray-100"}`}>
+          <span className={`text-[10px] md:text-xs italic tracking-wide ${isLeadership ? "text-white/35" : "text-gray-400"}`}>
+            {person.note}
+          </span>
         </div>
       )}
     </div>
@@ -190,7 +221,7 @@ function ConnectorLine({ isVisible, delay = 0 }: { isVisible: boolean; delay?: n
       <div
         className="w-px bg-gradient-to-b from-lime/60 to-white/10 transition-all duration-700 ease-out"
         style={{
-          height: isVisible ? "40px" : "0px",
+          height: isVisible ? "48px" : "0px",
           transitionDelay: `${delay}ms`,
           opacity: isVisible ? 1 : 0,
         }}
@@ -217,84 +248,10 @@ function TeamBadge({
         transform: isVisible ? "translateY(0)" : "translateY(12px)",
       }}
     >
-      <span className="inline-block text-[11px] md:text-xs font-bold tracking-[0.15em] uppercase text-white/90 border border-white/15 rounded-full px-5 py-2 bg-white/5 backdrop-blur-sm">
+      <span className="inline-block text-[10px] md:text-xs font-bold tracking-[0.15em] uppercase text-white/90 border border-white/15 rounded-full px-5 py-2 bg-white/5 backdrop-blur-sm">
         {label}
       </span>
     </div>
-  );
-}
-
-function PersonCard({
-  person,
-  variant = "lead",
-  isVisible,
-  delay = 0,
-}: {
-  person: Person;
-  variant?: "lead" | "colead";
-  isVisible: boolean;
-  delay?: number;
-}) {
-  const isLead = variant === "lead";
-
-  return (
-    <div
-      className={`flex items-center gap-3.5 rounded-xl px-5 py-4 transition-all duration-600 ${
-        isLead
-          ? "bg-white/[0.06] border border-white/10 hover:border-lime/30 hover:bg-white/[0.09]"
-          : "bg-white/[0.04] border border-white/8 hover:border-lime/20 hover:bg-white/[0.06]"
-      }`}
-      style={{
-        transitionDelay: `${delay}ms`,
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "translateY(0)" : "translateY(16px)",
-      }}
-    >
-      <Avatar
-        person={person}
-        size={isLead ? "md" : "sm"}
-        delay={delay}
-        isVisible={isVisible}
-      />
-      <div className="min-w-0">
-        <p
-          className={`font-bold leading-tight ${
-            isLead ? "text-sm md:text-base text-white" : "text-sm text-white/90"
-          }`}
-        >
-          {person.name}
-        </p>
-        <p
-          className={`${
-            isLead ? "text-xs md:text-sm text-white/50" : "text-xs text-white/40"
-          } leading-snug mt-0.5`}
-        >
-          {person.role}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function NoteText({
-  text,
-  isVisible,
-  delay = 0,
-}: {
-  text: string;
-  isVisible: boolean;
-  delay?: number;
-}) {
-  return (
-    <p
-      className="text-center text-xs italic text-white/35 mt-1 transition-all duration-500"
-      style={{
-        transitionDelay: `${delay}ms`,
-        opacity: isVisible ? 1 : 0,
-      }}
-    >
-      {text}
-    </p>
   );
 }
 
@@ -308,9 +265,10 @@ function TeamSection({
   isVisible: boolean;
 }) {
   const baseDelay = 200 + index * 150;
+  const hasMultipleCoLeads = team.coLeads && team.coLeads.length > 1;
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       {/* Connector from previous section */}
       <ConnectorLine isVisible={isVisible} delay={baseDelay} />
 
@@ -320,8 +278,8 @@ function TeamSection({
       {/* Connector to lead */}
       <ConnectorLine isVisible={isVisible} delay={baseDelay + 200} />
 
-      {/* Lead card */}
-      <div className="w-full max-w-[380px]">
+      {/* Lead card — centered, constrained width */}
+      <div className="w-full max-w-[220px] md:max-w-[240px]">
         <PersonCard
           person={team.lead}
           variant="lead"
@@ -330,18 +288,14 @@ function TeamSection({
         />
       </div>
 
-      {/* Note if present */}
-      {team.lead.note && (
-        <NoteText text={team.lead.note} isVisible={isVisible} delay={baseDelay + 350} />
-      )}
-
       {/* Co-leads */}
       {team.coLeads && team.coLeads.length > 0 && (
         <>
           <ConnectorLine isVisible={isVisible} delay={baseDelay + 400} />
 
-          {team.coLeads.length === 1 ? (
-            <div className="w-full max-w-[360px]">
+          {!hasMultipleCoLeads ? (
+            /* Single co-lead */
+            <div className="w-full max-w-[200px] md:max-w-[220px]">
               <PersonCard
                 person={team.coLeads[0]}
                 variant="colead"
@@ -351,38 +305,29 @@ function TeamSection({
             </div>
           ) : (
             /* Multiple co-leads side by side */
-            <div className="w-full max-w-[520px]">
-              {/* Branch lines */}
+            <div className="w-full max-w-[480px]">
+              {/* Branch connector */}
               <div className="flex justify-center mb-0">
-                <div className="relative w-full max-w-[400px] h-5">
-                  {/* Horizontal bar */}
+                <div className="relative w-full max-w-[360px] h-5">
                   <div
-                    className="absolute top-0 left-[15%] right-[15%] h-px bg-gradient-to-r from-lime/40 via-white/10 to-lime/40 transition-all duration-500"
+                    className="absolute top-0 left-[18%] right-[18%] h-px bg-gradient-to-r from-lime/40 via-white/10 to-lime/40 transition-all duration-500"
                     style={{
                       transitionDelay: `${baseDelay + 450}ms`,
                       opacity: isVisible ? 1 : 0,
                       transform: isVisible ? "scaleX(1)" : "scaleX(0)",
                     }}
                   />
-                  {/* Left drop */}
                   <div
-                    className="absolute top-0 left-[15%] w-px h-full bg-lime/30 transition-all duration-400"
-                    style={{
-                      transitionDelay: `${baseDelay + 500}ms`,
-                      opacity: isVisible ? 1 : 0,
-                    }}
+                    className="absolute top-0 left-[18%] w-px h-full bg-lime/30 transition-all duration-400"
+                    style={{ transitionDelay: `${baseDelay + 500}ms`, opacity: isVisible ? 1 : 0 }}
                   />
-                  {/* Right drop */}
                   <div
-                    className="absolute top-0 right-[15%] w-px h-full bg-lime/30 transition-all duration-400"
-                    style={{
-                      transitionDelay: `${baseDelay + 500}ms`,
-                      opacity: isVisible ? 1 : 0,
-                    }}
+                    className="absolute top-0 right-[18%] w-px h-full bg-lime/30 transition-all duration-400"
+                    style={{ transitionDelay: `${baseDelay + 500}ms`, opacity: isVisible ? 1 : 0 }}
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
                 {team.coLeads.map((cl, i) => (
                   <PersonCard
                     key={cl.initials + cl.name}
@@ -401,7 +346,7 @@ function TeamSection({
   );
 }
 
-/* ──────────────────────── MAIN PAGE ──────────────────────── */
+/* ──────────────────────── MAIN EXPORT ──────────────────────── */
 
 export default function TeamOrganogram() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -432,10 +377,10 @@ export default function TeamOrganogram() {
       {/* Subtle background glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-lime/[0.03] blur-[120px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-[900px] mx-auto px-5 pt-32 md:pt-40 pb-20 md:pb-32">
+      <div className="relative z-10 max-w-[1000px] mx-auto px-5 pt-32 md:pt-40 pb-20 md:pb-32">
         {/* Page heading */}
         <div
-          className="text-center mb-16 md:mb-20 transition-all duration-800"
+          className="text-center mb-14 md:mb-20 transition-all duration-800"
           style={{
             opacity: isVisible ? 1 : 0,
             transform: isVisible ? "translateY(0)" : "translateY(20px)",
@@ -465,33 +410,18 @@ export default function TeamOrganogram() {
             transform: isVisible ? "translateY(0)" : "translateY(20px)",
           }}
         >
-          {/* Glow accent */}
+          {/* Glow accent line */}
           <div className="absolute -top-px left-1/2 -translate-x-1/2 w-32 h-px bg-gradient-to-r from-transparent via-lime/50 to-transparent" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-10">
+          <div className="grid grid-cols-2 gap-4 md:gap-8 max-w-[480px] mx-auto">
             {LEADERSHIP.map((person, i) => (
-              <div
+              <PersonCard
                 key={person.name + person.role}
-                className="flex flex-col items-center text-center transition-all duration-700"
-                style={{
-                  transitionDelay: `${300 + i * 150}ms`,
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? "translateY(0)" : "translateY(16px)",
-                }}
-              >
-                <Avatar
-                  person={person}
-                  size="lg"
-                  delay={400 + i * 150}
-                  isVisible={isVisible}
-                />
-                <h3 className="text-base md:text-lg font-bold mt-4 leading-tight">
-                  {person.name}
-                </h3>
-                <p className="text-xs md:text-sm text-lime/80 font-medium mt-1 tracking-wide">
-                  {person.role}
-                </p>
-              </div>
+                person={person}
+                variant="leadership"
+                isVisible={isVisible}
+                delay={300 + i * 150}
+              />
             ))}
           </div>
         </div>
