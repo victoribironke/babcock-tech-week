@@ -1,16 +1,22 @@
 import type { Metadata } from "next";
-import ComingSoon from "../components/ComingSoon";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import TeamOrganogram from "../components/TeamOrganogram";
 
 export const metadata: Metadata = {
   title: "Team | Babcock Tech Week",
-  description: "Meet the team behind Babcock Tech Week.",
+  description:
+    "Meet the team behind Babcock Tech Week — the students, organisers, and partners making it all happen.",
 };
 
 export default function TeamPage() {
   return (
-    <ComingSoon
-      title="Team"
-      description="Meet the people behind Babcock Tech Week — the students, organisers, and partners making it all happen."
-    />
+    <>
+      <Header />
+      <main>
+        <TeamOrganogram />
+      </main>
+      <Footer />
+    </>
   );
 }
