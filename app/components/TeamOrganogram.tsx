@@ -12,6 +12,8 @@ type Person = {
   note?: string;
   image?: string;
   bio?: string;
+  linkedin?: string;
+  x?: string;
 };
 
 type Team = {
@@ -26,12 +28,16 @@ const LEADERSHIP: Person[] = [
     name: "Dunmade Majuyi O.D.",
     role: "Convener",
     image: "/images/speakers/Mujuyi.jpeg",
+    linkedin: "https://www.linkedin.com/in/majuyi/",
+    x: "https://x.com/majuyitan",
   },
   {
     initials: "KO",
     name: "Obata Onyelukachukwu",
     role: "Lead Organizer",
     image: "/images/speakers/KachiObata.jpeg",
+    linkedin: "https://www.linkedin.com/in/onyelukachukwu-obata/",
+    x: "https://x.com/kachiobata",
   },
 ];
 
@@ -53,6 +59,8 @@ const TEAMS: Team[] = [
       role: "Programs & Scheduling Lead",
       note: "also Lead Organizer",
       image: "/images/speakers/KachiObata.jpeg",
+      linkedin: "https://www.linkedin.com/in/onyelukachukwu-obata/",
+      x: "https://x.com/kachiobata",
     },
     coLeads: [
       {
@@ -94,6 +102,8 @@ const TEAMS: Team[] = [
       role: "Partnerships Lead",
       note: "also Lead Organizer",
       image: "/images/speakers/KachiObata.jpeg",
+      linkedin: "https://www.linkedin.com/in/onyelukachukwu-obata/",
+      x: "https://x.com/kachiobata",
     },
     coLeads: [
       {
@@ -131,7 +141,89 @@ const TEAMS: Team[] = [
   },
 ];
 
+/* ────────────────── SVG ICON PATHS ────────────────── */
+
+const LINKEDIN_PATH =
+  "M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z";
+
+const X_PATH =
+  "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z";
+
 /* ──────────────────────── COMPONENTS ──────────────────────── */
+
+function SocialIcons({ person }: { person: Person }) {
+  if (!person.linkedin && !person.x) return null;
+
+  return (
+    <div className="flex items-center gap-1.5">
+      {person.linkedin && (
+        <a
+          href={person.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${person.name} LinkedIn`}
+          className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-white/30 hover:text-white transition-all"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d={LINKEDIN_PATH} />
+          </svg>
+        </a>
+      )}
+      {person.x && (
+        <a
+          href={person.x}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${person.name} X`}
+          className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-white/70 hover:bg-white/30 hover:text-white transition-all"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <path d={X_PATH} />
+          </svg>
+        </a>
+      )}
+    </div>
+  );
+}
+
+function MobileSocialIcons({ person }: { person: Person }) {
+  if (!person.linkedin && !person.x) return null;
+
+  return (
+    <div className="flex items-center gap-1.5 mt-1.5">
+      {person.linkedin && (
+        <a
+          href={person.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${person.name} LinkedIn`}
+          className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-300 hover:text-gray-700 transition-all"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
+            <path d={LINKEDIN_PATH} />
+          </svg>
+        </a>
+      )}
+      {person.x && (
+        <a
+          href={person.x}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`${person.name} X`}
+          className="w-6 h-6 rounded-full bg-gray-200 flex items-center justify-center text-gray-500 hover:bg-gray-300 hover:text-gray-700 transition-all"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">
+            <path d={X_PATH} />
+          </svg>
+        </a>
+      )}
+    </div>
+  );
+}
 
 /** Card matching SpeakersSection style exactly */
 function PersonCard({
@@ -176,17 +268,22 @@ function PersonCard({
             clipPath: "polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%)",
           }}
         >
-          <h4 className="text-white text-base font-bold tracking-wide leading-tight mb-1 font-google-sans uppercase">
-            {person.name}
-          </h4>
-          <p className="text-[#c15f3c] text-xs font-semibold tracking-wide uppercase">
-            {person.role}
-          </p>
-          {person.note && (
-            <p className="text-gray-400 text-[11px] italic mt-1 tracking-wide normal-case">
-              {person.note}
-            </p>
-          )}
+          <div className="flex items-end justify-between gap-2">
+            <div className="min-w-0">
+              <h4 className="text-white text-base font-bold tracking-wide leading-tight mb-1 font-google-sans uppercase">
+                {person.name}
+              </h4>
+              <p className="text-[#c15f3c] text-xs font-semibold tracking-wide uppercase">
+                {person.role}
+              </p>
+              {person.note && (
+                <p className="text-gray-400 text-[11px] italic mt-1 tracking-wide normal-case">
+                  {person.note}
+                </p>
+              )}
+            </div>
+            <SocialIcons person={person} />
+          </div>
         </div>
       </div>
 
@@ -203,6 +300,7 @@ function PersonCard({
             {person.note}
           </span>
         )}
+        <MobileSocialIcons person={person} />
       </div>
     </div>
   );
@@ -307,6 +405,12 @@ function TeamSection({
   isVisible: boolean;
 }) {
   const baseDelay = 150 + index * 120;
+  const hasCoLeads = team.coLeads && team.coLeads.length > 0;
+  const hasSingleCoLead = hasCoLeads && team.coLeads!.length === 1;
+
+  // Teams with exactly 1 co-lead: show lead + co-lead side by side
+  // Teams with 2+ co-leads: lead on top, co-leads side by side below
+  // Teams with no co-leads: just the lead card centered
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -314,43 +418,58 @@ function TeamSection({
       <TeamHeading label={team.label} isVisible={isVisible} delay={baseDelay + 80} />
       <ConnectorLine isVisible={isVisible} delay={baseDelay + 160} />
 
-      {/* Lead card */}
-      <div className="w-full max-w-[220px] md:max-w-[240px]">
-        <PersonCard
-          person={team.lead}
-          isVisible={isVisible}
-          delay={baseDelay + 240}
-        />
-      </div>
-
-      {/* Co-leads */}
-      {team.coLeads && team.coLeads.length > 0 && (
+      {!hasCoLeads ? (
+        /* Solo lead — centered */
+        <div className="w-full max-w-[220px] md:max-w-[240px]">
+          <PersonCard
+            person={team.lead}
+            isVisible={isVisible}
+            delay={baseDelay + 240}
+          />
+        </div>
+      ) : hasSingleCoLead ? (
+        /* Lead + 1 co-lead — side by side */
+        <div className="w-full max-w-[500px]">
+          <BranchConnector isVisible={isVisible} delay={baseDelay + 200} />
+          <div className="grid grid-cols-2 gap-3 md:gap-4">
+            <PersonCard
+              person={team.lead}
+              isVisible={isVisible}
+              delay={baseDelay + 280}
+            />
+            <PersonCard
+              person={team.coLeads![0]}
+              isVisible={isVisible}
+              delay={baseDelay + 360}
+            />
+          </div>
+        </div>
+      ) : (
+        /* Lead on top, multiple co-leads side by side below */
         <>
+          <div className="w-full max-w-[220px] md:max-w-[240px]">
+            <PersonCard
+              person={team.lead}
+              isVisible={isVisible}
+              delay={baseDelay + 240}
+            />
+          </div>
+
           <ConnectorLine isVisible={isVisible} delay={baseDelay + 320} />
 
-          {team.coLeads.length === 1 ? (
-            <div className="w-full max-w-[200px] md:max-w-[220px]">
-              <PersonCard
-                person={team.coLeads[0]}
-                isVisible={isVisible}
-                delay={baseDelay + 400}
-              />
+          <div className="w-full max-w-[500px]">
+            <BranchConnector isVisible={isVisible} delay={baseDelay + 360} />
+            <div className="grid grid-cols-2 gap-3 md:gap-4">
+              {team.coLeads!.map((cl, i) => (
+                <PersonCard
+                  key={cl.initials + cl.name}
+                  person={cl}
+                  isVisible={isVisible}
+                  delay={baseDelay + 420 + i * 80}
+                />
+              ))}
             </div>
-          ) : (
-            <div className="w-full max-w-[500px]">
-              <BranchConnector isVisible={isVisible} delay={baseDelay + 360} />
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
-                {team.coLeads.map((cl, i) => (
-                  <PersonCard
-                    key={cl.initials + cl.name}
-                    person={cl}
-                    isVisible={isVisible}
-                    delay={baseDelay + 420 + i * 80}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
+          </div>
         </>
       )}
     </div>
@@ -406,12 +525,9 @@ export default function TeamOrganogram() {
         {/* ─── Leadership ─── */}
         <div className="flex flex-col items-center mb-4">
           <TeamHeading label="LEADERSHIP" isVisible={isVisible} delay={200} />
-
-          {/* Branch connector to two leaders side by side */}
           <ConnectorLine isVisible={isVisible} delay={280} />
           <BranchConnector isVisible={isVisible} delay={360} />
 
-          {/* Two leadership cards side by side */}
           <div className="grid grid-cols-2 gap-3 md:gap-5 w-full max-w-[500px]">
             {LEADERSHIP.map((person, i) => (
               <PersonCard
