@@ -329,7 +329,7 @@ export const SPEAKERS: Speaker[] = [
     bio: "Obata Onyelukachukwu is a Computer Science student in his second year at Babcock University, a technology strategist, and student leader with a strong interest in building platforms that connect talent, innovation, and opportunity. His work spans partnerships, program development, and the execution of initiatives that expand access, visibility, and real-world opportunities for young people.\n\nHe is a key driver behind Babcock Tech Week, helping shape it into an interdisciplinary platform that connects students with industry leaders, practical knowledge, and emerging opportunities. His broader interests lie at the intersection of technology, entrepreneurship, community building, and digital products, with a focus on creating meaningful systems that empower young people to learn, build, and lead.",
   },
   {
-    name: "Anthony Azekwoh",
+    name: "Λnthony Λzekwoh",
     title: "Artist and Author",
     company: "",
     image: "/images/speakers/AnthonyAzekwoh.jpg",
