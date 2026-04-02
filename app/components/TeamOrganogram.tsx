@@ -517,8 +517,8 @@ export default function TeamOrganogram() {
             The Team
           </h2>
           <p className="text-gray-500 text-center text-sm md:text-base mb-16 max-w-[600px] mx-auto">
-            Meet the people behind Babcock Tech Week — the students and
-            organisers making it all happen.
+            Meet the people behind Babcock Tech Week — the student 
+            organizers making it all happen.
           </p>
         </div>
 
