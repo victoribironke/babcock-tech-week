@@ -29,7 +29,7 @@ const socialLinks = [
   { name: "X", path: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z", href: "https://x.com/babcocktechweek" },
 ];
 
-export default function Header() {
+export default function Header({ solid = false }: { solid?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -55,7 +55,7 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 ${scrolled
+        className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 ${(scrolled || solid)
             ? "bg-black/90 backdrop-blur-md border-b border-white/5"
             : "bg-transparent"
           }`}
