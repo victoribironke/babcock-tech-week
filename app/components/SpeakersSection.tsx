@@ -61,7 +61,7 @@ export default function SpeakersSection() {
                 clipPath: "polygon(0% 25%, 100% 0%, 100% 100%, 0% 100%)",
               }}
             >
-              <h4 className="text-white text-base font-bold tracking-wide leading-tight mb-1">
+              <h4 className="text-white text-base font-bold tracking-wide leading-tight mb-1 font-google-sans uppercase">
                 {speaker.name}
               </h4>
               {speaker.role && (
@@ -85,7 +85,7 @@ export default function SpeakersSection() {
 
           {/* Mobile info — shown below photo, hidden on desktop */}
           <div className="md:hidden px-3 py-3 flex flex-col gap-0.5">
-            <h4 className="text-[#0a1628] text-sm font-bold tracking-wide leading-tight">
+            <h4 className="text-[#0a1628] text-sm font-bold tracking-wide leading-tight font-google-sans uppercase">
               {speaker.name}
             </h4>
             {speaker.role && (
@@ -190,7 +190,7 @@ export default function SpeakersSection() {
               <span className="text-xs font-bold tracking-widest text-[#c15f3c] uppercase">
                 {selectedSpeaker.category}
               </span>
-              <h3 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-1">
+              <h3 className="text-2xl md:text-4xl font-extrabold text-gray-900 mb-1 font-google-sans uppercase">
                 {selectedSpeaker.name}
               </h3>
               {selectedSpeaker.role && (
