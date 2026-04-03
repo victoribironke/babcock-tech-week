@@ -104,7 +104,7 @@ const TEAMS: Team[] = [
       },
       {
         initials: "DA",
-        name: "Daisy",
+        name: "Daisy Imhanzenobe",
         role: "Designer",
         image: "/images/Team-Photos/daisy-imhanzenobe.png",
         linkedin: "https://www.linkedin.com/in/daisy-imhanzenobe-095292366/",
