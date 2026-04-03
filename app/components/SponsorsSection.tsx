@@ -100,6 +100,9 @@ function getGridClass(tierName: string, count: number) {
   // Exhibitors & Strategic Partners: 2 columns on desktop
   if (tierName.includes("EXHIBITOR")) return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2";
   
+  // Associate sponsors: 2 columns on desktop (stacked in twos like exhibitors)
+  if (tierName.includes("ASSOCIATE")) return "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2";
+  
   // Associate and below: responsive multi-column
   if (count === 1) return "grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1";
   if (count === 2) return "grid grid-cols-1 md:grid-cols-2";

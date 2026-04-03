@@ -154,6 +154,13 @@ export const SPONSOR_TIERS: Tier[] = [
         paddingClass: "p-4 md:p-6",
         url: "https://www.instagram.com/octicosystems/",
       },
+      {
+        name: "Bloom Africa",
+        logo: "/images/sponsors/associate/bloom-africa.png",
+        blend: true,
+        paddingClass: "p-2 md:p-2",
+        url: "https://thebloomafrica.org",
+      },
     ],
     cols: "flex flex-wrap justify-center w-full",
     cardSize: "w-[45%] md:w-[280px] h-28 md:h-40",
