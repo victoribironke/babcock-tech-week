@@ -209,7 +209,7 @@ const TEAMS: Team[] = [
         initials: "TA",
         name: "Adedayo Timilehin",
         role: "Co-lead",
-        image: "/images/Team-Photos/timilehin-adedayo.jpg",
+        image: "/images/Team-Photos/timilehin-adedayo1.jpg",
         linkedin: "https://www.linkedin.com/in/timilehin-adedayo-2697a431a/",
         x: "https://x.com/kinariasu",
       },
