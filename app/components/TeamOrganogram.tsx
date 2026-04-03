@@ -26,7 +26,7 @@ const LEADERSHIP: Person[] = [
   {
     initials: "DM",
     name: "Dunmade Majuyi O.D.",
-    role: "Convener",
+    role: "Convener/Director",
     image: "/images/speakers/Mujuyi.jpeg",
     linkedin: "https://www.linkedin.com/in/majuyi/",
     x: "https://x.com/majuyitan",
@@ -57,7 +57,6 @@ const TEAMS: Team[] = [
       initials: "KO",
       name: "Obata Onyelukachukwu",
       role: "Programs & Scheduling Lead",
-      note: "also Lead Organizer",
       image: "/images/speakers/KachiObata.jpeg",
       linkedin: "https://www.linkedin.com/in/onyelukachukwu-obata/",
       x: "https://x.com/kachiobata",
@@ -100,7 +99,6 @@ const TEAMS: Team[] = [
       initials: "KO",
       name: "Obata Onyelukachukwu",
       role: "Partnerships Lead",
-      note: "also Lead Organizer",
       image: "/images/speakers/KachiObata.jpeg",
       linkedin: "https://www.linkedin.com/in/onyelukachukwu-obata/",
       x: "https://x.com/kachiobata",
@@ -120,6 +118,7 @@ const TEAMS: Team[] = [
       initials: "OK",
       name: "Oluwadara Kalejaiye",
       role: "Hackathon Lead",
+      image: "/images/Team-Photos/oluwadara-kalejaiye1.jpg",
     },
   },
   {
