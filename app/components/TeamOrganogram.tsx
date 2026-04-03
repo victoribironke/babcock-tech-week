@@ -119,6 +119,8 @@ const TEAMS: Team[] = [
       name: "Oluwadara Kalejaiye",
       role: "Hackathon Lead",
       image: "/images/Team-Photos/oluwadara-kalejaiye1.jpg",
+      linkedin: "https://www.linkedin.com/in/oluwadara-kalejaiye-346095260/",
+      x: "https://x.com/dara_kalejaiye",
     },
   },
   {
