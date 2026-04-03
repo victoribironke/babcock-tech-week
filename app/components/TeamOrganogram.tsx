@@ -164,7 +164,7 @@ const TEAMS: Team[] = [
         initials: "EN",
         name: "Efut Nini Okon",
         role: "Videographer",
-        image: "/images/Team-Photos/efut-nini-okon.jpg",
+        image: "/images/Team-Photos/Efut-Nini-Okon.jpg",
       },
     ],
   },
