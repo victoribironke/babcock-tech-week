@@ -160,6 +160,12 @@ const TEAMS: Team[] = [
         role: "Interviewer",
         image: "/images/Team-Photos/adesida-adewemimo.jpeg",
       },
+      {
+        initials: "EN",
+        name: "Efut Nini Okon",
+        role: "Videographer",
+        image: "/images/Team-Photos/efut-nini-okon.jpg",
+      },
     ],
   },
   {
@@ -196,8 +202,9 @@ const TEAMS: Team[] = [
     coLeads: [
       {
         initials: "TA",
-        name: "Timi",
+        name: "Adedayo Timilehin",
         role: "Co-lead",
+        image: "/images/Team-Photos/timilehin-adedayo.jpg",
         linkedin: "https://www.linkedin.com/in/timilehin-adedayo-2697a431a/",
         x: "https://x.com/kinariasu",
       },
@@ -219,6 +226,8 @@ const TEAMS: Team[] = [
       name: "Archie-Ubong Michael",
       role: "Volunteers Lead",
       image: "/images/Team-Photos/archie-ubong.png",
+      linkedin: "https://www.linkedin.com/in/michael-archie-4129011a7/",
+      x: "https://x.com/Atrextubo",
     },
     coLeads: [
       {
@@ -563,39 +572,51 @@ function TeamSection({
       )}
 
       {/* Additional members grid — below leads/co-leads */}
-      {hasMembers && (
-        <>
-          <ConnectorLine isVisible={isVisible} delay={baseDelay + 500} />
-          <div
-            className="w-full max-w-[760px]"
-            style={{
-              transitionDelay: `${baseDelay + 550}ms`,
-              opacity: isVisible ? 1 : 0,
-              transform: isVisible ? "translateY(0)" : "translateY(16px)",
-              transition: "all 0.5s ease",
-            }}
-          >
+      {hasMembers && (() => {
+        const members = team.members!;
+        // Split into rows of 3 — center card aligns with connector line
+        const rows: Person[][] = [];
+        for (let i = 0; i < members.length; i += 3) {
+          rows.push(members.slice(i, i + 3));
+        }
+
+        return (
+          <>
+            <ConnectorLine isVisible={isVisible} delay={baseDelay + 500} />
             <div
-              className={`grid gap-3 md:gap-4 ${
-                team.members!.length <= 2
-                  ? "grid-cols-2 max-w-[500px] mx-auto"
-                  : team.members!.length <= 3
-                    ? "grid-cols-2 md:grid-cols-3 max-w-[600px] mx-auto"
-                    : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
-              }`}
+              className="w-full"
+              style={{
+                transitionDelay: `${baseDelay + 550}ms`,
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? "translateY(0)" : "translateY(16px)",
+                transition: "all 0.5s ease",
+              }}
             >
-              {team.members!.map((m, i) => (
-                <PersonCard
-                  key={m.initials + m.name}
-                  person={m}
-                  isVisible={isVisible}
-                  delay={baseDelay + 580 + i * 60}
-                />
+              {rows.map((row, rowIdx) => (
+                <div
+                  key={rowIdx}
+                  className={`grid gap-3 md:gap-4 mx-auto ${rowIdx > 0 ? "mt-3 md:mt-4" : ""} ${
+                    row.length === 1
+                      ? "grid-cols-1 max-w-[200px]"
+                      : row.length === 2
+                        ? "grid-cols-2 max-w-[420px]"
+                        : "grid-cols-2 md:grid-cols-3 max-w-[660px]"
+                  }`}
+                >
+                  {row.map((m, i) => (
+                    <PersonCard
+                      key={m.initials + m.name}
+                      person={m}
+                      isVisible={isVisible}
+                      delay={baseDelay + 580 + (rowIdx * 3 + i) * 60}
+                    />
+                  ))}
+                </div>
               ))}
             </div>
-          </div>
-        </>
-      )}
+          </>
+        );
+      })()}
     </div>
   );
 }
