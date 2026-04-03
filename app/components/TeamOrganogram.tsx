@@ -126,7 +126,7 @@ const TEAMS: Team[] = [
     label: "VOLUNTEERS TEAM",
     lead: {
       initials: "AU",
-      name: "Archie Ubong",
+      name: "Archie-Ubong Michael",
       role: "Volunteers Lead",
       image: "/images/Team-Photos/archie-ubong.png",
     },
