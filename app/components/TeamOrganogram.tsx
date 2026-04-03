@@ -20,6 +20,7 @@ type Team = {
   label: string;
   lead: Person;
   coLeads?: Person[];
+  members?: Person[];
 };
 
 const LEADERSHIP: Person[] = [
@@ -34,7 +35,7 @@ const LEADERSHIP: Person[] = [
   {
     initials: "KO",
     name: "Obata Onyelukachukwu",
-    role: "Lead Organizer",
+    role: "Organizer",
     image: "/images/speakers/KachiObata.jpeg",
     linkedin: "https://www.linkedin.com/in/onyelukachukwu-obata/",
     x: "https://x.com/kachiobata",
@@ -49,6 +50,8 @@ const TEAMS: Team[] = [
       name: "Adedoja Ademola",
       role: "Logistics Lead",
       image: "/images/Team-Photos/adedoja-ademola.jpg",
+      linkedin: "https://www.linkedin.com/in/adedoja-daniel-117889229/",
+      x: "https://x.com/Doja_Demola",
     },
   },
   {
@@ -67,6 +70,8 @@ const TEAMS: Team[] = [
         name: "Ezeka Ifeoma",
         role: "Co-lead",
         image: "/images/Team-Photos/ezeka-ifeoma.jpg",
+        linkedin: "https://www.linkedin.com/in/ifeomaezeka/",
+        x: "https://x.com/EzekaIfeoma",
       },
     ],
   },
@@ -77,19 +82,83 @@ const TEAMS: Team[] = [
       name: "Daniel Kadiri",
       role: "Product & Branding Lead",
       image: "/images/Team-Photos/daniel-kadiri.jpg",
+      linkedin: "https://www.linkedin.com/in/kodexthecreator/",
+      x: "https://x.com/kodexthecreator",
     },
     coLeads: [
       {
         initials: "UV",
         name: "Umaru Victor",
-        role: "Co-lead",
+        role: "Designer",
         image: "/images/Team-Photos/umaru-victor.jpg",
+        linkedin: "https://www.linkedin.com/in/victor-umaru-jr/",
+        x: "https://x.com/UmaruJr",
       },
+    ],
+    members: [
+      {
+        initials: "DR",
+        name: "David Roya God'swill",
+        role: "Designer",
+        image: "/images/Team-Photos/david-roya-godswill.jpeg",
+      },
+      {
+        initials: "DA",
+        name: "Daisy",
+        role: "Designer",
+      },
+    ],
+  },
+  {
+    label: "MEDIA & MARKETING TEAM",
+    lead: {
+      initials: "UV",
+      name: "Umaru Victor",
+      role: "Media & Marketing Lead",
+      image: "/images/Team-Photos/umaru-victor.jpg",
+      linkedin: "https://www.linkedin.com/in/victor-umaru-jr/",
+      x: "https://x.com/UmaruJr",
+    },
+    coLeads: [
       {
         initials: "EO",
         name: "Efegherimoni Oghenetejiri",
         role: "Co-lead",
         image: "/images/Team-Photos/efegherimoni-oghenetejiri.jpg",
+        linkedin: "https://www.linkedin.com/in/oghenetejiri-efegherimoni/",
+        x: "https://x.com/q_teytey",
+      },
+    ],
+    members: [
+      {
+        initials: "AP",
+        name: "Akaniro Priscilla",
+        role: "Video Editor",
+        image: "/images/Team-Photos/akaniro-priscilla.jpeg",
+      },
+      {
+        initials: "AU",
+        name: "Akubuiro Uchenna",
+        role: "Photographer",
+        image: "/images/Team-Photos/akubuiro-uchenna.jpg",
+      },
+      {
+        initials: "NI",
+        name: "Nathaniel Ilozumba",
+        role: "Photographer",
+        image: "/images/Team-Photos/nathaniel-ilozumba.jpg",
+      },
+      {
+        initials: "OR",
+        name: "Offiong Ryan",
+        role: "Marketer",
+        image: "/images/Team-Photos/offiong-ryan.jpg",
+      },
+      {
+        initials: "AA",
+        name: "Adesida Adewemimo",
+        role: "Interviewer",
+        image: "/images/Team-Photos/adesida-adewemimo.jpeg",
       },
     ],
   },
@@ -109,6 +178,8 @@ const TEAMS: Team[] = [
         name: "Olamide Fatunase",
         role: "Co-lead",
         image: "/images/Team-Photos/olamide-fatunase.jpg",
+        linkedin: "https://www.linkedin.com/in/olamide-fatunase-271a5727a/",
+        x: "https://x.com/Lamiiiide",
       },
     ],
   },
@@ -121,6 +192,24 @@ const TEAMS: Team[] = [
       image: "/images/Team-Photos/Oluwadara-kalejaiye1.jpg",
       linkedin: "https://www.linkedin.com/in/oluwadara-kalejaiye-346095260/",
       x: "https://x.com/dara_kalejaiye",
+    },
+    coLeads: [
+      {
+        initials: "TA",
+        name: "Timi",
+        role: "Co-lead",
+        linkedin: "https://www.linkedin.com/in/timilehin-adedayo-2697a431a/",
+        x: "https://x.com/kinariasu",
+      },
+    ],
+  },
+  {
+    label: "WELFARE TEAM",
+    lead: {
+      initials: "AO",
+      name: "Alfred Ogu",
+      role: "Welfare Lead",
+      linkedin: "https://www.linkedin.com/in/alfred-ogu-b81a34296/",
     },
   },
   {
@@ -137,6 +226,8 @@ const TEAMS: Team[] = [
         name: "Alayerogun Tobiloba",
         role: "Co-lead",
         image: "/images/Team-Photos/alayerogun-tobiloba.jpeg",
+        linkedin: "https://www.linkedin.com/in/alayerogun-tobiloba-794343338/",
+        x: "https://x.com/darknit53153009?s=11",
       },
     ],
   },
@@ -408,10 +499,7 @@ function TeamSection({
   const baseDelay = 150 + index * 120;
   const hasCoLeads = team.coLeads && team.coLeads.length > 0;
   const hasSingleCoLead = hasCoLeads && team.coLeads!.length === 1;
-
-  // Teams with exactly 1 co-lead: show lead + co-lead side by side
-  // Teams with 2+ co-leads: lead on top, co-leads side by side below
-  // Teams with no co-leads: just the lead card centered
+  const hasMembers = team.members && team.members.length > 0;
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -467,6 +555,41 @@ function TeamSection({
                   person={cl}
                   isVisible={isVisible}
                   delay={baseDelay + 420 + i * 80}
+                />
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Additional members grid — below leads/co-leads */}
+      {hasMembers && (
+        <>
+          <ConnectorLine isVisible={isVisible} delay={baseDelay + 500} />
+          <div
+            className="w-full max-w-[760px]"
+            style={{
+              transitionDelay: `${baseDelay + 550}ms`,
+              opacity: isVisible ? 1 : 0,
+              transform: isVisible ? "translateY(0)" : "translateY(16px)",
+              transition: "all 0.5s ease",
+            }}
+          >
+            <div
+              className={`grid gap-3 md:gap-4 ${
+                team.members!.length <= 2
+                  ? "grid-cols-2 max-w-[500px] mx-auto"
+                  : team.members!.length <= 3
+                    ? "grid-cols-2 md:grid-cols-3 max-w-[600px] mx-auto"
+                    : "grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+              }`}
+            >
+              {team.members!.map((m, i) => (
+                <PersonCard
+                  key={m.initials + m.name}
+                  person={m}
+                  isVisible={isVisible}
+                  delay={baseDelay + 580 + i * 60}
                 />
               ))}
             </div>
