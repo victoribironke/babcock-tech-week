@@ -106,6 +106,11 @@ const TEAMS: Team[] = [
         initials: "DA",
         name: "Daisy",
         role: "Designer",
+        image: "/images/Team-Photos/daisy-imhanzenobe.png",
+        linkedin: "https://www.linkedin.com/in/daisy-imhanzenobe-095292366/",
+        x: "https://x.com/the_alexandrah",
+
+        
       },
     ],
   },
@@ -216,6 +221,7 @@ const TEAMS: Team[] = [
       initials: "AO",
       name: "Alfred Ogu",
       role: "Welfare Lead",
+      image: "/images/Team-Photos/alfred-ogu.jpg",
       linkedin: "https://www.linkedin.com/in/alfred-ogu-b81a34296/",
     },
   },
@@ -389,7 +395,7 @@ function PersonCard({
       </div>
 
       {/* Mobile info — shown below photo */}
-      <div className="md:hidden px-3 py-3 flex flex-col gap-0.5">
+      <div className="md:hidden px-3 py-3 flex flex-col gap-0.5 flex-grow">
         <h4 className="text-[#0a1628] text-sm font-bold tracking-wide leading-tight font-google-sans uppercase">
           {person.name}
         </h4>
@@ -401,7 +407,9 @@ function PersonCard({
             {person.note}
           </span>
         )}
-        <MobileSocialIcons person={person} />
+        <div className="mt-auto pt-1.5">
+          <MobileSocialIcons person={person} />
+        </div>
       </div>
     </div>
   );
@@ -573,18 +581,19 @@ function TeamSection({
 
       {/* Additional members grid — below leads/co-leads */}
       {hasMembers && (() => {
-        const members = team.members!;
-        // Split into rows of 3 — center card aligns with connector line
-        const rows: Person[][] = [];
-        for (let i = 0; i < members.length; i += 3) {
-          rows.push(members.slice(i, i + 3));
-        }
+        const count = team.members!.length;
+        // ≤ 2 members: 2-col grid, centered at lead/co-lead width
+        // 3+ members: 2-col mobile, 3-col desktop
+        const gridClass = count <= 2
+          ? "grid grid-cols-2 gap-3 md:gap-4"
+          : "grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4";
+        const maxW = count <= 2 ? "max-w-[500px]" : "max-w-[660px]";
 
         return (
           <>
             <ConnectorLine isVisible={isVisible} delay={baseDelay + 500} />
             <div
-              className="w-full"
+              className={`w-full ${maxW} mx-auto`}
               style={{
                 transitionDelay: `${baseDelay + 550}ms`,
                 opacity: isVisible ? 1 : 0,
@@ -592,27 +601,16 @@ function TeamSection({
                 transition: "all 0.5s ease",
               }}
             >
-              {rows.map((row, rowIdx) => (
-                <div
-                  key={rowIdx}
-                  className={`grid gap-3 md:gap-4 mx-auto ${rowIdx > 0 ? "mt-3 md:mt-4" : ""} ${
-                    row.length === 1
-                      ? "grid-cols-1 max-w-[200px]"
-                      : row.length === 2
-                        ? "grid-cols-2 max-w-[420px]"
-                        : "grid-cols-2 md:grid-cols-3 max-w-[660px]"
-                  }`}
-                >
-                  {row.map((m, i) => (
-                    <PersonCard
-                      key={m.initials + m.name}
-                      person={m}
-                      isVisible={isVisible}
-                      delay={baseDelay + 580 + (rowIdx * 3 + i) * 60}
-                    />
-                  ))}
-                </div>
-              ))}
+              <div className={gridClass}>
+                {team.members!.map((m, i) => (
+                  <PersonCard
+                    key={m.initials + m.name}
+                    person={m}
+                    isVisible={isVisible}
+                    delay={baseDelay + 580 + i * 60}
+                  />
+                ))}
+              </div>
             </div>
           </>
         );
@@ -647,7 +645,7 @@ export default function TeamOrganogram() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white py-16 md:py-24 px-4 md:px-10 text-black"
+      className="bg-white pt-24 md:pt-24 pb-16 md:pb-24 px-4 md:px-10 text-black"
     >
       <div className="max-w-[1100px] mx-auto">
         {/* Section Title — same as speakers/sponsors */}
