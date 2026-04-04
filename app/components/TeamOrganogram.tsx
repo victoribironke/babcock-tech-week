@@ -285,6 +285,7 @@ const TEAMS: Team[] = [
       role: "Welfare Lead",
       image: "/images/Team-Photos/alfred-ogu.jpg",
       linkedin: "https://www.linkedin.com/in/alfred-ogu-b81a34296/",
+      x: "https://x.com/itsayraeo",
     },
   },
   {
