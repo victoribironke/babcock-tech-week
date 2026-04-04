@@ -8,7 +8,7 @@ import Hero from "./components/Hero";
 import SpeakersSection from "./components/SpeakersSection";
 import SponsorsSection from "./components/SponsorsSection";
 // import TestimonialsSection from "./components/TestimonialsSection";
-// import NewsSection from "./components/NewsSection";
+import NewsSection from "./components/NewsSection";
 import Footer from "./components/Footer";
 import CountdownBar from "./components/CountdownBar";
 import TracksSection from "./components/TracksSection";
@@ -28,7 +28,7 @@ export default function Home() {
         <SpeakersSection />
         <SponsorsSection />
         {/* <TestimonialsSection /> */}
-        {/* <NewsSection /> */}
+        <NewsSection />
       </main>
       <Footer />
       {/* <CountdownBar /> */}
