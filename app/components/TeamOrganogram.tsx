@@ -53,6 +53,62 @@ const TEAMS: Team[] = [
       linkedin: "https://www.linkedin.com/in/adedoja-daniel-117889229/",
       x: "https://x.com/Doja_Demola",
     },
+    members: [
+      {
+        initials: "BD",
+        name: "Boloju Daniel",
+        role: "Logistics",
+        image: "/images/Team-Photos/boloju-daniel.png",
+      },
+      {
+        initials: "LS",
+        name: "Lawal Sharon Oluwatobiloba",
+        role: "Logistics",
+        image: "/images/Team-Photos/Lawal-Sharon-Oluwatobiloba.jpg",
+      },
+      {
+        initials: "AA",
+        name: "Azubike Amanda",
+        role: "Logistics",
+        image: "/images/Team-Photos/azubike-amanda.jpg",
+      },
+      {
+        initials: "AP",
+        name: "Akaniro Priscilla",
+        role: "Logistics",
+        image: "/images/Team-Photos/akaniro-priscilla.jpeg",
+      },
+      {
+        initials: "MT",
+        name: "Malaolu Tirenioluwa Motolari",
+        role: "Logistics",
+        image: "/images/Team-Photos/Malaolu-Tirenioluwa-Motolari .jpg",
+      },
+      {
+        initials: "OF",
+        name: "Oluwatunmibi Favour Oyindamola",
+        role: "Logistics",
+        image: "/images/Team-Photos/OLUWATUNMIBI FAVOUR OYINDAMOLA.jpg",
+      },
+      {
+        initials: "UK",
+        name: "Umahi Kasiemobi",
+        role: "Logistics",
+        image: "/images/Team-Photos/UMAHI-KASIEMOBI1.jpg",
+      },
+      {
+        initials: "YF",
+        name: "Young-Arney Favour",
+        role: "Logistics",
+        image: "/images/Team-Photos/Young-Arney Favour2.jpeg",
+      },
+      {
+        initials: "VO",
+        name: "Vincent Oluchukwu Destiny",
+        role: "Logistics",
+        image: "/images/Team-Photos/Vincent Oluchukwu Destiny.jpg",
+      },
+    ],
   },
   {
     label: "PROGRAMS & SCHEDULING TEAM",
@@ -171,6 +227,12 @@ const TEAMS: Team[] = [
         role: "Videographer",
         image: "/images/Team-Photos/Efut-Nini-Okon.jpg",
       },
+      {
+        initials: "OT",
+        name: "Oyedele Tosin",
+        role: "Photographer",
+        image: "/images/Team-Photos/Oyedele-Tosin.jpg",
+      },
     ],
   },
   {
@@ -243,6 +305,80 @@ const TEAMS: Team[] = [
         image: "/images/Team-Photos/alayerogun-tobiloba.jpeg",
         linkedin: "https://www.linkedin.com/in/alayerogun-tobiloba-794343338/",
         x: "https://x.com/darknit53153009?s=11",
+      },
+    ],
+    members: [
+      {
+        initials: "CD",
+        name: "Chigeru Davies Chidera",
+        role: "Volunteer",
+        image: "/images/Team-Photos/CHIGERU-DAVIES-CHIDERA.jpg",
+      },
+      {
+        initials: "DI",
+        name: "Daisy Imhanzenobe",
+        role: "Volunteer",
+        image: "/images/Team-Photos/daisy-imhanzenobe.png",
+      },
+      {
+        initials: "OH",
+        name: "Ogundimu Oluwaseun Hannah",
+        role: "Volunteer",
+        image: "/images/Team-Photos/OGUNDIMU OLUWASEUN HANNAH.jpg",
+      },
+      {
+        initials: "OT",
+        name: "Okochi-Thompson Obarido",
+        role: "Volunteer",
+        image: "/images/Team-Photos/OKOCHI-THOMPSON-Obarido.jpg",
+      },
+      {
+        initials: "EI",
+        name: "Ezeka Ifeoma",
+        role: "Volunteer",
+        image: "/images/Team-Photos/ezeka-ifeoma.jpg",
+      },
+      {
+        initials: "OD",
+        name: "Okojie-Owahabanun Dorcas Osemudiamhen",
+        role: "Volunteer",
+        image: "/images/Team-Photos/Okojie-owahabanun dorcas osemudiamhen.jpg",
+      },
+      {
+        initials: "OA",
+        name: "Okoye Ogechi Angel",
+        role: "Volunteer",
+        image: "/images/Team-Photos/Okoye-Ogechi-Angel.jpeg",
+      },
+      {
+        initials: "SO",
+        name: "Salami Oluwatosin",
+        role: "Volunteer",
+        image: "/images/Team-Photos/Salami Oluwatosin3.jpeg",
+      },
+      {
+        initials: "SA",
+        name: "Sijuade Oluwapelumi Ayodeji",
+        role: "Volunteer",
+        image: "/images/Team-Photos/Sijuade Oluwapelumi Ayodeji.jpg",
+      },
+      {
+        initials: "YF",
+        name: "Young-Arney Favour",
+        role: "Volunteer",
+        image: "/images/Team-Photos/Young-Arney Favour2.jpeg",
+      },
+      {
+        initials: "UN",
+        name: "Udome-Onyesom Idegwu Nnene",
+        role: "Volunteer",
+        image: "/images/Team-Photos/Udome-Onyesom-Idegwu-Nnene1.jpeg",
+      },
+      {
+        initials: "AA",
+        name: "Adedoja Ademola",
+        role: "Volunteer",
+        image: "/images/Team-Photos/adedoja-ademola.jpg",
       },
     ],
   },
@@ -589,6 +725,17 @@ function TeamSection({
           : "grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4";
         const maxW = count <= 2 ? "max-w-[500px]" : "max-w-[660px]";
 
+        // Center the last card if it would be alone in its row
+        // Mobile: 2-col grid, so odd count means last is alone
+        // Desktop: 3-col grid, so alone when count % 3 === 1
+        const oddOnMobile = count > 2 && count % 2 !== 0;
+        const aloneOnDesktop = count > 2 && count % 3 === 1;
+        const separateOnBoth = oddOnMobile && aloneOnDesktop;
+        const separateMobileOnly = oddOnMobile && !aloneOnDesktop;
+        const shouldSeparateLast = oddOnMobile || aloneOnDesktop;
+        const gridMembers = shouldSeparateLast ? team.members!.slice(0, -1) : team.members!;
+        const lastMember = shouldSeparateLast ? team.members![count - 1] : null;
+
         return (
           <>
             <ConnectorLine isVisible={isVisible} delay={baseDelay + 500} />
@@ -602,7 +749,7 @@ function TeamSection({
               }}
             >
               <div className={gridClass}>
-                {team.members!.map((m, i) => (
+                {gridMembers.map((m, i) => (
                   <PersonCard
                     key={m.initials + m.name}
                     person={m}
@@ -610,7 +757,41 @@ function TeamSection({
                     delay={baseDelay + 580 + i * 60}
                   />
                 ))}
+                {/* If only alone on mobile, keep in grid on desktop */}
+                {lastMember && separateMobileOnly && (
+                  <div className="hidden md:block">
+                    <PersonCard
+                      person={lastMember}
+                      isVisible={isVisible}
+                      delay={baseDelay + 580 + (count - 1) * 60}
+                    />
+                  </div>
+                )}
               </div>
+              {/* Centered on both mobile & desktop */}
+              {lastMember && separateOnBoth && (
+                <div className="flex justify-center mt-3 md:mt-4">
+                  <div className="w-[calc(50%-6px)] md:w-[calc(33.333%-11px)]">
+                    <PersonCard
+                      person={lastMember}
+                      isVisible={isVisible}
+                      delay={baseDelay + 580 + (count - 1) * 60}
+                    />
+                  </div>
+                </div>
+              )}
+              {/* Centered on mobile only */}
+              {lastMember && separateMobileOnly && (
+                <div className="flex justify-center mt-3 md:hidden">
+                  <div className="w-[calc(50%-6px)]">
+                    <PersonCard
+                      person={lastMember}
+                      isVisible={isVisible}
+                      delay={baseDelay + 580 + (count - 1) * 60}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           </>
         );
