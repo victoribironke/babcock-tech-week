@@ -34,8 +34,12 @@ export default async function NewsArticlePage({ params }: Props) {
   if (currentIndex === -1) notFound();
 
   const article = NEWS_ARTICLES[currentIndex];
-  const nextIndex = (currentIndex + 1) % NEWS_ARTICLES.length;
-  const nextArticle = NEWS_ARTICLES[nextIndex];
+  
+  const hasPrev = currentIndex > 0;
+  const prevArticle = hasPrev ? NEWS_ARTICLES[currentIndex - 1] : null;
+  
+  const hasNext = currentIndex < NEWS_ARTICLES.length - 1;
+  const nextArticle = hasNext ? NEWS_ARTICLES[currentIndex + 1] : null;
 
   return (
     <>
@@ -179,42 +183,81 @@ export default async function NewsArticlePage({ params }: Props) {
             </a>
           </div>
 
-          {/* Next Article Arrow */}
-          <div style={{ textAlign: "center" }}>
-            <Link
-              href={`/news/${nextArticle.slug}`}
-              style={{
-                display: "inline-flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: 8,
-                textDecoration: "none",
-                color: "#666",
-                fontSize: 12,
-                fontFamily: "'Google Sans', sans-serif",
-                letterSpacing: "0.06em",
-                transition: "color 0.2s ease",
-              }}
-              className="next-article-link"
-              title={`Next: ${nextArticle.title}`}
-            >
-              {/* Forward Arrow SVG */}
-              <svg
-                width="40"
-                height="40"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{ transition: "transform 0.2s ease" }}
-                className="next-arrow-icon"
+          {/* Navigation Arrows */}
+          <div style={{ display: "flex", justifyContent: "center", gap: "60px", marginTop: "20px" }}>
+            {prevArticle && (
+              <Link
+                href={`/news/${prevArticle.slug}`}
+                style={{
+                  display: "inline-flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 8,
+                  textDecoration: "none",
+                  color: "#666",
+                  fontSize: 12,
+                  fontFamily: "'Google Sans', sans-serif",
+                  letterSpacing: "0.06em",
+                  transition: "color 0.2s ease",
+                }}
+                className="prev-article-link"
+                title={`Previous: ${prevArticle.title}`}
               >
-                <path d="M5 12h14" />
-                <path d="m12 5 7 7-7 7" />
-              </svg>
-            </Link>
+                {/* Back Arrow SVG */}
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ transition: "transform 0.2s ease" }}
+                  className="prev-arrow-icon"
+                >
+                  <path d="M19 12H5" />
+                  <path d="m12 19-7-7 7-7" />
+                </svg>
+              </Link>
+            )}
+
+            {nextArticle && (
+              <Link
+                href={`/news/${nextArticle.slug}`}
+                style={{
+                  display: "inline-flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  gap: 8,
+                  textDecoration: "none",
+                  color: "#666",
+                  fontSize: 12,
+                  fontFamily: "'Google Sans', sans-serif",
+                  letterSpacing: "0.06em",
+                  transition: "color 0.2s ease",
+                }}
+                className="next-article-link"
+                title={`Next: ${nextArticle.title}`}
+              >
+                {/* Forward Arrow SVG */}
+                <svg
+                  width="40"
+                  height="40"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  style={{ transition: "transform 0.2s ease" }}
+                  className="next-arrow-icon"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </Link>
+            )}
           </div>
         </article>
       </main>
@@ -225,8 +268,12 @@ export default async function NewsArticlePage({ params }: Props) {
           background: #000 !important;
           color: #fff !important;
         }
+        .prev-article-link:hover,
         .next-article-link:hover {
           color: #000 !important;
+        }
+        .prev-article-link:hover .prev-arrow-icon {
+          transform: translateX(-4px);
         }
         .next-article-link:hover .next-arrow-icon {
           transform: translateX(4px);
