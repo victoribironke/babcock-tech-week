@@ -9,7 +9,9 @@ export default function NewsSection() {
     <section
       id="news-section"
       style={{
-        background: "#fff",
+        backgroundColor: "#fafafa",
+        backgroundImage: "radial-gradient(#cbd5e1 2px, transparent 2px)",
+        backgroundSize: "32px 32px",
         padding: "80px 16px",
         color: "#000",
       }}
@@ -60,7 +62,7 @@ export default function NewsSection() {
             gap: 32,
           }}
         >
-          {NEWS_ARTICLES.map((article) => (
+          {NEWS_ARTICLES.slice(0, 2).map((article) => (
             <Link
               key={article.slug}
               href={`/news/${article.slug}`}

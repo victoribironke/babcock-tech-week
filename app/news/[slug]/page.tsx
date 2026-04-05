@@ -39,13 +39,19 @@ export default async function NewsArticlePage({ params }: Props) {
 
   return (
     <>
-      <Header solid />
-      <main style={{ background: "#fff", color: "#000", minHeight: "100vh", paddingTop: 80 }}>
+      <Header scrollThreshold={60} />
+      <main style={{
+        backgroundColor: "#fafafa",
+        backgroundImage: "radial-gradient(#cbd5e1 2px, transparent 2px)",
+        backgroundSize: "32px 32px",
+        color: "#000",
+        minHeight: "100vh"
+      }}>
         {/* SHOW NEWS Banner Bar */}
         <div
           style={{
-            background: "#000",
-            padding: "28px 16px",
+            background: "#1c1c1c", // Dark grey taken from Singapore Tech Week
+            padding: "110px 16px 50px", // Larger size to accommodate transparent header
             textAlign: "center",
           }}
         >

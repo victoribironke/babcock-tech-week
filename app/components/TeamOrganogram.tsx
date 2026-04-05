@@ -166,7 +166,7 @@ const TEAMS: Team[] = [
         linkedin: "https://www.linkedin.com/in/daisy-imhanzenobe-095292366/",
         x: "https://x.com/the_alexandrah",
 
-        
+
       },
     ],
   },
@@ -827,7 +827,12 @@ export default function TeamOrganogram() {
   return (
     <section
       ref={sectionRef}
-      className="bg-white pt-24 md:pt-24 pb-16 md:pb-24 px-4 md:px-10 text-black"
+      className="pt-24 md:pt-24 pb-16 md:pb-24 px-4 md:px-10 text-black"
+      style={{
+        backgroundColor: "#fafafa",
+        backgroundImage: "radial-gradient(#cbd5e1 2px, transparent 2px)",
+        backgroundSize: "32px 32px",
+      }}
     >
       <div className="max-w-[1100px] mx-auto">
         {/* Section Title — same as speakers/sponsors */}
@@ -842,7 +847,7 @@ export default function TeamOrganogram() {
             The Team
           </h2>
           <p className="text-gray-500 text-center text-sm md:text-base mb-16 max-w-[600px] mx-auto">
-            Meet the people behind Babcock Tech Week — the student 
+            Meet the people behind Babcock Tech Week — the student
             organizers making it all happen.
           </p>
         </div>

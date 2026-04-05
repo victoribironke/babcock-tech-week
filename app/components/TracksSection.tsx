@@ -52,7 +52,14 @@ export default function TracksSection() {
     return () => observer.disconnect();
   }, []);
   return (
-    <section ref={sectionRef} className="bg-[#0f1115] text-white">
+    <section 
+      ref={sectionRef} 
+      className="bg-[#0f1115] text-white"
+      style={{
+        backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px)",
+        backgroundSize: "32px 32px",
+      }}
+    >
       {/* Content */}
       <div
         className={`max-w-[1300px] mx-auto px-4 md:px-10 py-16 md:py-24 transition-all duration-1000 ease-out ${
