@@ -7,9 +7,9 @@ import Image from "next/image";
 
 const navLinks = [
   { label: "HOME", href: "/" },
-  { label: "EDITIONS", href: "/editions" },
-  { label: "SESSIONS", href: "/sessions" },
-  { label: "THE LAUNCHPAD", href: "/launchpad" },
+  // { label: "EDITIONS", href: "/editions" },
+  // { label: "SESSIONS", href: "/sessions" },
+  // { label: "THE LAUNCHPAD", href: "/launchpad" },
   { label: "TEAM", href: "/team" },
   { label: "CONTACT", href: "/contact" },
 ];
