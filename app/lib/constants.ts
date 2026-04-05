@@ -54,7 +54,7 @@ export const PARTNERS: Partner[] = [
   {
     name: "GDG",
     description: "Google Developer Groups",
-    logo: "/images/partners/gdg-babcock.webp",
+    logo: "/images/partners/GDG-On-Campus-Babcock-logo.png",
     paddingClass: "p-0 md:p-0",
     url: "https://www.gdgbabcock.com",
   },
