@@ -20,11 +20,11 @@ export default function SpeakersSection() {
   );
 
   const renderSpeakerGrid = (speakers: Speaker[]) => (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-5">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:flex-wrap lg:justify-center gap-4 md:gap-5">
       {speakers.map((speaker, idx) => (
         <div
           key={idx}
-          className="group overflow-hidden cursor-pointer flex flex-col h-full rounded-xl bg-gray-100 shadow-sm hover:shadow-lg transition-all"
+          className="group overflow-hidden cursor-pointer flex flex-col h-full rounded-xl bg-gray-100 shadow-sm hover:shadow-lg transition-all lg:w-[calc((100%-60px)/4)]"
           onClick={() => setSelectedSpeaker(speaker)}
         >
           {/* Photo */}
@@ -112,7 +112,7 @@ export default function SpeakersSection() {
 
   return (
     <>
-      <section 
+      <section
         className="py-16 md:py-24 px-4 md:px-10 text-black"
         style={{
           backgroundColor: "#fafafa",
@@ -128,7 +128,7 @@ export default function SpeakersSection() {
         </div>
       </section>
 
-      <section 
+      <section
         className="py-16 md:py-24 px-4 md:px-10 text-white"
         style={{
           backgroundColor: "#0f1115",
@@ -144,7 +144,7 @@ export default function SpeakersSection() {
         </div>
       </section>
 
-      <section 
+      <section
         className="py-16 md:py-24 px-4 md:px-10 text-black"
         style={{
           backgroundColor: "#fafafa",

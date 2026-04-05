@@ -327,6 +327,14 @@ export const SPEAKERS: Speaker[] = [
     bio: "Dunmade Majuyi O. D. is a purpose-driven Computer Science student in his final year, passionate about using technology to transform and expand access to quality education and skill-building initiatives. As a full-stack engineer, program manager, and student leader, he is committed to building systems, communities, and opportunities that create meaningful impact.\n\nHe has led technical programs at GDG Babcock, where he pioneered the DSA Track to strengthen problem-solving culture on campus. As Vice President of Administration of the Babcock University Computer Club (BUCC), he has helped drive structure, partnerships, and major initiatives within the student tech ecosystem. His interests span software engineering, AI/ML, education, and technology-driven impact across Nigeria, Africa, and beyond, with a strong focus on creating practical solutions, supporting talent development, and contributing to long-term change.",
   },
   {
+    name: "Λnthony Λzekwoh",
+    title: "Artist and Author",
+    company: "",
+    image: "/images/speakers/AnthonyAzekwoh.jpg",
+    category: "CreativeTech Track Fireside",
+    bio: "Λnthony Λzekwoh is a Nigerian contemporary artist and author based in Lagos, known for a multidisciplinary practice that spans digital painting, sculpture, and writing. Drawing deeply from African folklore and mythology, his work reimagines culture, history, and identity through bold visual storytelling.\n\nΛzekwoh is widely recognized for pushing the boundaries of digital art from Africa onto the global stage. Entirely self-taught, he has created work seen by millions, collaborated with major brands and musicians, and built a body of work that bridges traditional artistic influence with contemporary digital expression. His acclaimed piece The Red Man marked a major turning point in his rise, helping cement his reputation as a leading voice in a new generation of African visual storytellers.",
+  },
+  {
     name: "Obata Onyelukachukwu",
     title: "Head of Partnerships & External Relations",
     company: "Babcock Tech Week",
@@ -336,11 +344,11 @@ export const SPEAKERS: Speaker[] = [
     bio: "Obata Onyelukachukwu is a Computer Science student in his second year at Babcock University, a technology strategist, and student leader with a strong interest in building platforms that connect talent, innovation, and opportunity. His work spans partnerships, program development, and the execution of initiatives that expand access, visibility, and real-world opportunities for young people.\n\nHe is a key driver behind Babcock Tech Week, helping shape it into an interdisciplinary platform that connects students with industry leaders, practical knowledge, and emerging opportunities. His broader interests lie at the intersection of technology, entrepreneurship, community building, and digital products, with a focus on creating meaningful systems that empower young people to learn, build, and lead.",
   },
   {
-    name: "Λnthony Λzekwoh",
-    title: "Artist and Author",
+    name: "Jordan Aiyemo",
+    title: "Artist",
     company: "",
-    image: "/images/speakers/AnthonyAzekwoh.jpg",
+    image: "/images/Team-Photos/jordan-aiyemo.png",
     category: "CreativeTech Track Fireside",
-    bio: "Λnthony Λzekwoh is a Nigerian contemporary artist and author based in Lagos, known for a multidisciplinary practice that spans digital painting, sculpture, and writing. Drawing deeply from African folklore and mythology, his work reimagines culture, history, and identity through bold visual storytelling.\n\nΛzekwoh is widely recognized for pushing the boundaries of digital art from Africa onto the global stage. Entirely self-taught, he has created work seen by millions, collaborated with major brands and musicians, and built a body of work that bridges traditional artistic influence with contemporary digital expression. His acclaimed piece The Red Man marked a major turning point in his rise, helping cement his reputation as a leading voice in a new generation of African visual storytellers.",
+    bio: "",
   },
 ];
