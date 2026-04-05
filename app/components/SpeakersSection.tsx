@@ -129,10 +129,10 @@ export default function SpeakersSection() {
       </section>
 
       <section 
-        className="py-16 md:py-24 px-4 md:px-10 text-black"
+        className="py-16 md:py-24 px-4 md:px-10 text-white"
         style={{
-          backgroundColor: "#fafafa",
-          backgroundImage: "radial-gradient(#cbd5e1 2px, transparent 2px)",
+          backgroundColor: "#0f1115",
+          backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px)",
           backgroundSize: "32px 32px",
         }}
       >
