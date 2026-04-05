@@ -5,7 +5,13 @@ import { IMAGES } from "../lib/constants";
 
 export default function AboutSection() {
   return (
-    <section className="bg-black py-16 md:py-24 px-4 md:px-10">
+    <section 
+      className="bg-black py-16 md:py-24 px-4 md:px-10"
+      style={{
+        backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px)",
+        backgroundSize: "32px 32px",
+      }}
+    >
       <div className="max-w-[1300px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
         {/* Image */}
         <div className="rounded-2xl overflow-hidden relative h-[350px] md:h-[500px]">

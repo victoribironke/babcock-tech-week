@@ -4,7 +4,13 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white">
+    <footer 
+      className="text-white bg-black/50"
+      style={{
+        backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 2px), linear-gradient(to bottom, #1f1f1f, #0a0a0a)",
+        backgroundSize: "32px 32px, 100% 100%",
+      }}
+    >
       {/* Newsletter Section */}
       {/* <div className="border-t border-white/10 py-12 md:py-16 px-4 md:px-10">
         <div className="max-w-[600px] mx-auto text-center">

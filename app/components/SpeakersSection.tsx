@@ -112,7 +112,14 @@ export default function SpeakersSection() {
 
   return (
     <>
-      <section className="bg-white py-16 md:py-24 px-4 md:px-10 text-black">
+      <section 
+        className="py-16 md:py-24 px-4 md:px-10 text-black"
+        style={{
+          backgroundColor: "#fafafa",
+          backgroundImage: "radial-gradient(#cbd5e1 2px, transparent 2px)",
+          backgroundSize: "32px 32px",
+        }}
+      >
         <div className="max-w-[1300px] mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-14 text-center">
             Opening Keynote Panel
@@ -121,7 +128,14 @@ export default function SpeakersSection() {
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-24 px-4 md:px-10 text-black">
+      <section 
+        className="py-16 md:py-24 px-4 md:px-10 text-black"
+        style={{
+          backgroundColor: "#fafafa",
+          backgroundImage: "radial-gradient(#cbd5e1 2px, transparent 2px)",
+          backgroundSize: "32px 32px",
+        }}
+      >
         <div className="max-w-[1300px] mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-14 text-center">
             Fintech Track Fireside
@@ -130,7 +144,14 @@ export default function SpeakersSection() {
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-24 px-4 md:px-10 text-black">
+      <section 
+        className="py-16 md:py-24 px-4 md:px-10 text-black"
+        style={{
+          backgroundColor: "#fafafa",
+          backgroundImage: "radial-gradient(#cbd5e1 2px, transparent 2px)",
+          backgroundSize: "32px 32px",
+        }}
+      >
         <div className="max-w-[1300px] mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold mb-10 md:mb-14 text-center">
             CreativeTech Track Fireside

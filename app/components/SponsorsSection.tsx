@@ -143,7 +143,14 @@ export default function SponsorsSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white py-16 md:py-24 px-4 md:px-10 text-black">
+    <section 
+      ref={sectionRef} 
+      className="bg-[#0f1115] py-16 md:py-24 px-4 md:px-10 text-white"
+      style={{
+        backgroundImage: "radial-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px)",
+        backgroundSize: "32px 32px",
+      }}
+    >
       <style>{`
         .sponsor-fade-in {
           opacity: 0;
