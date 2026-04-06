@@ -35,7 +35,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
   },
   {
     slug: "nation-babcock-launches-n10m-hackathon",
-    title: "Babcock Launches N10 Million Hackathon",
+    title: "Babcock Tech Week Launches N10 Million Hackathon",
     date: "23 March 2026",
     source: "The Nation Newspaper",
     excerpt:
@@ -52,7 +52,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
       '"There is a generation of builders at Babcock that the industry hasn\'t fully met yet," said Obata Onyelukachukwu, Head of Partnerships and External Relations, BTW 2026.',
     ],
     externalUrl: "https://thenationonlineng.net/babcock-launches-n10-million-hackathon/",
-    image: "/images/HeroCarousel/IMG_9640.jpg",
+    image: "/images/HeroCarousel/IMG_9719.jpg",
   },
   {
     slug: "von-babcock-students-compete-n10m-hackathon",
@@ -78,11 +78,11 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     ],
     externalUrl:
       "https://voiceofnaija.ng/2026/03/16/babcock-students-to-compete-for-n10m-in-annual-tech-week-hackathon/",
-    image: "/images/HeroCarousel/IMG_9640.jpg",
+    image: "/images/HeroCarousel/IMG_9665.jpg",
   },
   {
     slug: "independent-babcock-launches-hackathon",
-    title: "Babcock Launches ₦10 Million Hackathon At 2nd Tech Week",
+    title: "Babcock Launches ₦10 Million Hackathon At Tech Week",
     date: "March 2026",
     source: "Independent Newspaper",
     excerpt:
@@ -104,11 +104,11 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     ],
     externalUrl:
       "https://independent.ng/babcock-launches-₦10-million-hackathon-at-2nd-tech-week/",
-    image: "/images/HeroCarousel/IMG_9640.jpg",
+    image: "/images/HeroCarousel/IMG_9666.jpg",
   },
   {
     slug: "education-roadmap-babcock-unveils-hackathon",
-    title: "Babcock Unveils ₦10 Million Hackathon At Second Tech Week",
+    title: "Babcock Unveils ₦10 Million Hackathon At Tech Week",
     date: "17 March 2026",
     source: "Education Roadmap",
     excerpt:
@@ -130,7 +130,7 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     ],
     externalUrl:
       "https://educationroadmap.com.ng/2026/03/17/babcock-unveils-₦10-million-hackathon-at-second-tech-week/",
-    image: "/images/HeroCarousel/IMG_9640.jpg",
+    image: "/images/HeroCarousel/IMG_0062.jpg",
   },
   {
     slug: "platform-times-babcock-unveils-hackathon",
@@ -162,6 +162,6 @@ export const NEWS_ARTICLES: NewsArticle[] = [
     ],
     externalUrl:
       "https://platformtimes.com.ng/babcock-unveils-₦10m-hackathon-opens-tech-week-to-wider-participation/",
-    image: "/images/HeroCarousel/IMG_9640.jpg",
+    image: "/images/HeroCarousel/IMG_9620.jpg",
   },
 ];
