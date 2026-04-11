@@ -25,6 +25,12 @@ type Team = {
 
 const LEADERSHIP: Person[] = [
   {
+    initials: "EO",
+    name: "Dr. Ernest Onuiri",
+    role: "Sponsor, GDG",
+    image: "/images/Team-Photos/Dr-Onuiri-Ernest.jpeg",
+  },
+  {
     initials: "DM",
     name: "Dunmade Majuyi O.D.",
     role: "Convener/Director",
@@ -858,7 +864,7 @@ export default function TeamOrganogram() {
           <ConnectorLine isVisible={isVisible} delay={280} />
           <BranchConnector isVisible={isVisible} delay={360} />
 
-          <div className="grid grid-cols-2 gap-3 md:gap-5 w-full max-w-[500px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 w-full max-w-[760px]">
             {LEADERSHIP.map((person, i) => (
               <PersonCard
                 key={person.name + person.role}
