@@ -39,6 +39,14 @@ const LEADERSHIP: Person[] = [
     x: "https://x.com/majuyitan",
   },
   {
+    initials: "IV",
+    name: "Ibironke Victor",
+    role: "Technical Director",
+    image: "/images/Team-Photos/ibironke-victor.webp",
+    linkedin: "https://linkedin.com/in/victor-ibironke",
+    x: "https://twitter.com/victoribironke_",
+  },
+  {
     initials: "KO",
     name: "Obata Onyelukachukwu",
     role: "Organizer",
@@ -171,8 +179,6 @@ const TEAMS: Team[] = [
         image: "/images/Team-Photos/daisy-imhanzenobe.png",
         linkedin: "https://www.linkedin.com/in/daisy-imhanzenobe-095292366/",
         x: "https://x.com/the_alexandrah",
-
-
       },
     ],
   },
@@ -559,7 +565,13 @@ function PersonCard({
 }
 
 /** Connector line between organogram sections */
-function ConnectorLine({ isVisible, delay = 0 }: { isVisible: boolean; delay?: number }) {
+function ConnectorLine({
+  isVisible,
+  delay = 0,
+}: {
+  isVisible: boolean;
+  delay?: number;
+}) {
   return (
     <div className="flex justify-center">
       <div
@@ -619,7 +631,13 @@ function TeamHeading({
 }
 
 /** Branch connector for side-by-side cards */
-function BranchConnector({ isVisible, delay = 0 }: { isVisible: boolean; delay?: number }) {
+function BranchConnector({
+  isVisible,
+  delay = 0,
+}: {
+  isVisible: boolean;
+  delay?: number;
+}) {
   return (
     <div className="flex justify-center">
       <div className="relative w-full max-w-[400px] h-6">
@@ -635,12 +653,18 @@ function BranchConnector({ isVisible, delay = 0 }: { isVisible: boolean; delay?:
         {/* Left drop */}
         <div
           className="absolute top-0 left-[20%] w-px h-full bg-gray-300 transition-all duration-400"
-          style={{ transitionDelay: `${delay + 50}ms`, opacity: isVisible ? 1 : 0 }}
+          style={{
+            transitionDelay: `${delay + 50}ms`,
+            opacity: isVisible ? 1 : 0,
+          }}
         />
         {/* Right drop */}
         <div
           className="absolute top-0 right-[20%] w-px h-full bg-gray-300 transition-all duration-400"
-          style={{ transitionDelay: `${delay + 50}ms`, opacity: isVisible ? 1 : 0 }}
+          style={{
+            transitionDelay: `${delay + 50}ms`,
+            opacity: isVisible ? 1 : 0,
+          }}
         />
       </div>
     </div>
@@ -664,7 +688,11 @@ function TeamSection({
   return (
     <div className="flex flex-col items-center w-full">
       <ConnectorLine isVisible={isVisible} delay={baseDelay} />
-      <TeamHeading label={team.label} isVisible={isVisible} delay={baseDelay + 80} />
+      <TeamHeading
+        label={team.label}
+        isVisible={isVisible}
+        delay={baseDelay + 80}
+      />
       <ConnectorLine isVisible={isVisible} delay={baseDelay + 160} />
 
       {!hasCoLeads ? (
@@ -723,86 +751,92 @@ function TeamSection({
       )}
 
       {/* Additional members grid — below leads/co-leads */}
-      {hasMembers && (() => {
-        const count = team.members!.length;
-        // ≤ 2 members: 2-col grid, centered at lead/co-lead width
-        // 3+ members: 2-col mobile, 3-col desktop
-        const gridClass = count <= 2
-          ? "grid grid-cols-2 gap-3 md:gap-4"
-          : "grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4";
-        const maxW = count <= 2 ? "max-w-[500px]" : "max-w-[660px]";
+      {hasMembers &&
+        (() => {
+          const count = team.members!.length;
+          // ≤ 2 members: 2-col grid, centered at lead/co-lead width
+          // 3+ members: 2-col mobile, 3-col desktop
+          const gridClass =
+            count <= 2
+              ? "grid grid-cols-2 gap-3 md:gap-4"
+              : "grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4";
+          const maxW = count <= 2 ? "max-w-[500px]" : "max-w-[660px]";
 
-        // Center the last card if it would be alone in its row
-        // Mobile: 2-col grid, so odd count means last is alone
-        // Desktop: 3-col grid, so alone when count % 3 === 1
-        const oddOnMobile = count > 2 && count % 2 !== 0;
-        const aloneOnDesktop = count > 2 && count % 3 === 1;
-        const separateOnBoth = oddOnMobile && aloneOnDesktop;
-        const separateMobileOnly = oddOnMobile && !aloneOnDesktop;
-        const shouldSeparateLast = oddOnMobile || aloneOnDesktop;
-        const gridMembers = shouldSeparateLast ? team.members!.slice(0, -1) : team.members!;
-        const lastMember = shouldSeparateLast ? team.members![count - 1] : null;
+          // Center the last card if it would be alone in its row
+          // Mobile: 2-col grid, so odd count means last is alone
+          // Desktop: 3-col grid, so alone when count % 3 === 1
+          const oddOnMobile = count > 2 && count % 2 !== 0;
+          const aloneOnDesktop = count > 2 && count % 3 === 1;
+          const separateOnBoth = oddOnMobile && aloneOnDesktop;
+          const separateMobileOnly = oddOnMobile && !aloneOnDesktop;
+          const shouldSeparateLast = oddOnMobile || aloneOnDesktop;
+          const gridMembers = shouldSeparateLast
+            ? team.members!.slice(0, -1)
+            : team.members!;
+          const lastMember = shouldSeparateLast
+            ? team.members![count - 1]
+            : null;
 
-        return (
-          <>
-            <ConnectorLine isVisible={isVisible} delay={baseDelay + 500} />
-            <div
-              className={`w-full ${maxW} mx-auto`}
-              style={{
-                transitionDelay: `${baseDelay + 550}ms`,
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? "translateY(0)" : "translateY(16px)",
-                transition: "all 0.5s ease",
-              }}
-            >
-              <div className={gridClass}>
-                {gridMembers.map((m, i) => (
-                  <PersonCard
-                    key={m.initials + m.name}
-                    person={m}
-                    isVisible={isVisible}
-                    delay={baseDelay + 580 + i * 60}
-                  />
-                ))}
-                {/* If only alone on mobile, keep in grid on desktop */}
-                {lastMember && separateMobileOnly && (
-                  <div className="hidden md:block">
+          return (
+            <>
+              <ConnectorLine isVisible={isVisible} delay={baseDelay + 500} />
+              <div
+                className={`w-full ${maxW} mx-auto`}
+                style={{
+                  transitionDelay: `${baseDelay + 550}ms`,
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? "translateY(0)" : "translateY(16px)",
+                  transition: "all 0.5s ease",
+                }}
+              >
+                <div className={gridClass}>
+                  {gridMembers.map((m, i) => (
                     <PersonCard
-                      person={lastMember}
+                      key={m.initials + m.name}
+                      person={m}
                       isVisible={isVisible}
-                      delay={baseDelay + 580 + (count - 1) * 60}
+                      delay={baseDelay + 580 + i * 60}
                     />
+                  ))}
+                  {/* If only alone on mobile, keep in grid on desktop */}
+                  {lastMember && separateMobileOnly && (
+                    <div className="hidden md:block">
+                      <PersonCard
+                        person={lastMember}
+                        isVisible={isVisible}
+                        delay={baseDelay + 580 + (count - 1) * 60}
+                      />
+                    </div>
+                  )}
+                </div>
+                {/* Centered on both mobile & desktop */}
+                {lastMember && separateOnBoth && (
+                  <div className="flex justify-center mt-3 md:mt-4">
+                    <div className="w-[calc(50%-6px)] md:w-[calc(33.333%-11px)]">
+                      <PersonCard
+                        person={lastMember}
+                        isVisible={isVisible}
+                        delay={baseDelay + 580 + (count - 1) * 60}
+                      />
+                    </div>
+                  </div>
+                )}
+                {/* Centered on mobile only */}
+                {lastMember && separateMobileOnly && (
+                  <div className="flex justify-center mt-3 md:hidden">
+                    <div className="w-[calc(50%-6px)]">
+                      <PersonCard
+                        person={lastMember}
+                        isVisible={isVisible}
+                        delay={baseDelay + 580 + (count - 1) * 60}
+                      />
+                    </div>
                   </div>
                 )}
               </div>
-              {/* Centered on both mobile & desktop */}
-              {lastMember && separateOnBoth && (
-                <div className="flex justify-center mt-3 md:mt-4">
-                  <div className="w-[calc(50%-6px)] md:w-[calc(33.333%-11px)]">
-                    <PersonCard
-                      person={lastMember}
-                      isVisible={isVisible}
-                      delay={baseDelay + 580 + (count - 1) * 60}
-                    />
-                  </div>
-                </div>
-              )}
-              {/* Centered on mobile only */}
-              {lastMember && separateMobileOnly && (
-                <div className="flex justify-center mt-3 md:hidden">
-                  <div className="w-[calc(50%-6px)]">
-                    <PersonCard
-                      person={lastMember}
-                      isVisible={isVisible}
-                      delay={baseDelay + 580 + (count - 1) * 60}
-                    />
-                  </div>
-                </div>
-              )}
-            </div>
-          </>
-        );
-      })()}
+            </>
+          );
+        })()}
     </div>
   );
 }
@@ -853,8 +887,8 @@ export default function TeamOrganogram() {
             The Team
           </h2>
           <p className="text-gray-500 text-center text-sm md:text-base mb-16 max-w-[600px] mx-auto">
-            Meet the people behind Babcock Tech Week — the student
-            organizers making it all happen.
+            Meet the people behind Babcock Tech Week — the student organizers
+            making it all happen.
           </p>
         </div>
 
