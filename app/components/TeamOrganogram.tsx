@@ -39,14 +39,6 @@ const LEADERSHIP: Person[] = [
     x: "https://x.com/majuyitan",
   },
   {
-    initials: "IV",
-    name: "Ibironke Victor",
-    role: "Technical Director",
-    image: "/images/Team-Photos/ibironke-victor.webp",
-    linkedin: "https://linkedin.com/in/victor-ibironke",
-    x: "https://twitter.com/victoribironke_",
-  },
-  {
     initials: "KO",
     name: "Obata Onyelukachukwu",
     role: "Organizer",
@@ -181,6 +173,17 @@ const TEAMS: Team[] = [
         x: "https://x.com/the_alexandrah",
       },
     ],
+  },
+  {
+    label: "ENGINEERING TEAM",
+    lead: {
+      initials: "IV",
+      name: "Ibironke Victor",
+      role: "Technical Director",
+      image: "/images/Team-Photos/ibironke-victor.webp",
+      linkedin: "https://linkedin.com/in/victor-ibironke",
+      x: "https://twitter.com/victoribironke_",
+    },
   },
   {
     label: "MEDIA & MARKETING TEAM",
