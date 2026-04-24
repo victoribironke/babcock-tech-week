@@ -29,6 +29,8 @@ const LEADERSHIP: Person[] = [
     name: "Dr. Ernest Onuiri",
     role: "Sponsor, GDG",
     image: "/images/Team-Photos/Dr-Onuiri-Ernest.jpeg",
+    linkedin: "https://www.linkedin.com/in/ernestonuiri/",
+    x: "https://x.com/Ernest_Onuiri",
   },
   {
     initials: "DM",
@@ -45,6 +47,13 @@ const LEADERSHIP: Person[] = [
     image: "/images/speakers/KachiObata.jpeg",
     linkedin: "https://www.linkedin.com/in/onyelukachukwu-obata/",
     x: "https://x.com/kachiobata",
+  },
+  {
+    initials: "FA",
+    name: "Afolarin Amusa",
+    role: "Sponsor, BUCC",
+    image: "/images/Team-Photos/folarin-amusa.jpeg",
+    linkedin: "https://www.linkedin.com/in/afolarin-amusa-704734248/",
   },
 ];
 
@@ -901,7 +910,7 @@ export default function TeamOrganogram() {
           <ConnectorLine isVisible={isVisible} delay={280} />
           <BranchConnector isVisible={isVisible} delay={360} />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5 w-full max-w-[760px]">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 w-full max-w-[980px]">
             {LEADERSHIP.map((person, i) => (
               <PersonCard
                 key={person.name + person.role}
