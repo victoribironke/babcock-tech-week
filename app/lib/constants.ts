@@ -231,7 +231,7 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/media/the-babcock-torch.svg",
         blend: true,
         paddingClass: "p-3 md:p-5",
-        url: "https://torch-frontend.vercel.app",
+        url: "https://babcocktorch.com",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
