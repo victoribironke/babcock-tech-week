@@ -208,6 +208,13 @@ export const SPONSOR_TIERS: Tier[] = [
         paddingClass: "p-0 md:p-0",
         url: "https://openaccessdc.net",
       },
+      {
+        name: "HOS Ideas",
+        logo: "/images/sponsors/exhibitors-and-strategic/Hos-Ideas.png",
+        blend: true,
+        paddingClass: "p-4 md:p-6",
+        url: "https://www.instagram.com/olohi_rerhe/",
+      },
     ],
     cols: "flex flex-wrap justify-center w-full",
     cardSize: "w-[45%] md:w-[240px] h-28 md:h-36",

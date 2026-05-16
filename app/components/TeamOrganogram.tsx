@@ -911,14 +911,25 @@ export default function TeamOrganogram() {
           <BranchConnector isVisible={isVisible} delay={360} />
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-5 w-full max-w-[980px]">
-            {LEADERSHIP.map((person, i) => (
-              <PersonCard
-                key={person.name + person.role}
-                person={person}
-                isVisible={isVisible}
-                delay={420 + i * 100}
-              />
-            ))}
+            {LEADERSHIP.map((person, i) => {
+              // Mobile order: Dunmade(1), Obata(2), Dr Ernest(3), Afolarin(4)
+              // Desktop order: original array order
+              const mobileOrderClass = [
+                "order-3 md:order-1", // Dr Ernest → 3rd on mobile
+                "order-1 md:order-2", // Dunmade → 1st on mobile
+                "order-2 md:order-3", // Obata → 2nd on mobile
+                "order-4 md:order-4", // Afolarin → 4th on mobile
+              ][i];
+              return (
+                <div key={person.name + person.role} className={mobileOrderClass}>
+                  <PersonCard
+                    person={person}
+                    isVisible={isVisible}
+                    delay={420 + i * 100}
+                  />
+                </div>
+              );
+            })}
           </div>
         </div>
 
