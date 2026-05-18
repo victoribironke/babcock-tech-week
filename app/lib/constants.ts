@@ -213,7 +213,7 @@ export const SPONSOR_TIERS: Tier[] = [
         logo: "/images/sponsors/exhibitors-and-strategic/Hos-Ideas.png",
         blend: true,
         paddingClass: "p-4 md:p-6",
-        url: "https://www.instagram.com/olohi_rerhe/",
+        url: "https://hosideas.com",
       },
     ],
     cols: "flex flex-wrap justify-center w-full",
